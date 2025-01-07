@@ -7,11 +7,17 @@
 }
 
 .todays-special{
+    margin: 0 auto;
     padding: 50px 100px 50px 100px;
     width: fit-content;
 }
 
-.special-heading{
+.special-items > div:nth-child(2){
+    background: #1E1E1E;
+    width: 440px;
+ }
+
+.section-heading{
     display: flex;
     flex-direction: column;
     align-items: center;

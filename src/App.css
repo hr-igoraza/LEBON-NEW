@@ -1,0 +1,9 @@
+.imgDividerSection{
+background-size: cover;
+background-image: url("/public/images/imgDivider.png");
+/* background-attachment: fixed; */
+height: 363px;
+background-repeat: no-repeat;
+background-position: center;
+
+}

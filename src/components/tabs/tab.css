@@ -1,0 +1,39 @@
+.pills-tab {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tab-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    user-select: none;
+
+  }
+  
+  .tab-button {
+    color: white;
+    font-family: "DM Sans", serif;
+    padding: 10px 20px;
+    border: 1px solid white;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .tab-button.active {
+    background-color: #f5be32;
+    color: white;
+  } 
+  
+  .tab-button:hover {
+    background-color:#F3D382 ;
+    color: black;
+  }
+  
+  .tab-content {
+    padding: 20px;
+
+  }
+  

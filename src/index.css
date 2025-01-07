@@ -2,8 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   font-size: 16px;
+  /* outline: 1px solid green; */
 }
 
 body {
@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-.font-sm{
+.font-sm {
   font-size: 1em !important;
 }
 
@@ -25,11 +25,16 @@ body {
   margin-bottom: 30px;
 }
 
-.mt-5{
+.mt-5 {
   margin-top: 30px;
 }
 
-.mb-5{
+.my-6 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.mb-5 {
   margin-bottom: 30px;
 }
 
@@ -37,3 +42,6 @@ body {
   margin-top: 50px;
 }
 
+.w-50 {
+  width: 50%;
+}
