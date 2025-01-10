@@ -1,10 +1,10 @@
 import React from "react";
 import "./home.css";
 import "./responsive.css";
-import NavBar from "../../Components/navbar/NavBar.jsx";
-import Button from "../../Components/buttons/Button";
-import ItemCard from "../../Components/itemCards/ItemCard";
-import Tab from "../../Components/tabs/Tab";
+import NavBar from "../../components/navBar/NavBar";
+import Button from "../../components/buttons/Button";
+import ItemCard from "../../components/itemCards/ItemCard";
+import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
 import { events } from "../../data/diningEvents.jsx";
 const Home = () => {
@@ -13,8 +13,7 @@ const Home = () => {
   };
   return (
     <>
-      <NavBar /> 
-
+      <NavBar />
 
       {/* =====Hero Section ======= */}
 
