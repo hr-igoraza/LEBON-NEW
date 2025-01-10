@@ -4,12 +4,6 @@
   background-color: transparent;
 }
 
-.collapse{
-
-    display: flex;
-    justify-content: flex-end   !important;
-}
-
 .navbar-nav{
 margin: 0 auto;
 }
