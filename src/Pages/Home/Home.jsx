@@ -13,8 +13,7 @@ const Home = () => {
   };
   return (
     <>
-    {/* c */}
-      {/* <NavBar /> */} 
+      <NavBar /> 
 
 
       {/* =====Hero Section ======= */}
