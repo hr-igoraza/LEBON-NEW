@@ -2,7 +2,7 @@
 import React from "react";
 import { NavLink } from "react-router";
 import Button from "../buttons/Button";
-import "./navBar.css"
+import "./navbar.css"
 
 const NavBar = () => {
   return (
