@@ -49,13 +49,13 @@ const NavBar = () => {
               </li>
             </ul>
             <div class="d-flex">
-              <Button
+              {/* <Button
                 className="button txt-yellow"
                 divClass="nav-item bt-container"
                 stroke="#f5be32"
               >
                 RESERVATION
-              </Button>
+              </Button> */}
             </div>
           </div>
         </div>
