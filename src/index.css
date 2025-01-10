@@ -1,47 +1,48 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-size: 16px;
-  /* outline: 1px solid green; */
+body{
+    background: #1E1E1E !important;
+
 }
 
-body {
-  background-color: #1e1e1e;
-  overflow-x: hidden;
+#root{
+    overflow: hidden;
 }
 
-.font-sm {
-  font-size: 1em !important;
+.f-1{
+  font-size: 3.5em !important;
+
 }
 
-.my-3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.f-2{
+    font-size: 2.5em !important;
 }
 
-.my-5 {
-  margin-top: 30px;
-  margin-bottom: 30px;
+
+.f-3{
+    font-size: 1.8em !important ;
 }
 
-.mt-5 {
-  margin-top: 30px;
+.f-4{
+    font-size: 1.2em !important ;
 }
 
-.my-6 {
-  margin-top: 50px;
-  margin-bottom: 50px;
+
+.ls-1{
+    letter-spacing: 0.3em;
+}
+.ls-2{
+    letter-spacing: 0.2em;
+
 }
 
-.mb-5 {
-  margin-bottom: 30px;
-}
 
-.mt-6 {
-  margin-top: 50px;
-}
 
-.w-50 {
-  width: 50%;
-}
+
+
+.title {
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.2em;
+    color: #f3d382;
+  }
+  

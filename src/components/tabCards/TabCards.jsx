@@ -9,7 +9,7 @@ const TabCards = (props) => {
           <img src={props.img} alt={props.title} />
         </div>
         <div className="tab-item-details">
-          <h3 className="item-name">
+          <h3 className="card-item-name">
             {props.title ? `${props.title}` : "Title"}
           </h3>
           <p className="bottomline">
@@ -18,9 +18,9 @@ const TabCards = (props) => {
               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus."}
           </p>
 
-          <p className="title">{props.price? `${props.price}` : "500" }</p>
+          <p className="title">{props.price ? `${props.price}` : "500"}</p>
         </div>
-      </div>
+      </div>  
     </>
   );
 };

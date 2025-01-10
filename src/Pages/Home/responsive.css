@@ -1,0 +1,48 @@
+@media only screen and (max-width: 768px) {
+  .f-1 {
+    font-size: 2.6em !important;
+  }
+
+  .f-2 {
+    font-size: 2em !important;
+  }
+
+  .f-3 {
+    font-size: 1.2em !important ;
+  }
+
+  .special-items {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .our-story .row .col-12{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .our-story .row img {
+    width: 70% !important   ;
+  }
+
+.contacts{
+    justify-content:left;
+}
+
+  .contacts .col-lg-6{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  
+}
+
+@media only screen and (max-width: 425px) {
+  .f-1 {
+    font-size: 2.1em !important;
+  }
+}

@@ -1,25 +1,55 @@
-.tab-card{
-    display: flex;
+.tab-card {
+  display: flex;
 }
 
-.tab-card{
-    padding: 0 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.cardImg {
+  object-fit: cover;
+  width: 55%;
+}
+.cardImg img {
+  width: 100%;
 }
 
-.tab-item-details{
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    justify-content: center;
-    padding: 2em 3em;
-    width: 30% ;
-    gap: 10px;
-    
+.card-item-name{
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4em;
+  color: #f3d382;
 }
+
+.tab-item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2em 3em;
+  gap: 5px;
+  width: 45%;
+}
+
 
 .tab-card:nth-child(even) {
-    flex-direction: row-reverse;
+  flex-direction: row-reverse;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .tab-card {
+    flex-wrap: wrap;
+    gap: 5px;
   }
+
+  .tab-card:nth-child(even) {
+    flex-direction: row !important;
+  }
+
+  .cardImg {
+    width: 100%;
+  }
+
+  .tab-item-details {
+    width: 100%;
+  padding: 1em 1em;
+    
+  }
+}
