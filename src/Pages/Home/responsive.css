@@ -11,34 +11,45 @@
     font-size: 1.2em !important ;
   }
 
+  .navbar {
+    position: static !important;
+    width: 100%;
+  }
+
+  .navbar .collapse {
+    background-color: rgb(250, 244, 221) !important;
+    padding: 1em 0.5em;
+  }
+
+  .navbar .nav-link {
+    color: black !important;
+  }
+
   .special-items {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
   }
 
-  .our-story .row .col-12{
+  .our-story .row .col-12 {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
 
   .our-story .row img {
     width: 70% !important   ;
   }
 
-.contacts{
-    justify-content:left;
-}
+  .contacts {
+    justify-content: left;
+  }
 
-  .contacts .col-lg-6{
+  .contacts .col-lg-6 {
     display: flex;
     align-items: center;
     justify-content: center;
   }
-
-  
 }
 
 @media only screen and (max-width: 425px) {

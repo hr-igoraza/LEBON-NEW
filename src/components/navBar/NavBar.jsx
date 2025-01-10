@@ -7,8 +7,8 @@ import "./navbar.css"
 const NavBar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg p-3 px-lg-5 ">
-        <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg px-lg-4 px-2 ">
+        <div class="container-fluid p-2 px-lg-5">
           <a class="navbar-brand" href="#">
             <img width={100} src="/images/lebonLogo.png" alt="" />
           </a>

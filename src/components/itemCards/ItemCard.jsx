@@ -11,8 +11,8 @@ const ItemCard = (props) => {
       <div className="card col-10 col-md-4">
         <img src={props.img} className="card-img-top" alt="images" />
         <div className="card-body item-details">
-          <h5 className="card-title item-name">{props.title}</h5>
-          <p className="card-text bottomline">
+          <h5 className="card-title f-3 item-name">{props.title}</h5>
+          <p className="card-text bottomline ">
             {props.description
               ? `${props.description}`
               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus."}

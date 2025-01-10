@@ -13,17 +13,17 @@ const Home = () => {
   };
   return (
     <>
-      <NavBar />
+        <NavBar />
 
       {/* =====Hero Section ======= */}
 
-      <section className="container-fluid m-0 p-3 p-lg-0 hero-section">
+      <section className="container-fluid m-0 p-3 p-lg-5 hero-section">
         <div className="hero-content">
-          <p className="overline f-3 letter-space ">Best Cakes In Town</p>
+          <p className="overline f-3 ls-1 ">Best Cakes In Town</p>
           <h1 className="heading f-1">
             Taste The Rich Flavor Of <br /> High Quality Cakes
           </h1>
-          <p className="bottomline">
+          <p className="bottomline f-4">
             We only use the five star quality for <br /> our menu, come and get
             the richness in <br />
             every food we serve.
@@ -42,8 +42,8 @@ const Home = () => {
 
       <section className="container p-lg-5 p-3">
         <div className="todays-special">
-          <div className="section-heading">
-            <p className="overline f-4 ls-2">Special Menu</p>
+          <div className="section-heading mb-lg-4">
+            <p className="overline f-5 ls-2">Special Menu</p>
             <h2 className="title">Today's Special</h2>
             <p className="bottomline">
               Special menu oftenly comes different everyday,
@@ -81,12 +81,12 @@ const Home = () => {
       {/* ======= Our Specialities ======== */}
 
       <section className="container p-3 p-lg-5">
-        <div className="our-specialities">
+        <div className="our-specialities mb-lg-4">
           <div className="section-heading ">
             <p className="overline  f-4 ls-2">Quality Food For You</p>
             <h2 className="title">Our Specialities</h2>
             <p className="bottomline">
-              Authentic food from our restaurant served with high quality
+              Authentic food from our restaurant served <br/> with high quality
               ingredients
             </p>
           </div>
@@ -101,11 +101,11 @@ const Home = () => {
 
       <section className="container my-5">
         <div className="dining-events">
-          <div className="section-heading">
-            <p className="overline f-4 ls-2">Choose your event</p>
+          <div className="section-heading mb-lg-4">
+            <p className="overline f-5 ls-2">Choose your event</p>
             <h2 className="title">Dining Events</h2>
             <p className="bottomline">
-              We provide dining event for your special day with your important
+              We provide dining event for your special day <br/> with your important
               people
             </p>
           </div>
@@ -128,9 +128,9 @@ const Home = () => {
 
       <section className="container my-5">
         <div className="our-story  ">
-          <div className="section-heading">
-            <p className="overline f-4 ls-2 ">About Us</p>
-            <h2 className="title">Our Story</h2>
+          <div className="section-heading mb-lg-4">
+            <p className="overline f-5 ls-2 ">About Us</p>
+            <h2 className="title f-2">Our Story</h2>
             <p className="bottomline">
               A journey for making successful luxury restaurant
               <br /> with the best services
