@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.css";
 import "./responsive.css";
-import NavBar from "../../Components/navbar/NavBar";
+import NavBar from "../../Components/navbar/NavBar.jsx";
 import Button from "../../Components/buttons/Button";
 import ItemCard from "../../Components/itemCards/ItemCard";
 import Tab from "../../Components/tabs/Tab";
