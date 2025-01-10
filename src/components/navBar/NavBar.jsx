@@ -51,7 +51,7 @@ const NavBar = () => {
             <div class="d-flex">
               <Button
                 className="button txt-yellow"
-                divClass="bt-container"
+                divClass="nav-item bt-container"
                 stroke="#f5be32"
               >
                 RESERVATION
