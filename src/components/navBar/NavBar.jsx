@@ -1,8 +1,7 @@
-
 import React from "react";
 import { NavLink } from "react-router";
 import Button from "../buttons/Button";
-import "./navbar.css"
+import "./navbar.css";
 
 const NavBar = () => {
   return (
@@ -22,8 +21,11 @@ const NavBar = () => {
             aria-label="Toggle navigation"
           >
             {/* <span className="navbar-toggler-icon"></span> */}
-<img className="navbar-toggler-icon" src="/images/menu.png" alt="menu" />
-            
+            <img
+              className="navbar-toggler-icon"
+              src="/images/menu.png"
+              alt="menu"
+            />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 mb-lg-0">
@@ -44,7 +46,15 @@ const NavBar = () => {
             <li><a className="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li> */}
+
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">
+                  Cakes
+                </NavLink>
+              </li>
+
               {/* ============ */}
+
               <li className="nav-item">
                 <NavLink className="nav-link" to="#">
                   Pastries
