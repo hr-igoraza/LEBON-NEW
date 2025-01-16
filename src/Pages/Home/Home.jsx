@@ -21,7 +21,7 @@ const Home = () => {
         <div className="hero-content">
           <p className="overline f-3 ls-1 ">Best Cakes In Town</p>
           <h1 className="heading f-1">
-            Taste the rich flovor of <br /> high quality cakes
+            Taste the rich flavor of <br /> high quality cakes
           </h1>
           <p className="bottomline f-4 fw-300">
             We only use the five star quality for <br /> our menu, come and get
