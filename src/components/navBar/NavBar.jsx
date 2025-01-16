@@ -5,6 +5,14 @@ import "./navbar.css";
 import DropDown from "../FWNavBar";
 
 const NavBar = () => {
+
+  const onScrollTo = (id) => {
+    const element = document.querySelector(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg px-lg-4 px-2 ">
@@ -66,12 +74,12 @@ const NavBar = () => {
               </li>
 
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink onClick={()=>onScrollTo("#aboutUs")} className="nav-link" to="#aboutUs">
                   About
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink onClick={()=>onScrollTo("#footer")}  className="nav-link" to="#footer">
                   Contact
                 </NavLink>
               </li>

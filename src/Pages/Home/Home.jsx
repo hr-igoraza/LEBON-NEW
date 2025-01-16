@@ -129,7 +129,7 @@ const Home = () => {
         />
       </section>
 
-      <section className="container my-5">
+      <section className="container my-5" id="aboutUs">
         <div className="our-story  ">
           <div className="section-heading mb-lg-4">
             <p className="overline f-5 ls-2 ">About Us</p>
@@ -179,7 +179,7 @@ const Home = () => {
 
       {/* ======== Footer ======== */}
 
-      <section className="container-fluid footer">
+      <section className="container-fluid footer" id="footer">
         <h2 className="footer-title  f-55">
           We ready to have you <br />
           the best dining experiences
