@@ -19,3 +19,7 @@ margin: 0 auto;
 .navbar-nav a:focus {
     color: #F5BE32 !important;
 }
+
+.ib{
+  display: inline-block !important;
+}

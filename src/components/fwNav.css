@@ -1,0 +1,15 @@
+.dropdown-item {
+  display: block !important;
+  width: 90vw !important;
+  background-color: #1e1e1e !important ;
+}
+
+.dropdown-menu {
+  background-color: #1e1e1e !important  ;
+}
+
+.dropdown .btn{
+  outline: none !important;
+  color: #FFFFFF;
+  font-family: ;
+}

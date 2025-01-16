@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router";
 import Button from "../buttons/Button";
 import "./navbar.css";
+import DropDown from "../FWNavBar";
 
 const NavBar = () => {
   return (
@@ -36,22 +37,20 @@ const NavBar = () => {
               </li>
 
               {/* ========= */}
-              {/* <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> */}
+              {/* <select class="form-select" aria-label="Default select example">
+                <option className="ib"selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select> */}
 
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link" to="#">
                   Cakes
                 </NavLink>
-              </li>
+              </li> */}
+
+              <DropDown />
 
               {/* ============ */}
 
@@ -69,6 +68,11 @@ const NavBar = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="#">
                   About
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className="nav-link" to="#">
+                  Contact
                 </NavLink>
               </li>
             </ul>
