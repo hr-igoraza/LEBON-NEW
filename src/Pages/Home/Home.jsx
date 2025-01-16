@@ -177,7 +177,7 @@ const Home = () => {
       {/* ======== Footer ======== */}
 
       <section className="container-fluid footer">
-        <h2 className="footer-title">
+        <h2 className="footer-title  f-55">
           We ready to have you <br />
           the best dining experiences
         </h2>
@@ -186,7 +186,7 @@ const Home = () => {
           <div className="col-lg-6 text-white d-flex gap-2">
             <img className="icon" src="/images/location.svg" alt="" />
             <p>
-              Village Office, Cherthala Road, North gate of devi temple,
+              Village Office, Cherthala Road,<br/> North gate of devi temple,
               <br /> Opposte of,Cherthala, Kerala 688524
             </p>
           </div>
@@ -194,7 +194,7 @@ const Home = () => {
             <img className="icon" src="/images/phone.svg" alt="" />
 
             <span>
-              Call Us : <a href="tel:+1234567890">+85938 80999</a>
+              Call Us : <br/> <a href="tel:+1234567890">+85938 80999</a>
             </span>
           </div>
         </div>
