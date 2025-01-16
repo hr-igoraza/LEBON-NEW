@@ -1,7 +1,7 @@
 import React from 'react'
 import "./menu.css"
 
-import Tab from "../../components/tabs/Tab";
+import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
 
 const Menu = () => {
