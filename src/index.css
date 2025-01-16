@@ -38,3 +38,11 @@ body {
   letter-spacing: 0.2em;
 }
 
+
+.fw-200{
+  font-weight: 200 !important;
+}
+
+.f-col-w{
+  color: #D9D9D9;
+}
