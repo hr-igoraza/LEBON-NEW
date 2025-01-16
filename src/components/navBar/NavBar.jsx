@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router";
 import Button from "../buttons/Button";
 import "./navbar.css";
-import DropDown from "../FWNavBar";
+// import DropDown from "../FWNavBar";
 
 const NavBar = () => {
   const onScrollTo = (id) => {
@@ -37,6 +37,12 @@ const NavBar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 mb-lg-0 gap-3">
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/">
+                  Home
+                </NavLink>
+              </li>
+
               <li className="nav-item">
                 <NavLink className="nav-link" to="/newarrivals">
                   New Arrivals
