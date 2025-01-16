@@ -1,11 +1,8 @@
 import React from "react";
 import "./cakes.css";
 
-import Button from "../../components/buttons/Button";
-import ItemCard from "../../components/itemCards/ItemCard";
 import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
-import { events } from "../../data/diningEvents.jsx";
 
 const Cakes = () => {
   const handleTabChange = (index) => {
