@@ -5,16 +5,18 @@ import NewArrivals from "./Pages/NewArrivals/NewArrivals";
 import Cakes from "./Pages/Cakes/Cakes";
 import Pastries from "./Pages/Pastries/Pastries";
 import Menu from "./Pages/Menu/Menu";
+import NavBar from "./components/navBar/NavBar";
 
 function App() {
   return (
     <>
+    <NavBar/>
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Home />} />
         <Route path="/newarrivals" element={<NewArrivals />} />
-        {/* <Route path="/cakes" element={<Cakes />} /> */}
-        {/* <Route path="/pastries" element={<Pastries />} /> */}
-        {/* <Route path="/menu" element={<Menu />} /> */}
+        <Route path="/cakes" element={<Cakes />} />
+        <Route path="/pastries" element={<Pastries />} />
+        <Route path="/menu" element={<Menu />} />
       </Routes>
     </>
   );

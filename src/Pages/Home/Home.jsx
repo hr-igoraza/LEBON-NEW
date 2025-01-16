@@ -7,16 +7,15 @@ import ItemCard from "../../components/itemCards/ItemCard";
 import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
 import { events } from "../../data/diningEvents.jsx";
-import FWNavBar from "../../components/FWNavBar.jsx";
+// import FWNavBar from "../../components/FWNavBar.jsx";
 const Home = () => {
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
   };
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
 
-      {/* <FWNavBar /> */}
 
       {/* =====Hero Section ======= */}
 
