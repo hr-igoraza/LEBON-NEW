@@ -29,7 +29,7 @@ const NavBar = () => {
             />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav mb-2 mb-lg-0">
+            <ul className="navbar-nav mb-2 mb-lg-0 gap-3">
               <li className="nav-item">
                 <NavLink className="nav-link" to="#">
                   New Arrivals
@@ -44,13 +44,13 @@ const NavBar = () => {
                 <option value="3">Three</option>
               </select> */}
 
-              {/* <li className="nav-item">
+              <li className="nav-item">
                 <NavLink className="nav-link" to="#">
                   Cakes
                 </NavLink>
-              </li> */}
+              </li>
 
-              <DropDown />
+              {/* <DropDown /> */}
 
               {/* ============ */}
 
