@@ -40,9 +40,13 @@ body {
 
 
 .fw-200{
-  font-weight: 200 !important;
+  font-weight: 300 !important;
 }
 
 .f-col-w{
   color: #D9D9D9;
+}
+
+.dm-sans{
+  font-family: "DM Sans", serif;
 }

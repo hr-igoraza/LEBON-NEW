@@ -13,7 +13,7 @@ const Home = () => {
   };
   return (
     <>
-        <NavBar />
+      <NavBar />
 
       {/* =====Hero Section ======= */}
 
@@ -86,7 +86,7 @@ const Home = () => {
             <p className="overline  f-4 ls-2">Quality Food For You</p>
             <h2 className="title">Our Specialities</h2>
             <p className="bottomline">
-              Authentic food from our restaurant served <br/> with high quality
+              Authentic food from our restaurant served <br /> with high quality
               ingredients
             </p>
           </div>
@@ -105,8 +105,8 @@ const Home = () => {
             <p className="overline f-5 ls-2">Choose your event</p>
             <h2 className="title">Dining Events</h2>
             <p className="bottomline">
-              We provide dining event for your special day <br/> with your important
-              people
+              We provide dining event for your special day <br /> with your
+              important people
             </p>
           </div>
 
@@ -184,26 +184,30 @@ const Home = () => {
 
         <div className="row contacts">
           <div className="col-lg-6 text-white d-flex gap-2">
-            <img className="icon" src="/images/location.svg" alt="" />
-            <p>
+            <div className="pt-1">
+              <img className="icon " src="/images/location.svg" alt="" />
+            </div>
+            <p className="f-col-w f-4 dm-sans">
               Village Office, Cherthala Road, North gate of devi temple,
               <br /> Opposte of, Cherthala, Kerala 688524
             </p>
           </div>
-          <div className="col-lg-6 text-white d-flex  ">
-            <img className="icon" src="/images/phone.svg" alt="" />
+          <div className="col-lg-6 text-white d-flex gap-2 ">
+            <div className="pt-1">
+              <img className="icon " src="/images/phone.svg" alt="" />
+            </div>
 
-            <span>
-              Call Us : <br/> <a href="tel:+1234567890">+85938 80999</a>
+            <span className="f-col-w f-4 dm-sans ">
+              Call Us : <br /> <a href="tel:+1234567890">+85938 80999</a>
             </span>
           </div>
         </div>
 
         <Button
-          className={"button"}
+          className={"button fw-300"}
           divClass={`bt-container txt-black bt-ct-yellow my-5`}
         >
-          RESERVE A TABLE
+          Reserve A Table
         </Button>
 
         <div className="footer-bottom">
