@@ -1,7 +1,8 @@
 import React from "react";
 import "./pastries.css";
 
-import Tab from "../../components/tabs/Tab";
+// import Tab from "../../components/tabs/Tab";
+import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
 
 const Pastries = () => {
