@@ -186,8 +186,8 @@ const Home = () => {
           <div className="col-lg-6 text-white d-flex gap-2">
             <img className="icon" src="/images/location.svg" alt="" />
             <p>
-              Village Office, Cherthala Road,<br/> North gate of devi temple,
-              <br /> Opposte of,Cherthala, Kerala 688524
+              Village Office, Cherthala Road, North gate of devi temple,
+              <br /> Opposte of, Cherthala, Kerala 688524
             </p>
           </div>
           <div className="col-lg-6 text-white d-flex  ">
