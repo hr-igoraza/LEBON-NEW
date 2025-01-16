@@ -5,11 +5,10 @@ import "./navbar.css";
 import DropDown from "../FWNavBar";
 
 const NavBar = () => {
-
   const onScrollTo = (id) => {
     const element = document.querySelector(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -39,7 +38,7 @@ const NavBar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mb-2 mb-lg-0 gap-3">
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink className="nav-link" to="/newarrivals">
                   New Arrivals
                 </NavLink>
               </li>
@@ -53,7 +52,7 @@ const NavBar = () => {
               </select> */}
 
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink className="nav-link" to="/cakes">
                   Cakes
                 </NavLink>
               </li>
@@ -63,23 +62,31 @@ const NavBar = () => {
               {/* ============ */}
 
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink className="nav-link" to="/pastries">
                   Pastries
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="#">
+                <NavLink className="nav-link" to="/menu">
                   Menu
                 </NavLink>
               </li>
 
               <li className="nav-item">
-                <NavLink onClick={()=>onScrollTo("#aboutUs")} className="nav-link" to="#aboutUs">
+                <NavLink
+                  onClick={() => onScrollTo("#aboutUs")}
+                  className="nav-link"
+                  to="#"
+                >
                   About
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink onClick={()=>onScrollTo("#footer")}  className="nav-link" to="#footer">
+                <NavLink
+                  onClick={() => onScrollTo("#footer")}
+                  className="nav-link"
+                  to="#"
+                >
                   Contact
                 </NavLink>
               </li>

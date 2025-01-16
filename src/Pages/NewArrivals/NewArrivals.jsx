@@ -1,0 +1,45 @@
+import React from 'react'
+import "./newArrivals.css"
+import Button from "../../components/buttons/Button";
+import ItemCard from "../../components/itemCards/ItemCard";
+import Tab from "../../components/tabs/Tab";
+import { tabs } from "../../data/specialities.jsx";
+import { events } from "../../data/diningEvents.jsx";
+
+const NewArrivals = () => {
+  const handleTabChange = (index) => {
+    // console.log(`Active Tab Index: ${index}`);
+  };
+  return (
+    <>
+      <section className="dividerImage">
+        <img
+          className="w-100"
+          src="/images/imgDivider-1.png"
+          alt="imgDivider-1"
+        />
+      </section>
+
+      {/* ======= Our Specialities ======== */}
+
+      <section className="container p-3 p-lg-5">
+        <div className="our-specialities mb-lg-4">
+          <div className="section-heading ">
+            <p className="overline  f-4 ls-2">Quality Food For You</p>
+            <h2 className="title">Our Specialities</h2>
+            <p className="bottomline">
+              Authentic food from our restaurant served <br /> with high quality
+              ingredients
+            </p>
+          </div>
+
+          <div className="specialities-tab col-12">
+            <Tab tabs={tabs} onTabChange={handleTabChange} />
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default NewArrivals
