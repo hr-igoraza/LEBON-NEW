@@ -9,7 +9,7 @@ const CheckOut = () => {
       <NavBar />
 
       <section className="container-fluid m-0 p-3 p-lg-5 checkout ">
-        <div className="checkout-content">
+        <div className="checkout-content py-lg-5">
         <div className="row ">
           <div className="col-md-6 ">
             <img src="/images/checkoutImg.png" alt="product Image" />
@@ -67,6 +67,29 @@ const CheckOut = () => {
 
           </div>
         </div>
+        </div>
+      </section>
+
+      <section className="related-products my-lg-5 py-lg-5">
+        <h2 className="cinzel f-3 f-col-y fw-700">Related Products</h2>
+        <div className="related-images mt-5">
+          <div className="item-and-name">
+            <img width={200} src="/images/checkout/related-1.png" alt="item" />
+            <p className="f-col-w m-0">CHOCOLATE TRUFFLE</p>
+            <p className="f-col-y m-0">Rs. 900.00</p>
+          </div>
+
+          <div className="item-and-name">
+            <img width={200} src="/images/checkout/related-1.png" alt="item" />
+            <p className="f-col-w m-0">CHOCOLATE TRUFFLE</p>
+            <p className="f-col-y m-0">Rs. 900.00</p>
+          </div>
+
+          <div className="item-and-name">
+            <img width={200} src="/images/checkout/related-1.png" alt="item" />
+            <p className="f-col-w m-0">CHOCOLATE TRUFFLE</p>
+            <p className="f-col-y m-0">Rs. 900.00</p>
+          </div>
         </div>
       </section>
 

@@ -40,6 +40,12 @@ body {
 .fw-200 {
   font-weight: 300 !important;
 }
+
+.fw-500{
+  font-weight: 300 !important;
+
+}
+
 .fw-700 {
   font-weight: 700 !important;
 }

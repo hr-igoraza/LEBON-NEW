@@ -59,8 +59,8 @@
 
 .msg-input{
     width : 50%;
-    border-radius : 15px;
-    height : 50px;
+    border-radius : 10px;
+    height : 60px;
     border : none;  
     padding : 0.2em .3em;
 }
@@ -89,5 +89,19 @@
 
 }
 .pickup input{
-    height: 20px;
+    width: 20px;
+}
+
+.related-products{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.related-images{
+    display: flex;
+    width: 75%;
+    justify-content: space-evenly;
 }
