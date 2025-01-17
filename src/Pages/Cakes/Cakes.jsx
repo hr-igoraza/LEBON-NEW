@@ -13,7 +13,7 @@ const Cakes = () => {
       <section className="dividerImage">
         <img
           className="w-100"
-          src="/images/cakesImg.png"
+          src="/images/cakes/cakesImg.png"
           alt="cakes"
         />
       </section>

@@ -14,7 +14,7 @@ const Pastries = () => {
       <section className="dividerImage">
         <img
           className="w-100"
-          src="/images/imgDivider-1.png"
+          src="/images/pastries/pastriesImg.png"
           alt="imgDivider-1"
         />
       </section>
