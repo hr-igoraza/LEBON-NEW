@@ -24,20 +24,21 @@ const CheckOut = () => {
                 truffle and black truffle.
               </p>
             </div>
-<div className="size-container">
-            <div className="size">
-              <h3 className="f-2 fw-700 f-col-w ">Size 1</h3>
-              <img
-                width={25}
-                height={15}
-                className=""
-                src="./images/VectorDown.png"
-                alt="down"
-              />
-            </div>
+            <div className="size-container">
+              <div className="size">
+                <h3 className="f-2 fw-700 f-col-w ">Size 1</h3>
+                <img
+                  width={25}
+                  height={15}
+                  className=""
+                  src="./images/VectorDown.png"
+                  alt="down"
+                />
+              </div>
+              <img src="/images/line.svg" alt="svg" />
             </div>
 
-            <img src="/images/line.svg" alt="svg" />
+            .messa
           </div>
         </div>
       </section>
