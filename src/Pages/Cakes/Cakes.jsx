@@ -2,8 +2,7 @@ import "./cakes.css";
 import Button from "../../components/buttons/Button.jsx";
 import Tab from "../../components/tabs/Tab";
 import { cakes } from "../../data/cakes.jsx";
-import { Footer } from "antd/es/layout/layout.js";
-
+import Footer from "../../components/footer/Footer.jsx";
 const Cakes = () => {
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
