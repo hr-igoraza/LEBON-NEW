@@ -4,6 +4,7 @@ import "./pastries.css";
 // import Tab from "../../components/tabs/Tab";
 import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
+import Footer from "../../components/footer/Footer.jsx";
 
 const Pastries = () => {
   const handleTabChange = (index) => {
@@ -37,6 +38,8 @@ const Pastries = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 };

@@ -1,8 +1,9 @@
-import React from 'react'
-import "./newArrivals.css"
+import React from "react";
+import "./newArrivals.css";
 
 import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
+import Footer from "../../components/footer/Footer.jsx";
 
 const NewArrivals = () => {
   const handleTabChange = (index) => {
@@ -36,8 +37,9 @@ const NewArrivals = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };
 
-export default NewArrivals
+export default NewArrivals;

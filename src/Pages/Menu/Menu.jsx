@@ -1,8 +1,9 @@
-import React from 'react'
-// import "./menu.css"
+import React from "react";
+import "./menu.css";
 
 import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
+import Footer from "../../components/footer/Footer.jsx";
 
 const Menu = () => {
   const handleTabChange = (index) => {
@@ -36,8 +37,9 @@ const Menu = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 };
 
-export default Menu
+export default Menu;
