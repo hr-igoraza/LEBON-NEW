@@ -7,6 +7,7 @@ import Pastries from "./Pages/Pastries/Pastries";
 import Menu from "./Pages/Menu/Menu";
 import NavBar from "./components/navBar/NavBar";
 import CheckOut from "./Pages/CheckOut/CheckOut";
+import PageNotFound from "./Pages/PageNotFound";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/pastries" element={<Pastries />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/checkout" element={<CheckOut />} />
+        <Route path="*" element={<PageNotFound />} />
+
       </Routes>
     </>
   );
