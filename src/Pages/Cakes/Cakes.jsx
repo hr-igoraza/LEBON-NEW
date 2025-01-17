@@ -2,7 +2,7 @@ import React from "react";
 import "./cakes.css";
 
 import Tab from "../../components/tabs/Tab";
-import { tabs } from "../../data/specialities.jsx";
+import { cakes} from "../../data/cakes.jsx";
 
 const Cakes = () => {
   const handleTabChange = (index) => {
@@ -32,7 +32,7 @@ const Cakes = () => {
           </div>
 
           <div className="specialities-tab col-12">
-            <Tab tabs={tabs} onTabChange={handleTabChange} />
+            <Tab tabs={cakes} onTabChange={handleTabChange} />
           </div>
         </div>
       </section>

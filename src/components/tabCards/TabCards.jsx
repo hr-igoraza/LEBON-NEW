@@ -18,7 +18,7 @@ const TabCards = (props) => {
               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus."}
           </p>
 
-          <p className="title">{props.price ? `${props.price}` : "500"}</p>
+          <p className="title fs-2">{props.price ? `${props.price}` : "500"}</p>
         </div>
       </div>  
     </>
