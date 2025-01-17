@@ -1,4 +1,3 @@
-import React from "react";
 import "./cakes.css";
 import Button from "../../components/buttons/Button.jsx";
 import Tab from "../../components/tabs/Tab";
