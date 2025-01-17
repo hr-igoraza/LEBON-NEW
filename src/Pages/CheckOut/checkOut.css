@@ -1,17 +1,31 @@
-.hero-section {
+.checkout {
     background: url("/images/checkoutBgImg.png");
     background-position: center;
     background-size: cover;
   
-    height: 100vh;
+    /* height: 100vh; */
   
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: center; */
   }
   
+  .checkout-content{
+    margin-top: 200px;
+  }
 
+  .price-count{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .count{
+    display: flex;
+    gap: 20px;
+  }
 
 .product-description{
     
@@ -35,4 +49,45 @@
     flex-direction: column;
     align-items : flex-start;
 
+}
+
+.message{
+    display : flex;
+    flex-direction: column;
+    align-items : flex-start;
+}
+
+.msg-input{
+    width : 50%;
+    border-radius : 15px;
+    height : 50px;
+    border : none;  
+    padding : 0.2em .3em;
+}
+
+.msg-input:focus{
+    border : none;  
+    outline : none
+
+}
+
+.whatsapp{
+    background-color: #FFCF0D;
+    color : white;
+    display: flex;
+    gap: 10px;
+    align-items:center; 
+    justify-content: flex-start;
+
+    padding: 0.5em 1em;
+    width: fit-content;
+}
+
+.pickup{
+    display: flex;
+    gap: 20px;
+
+}
+.pickup input{
+    height: 20px;
 }
