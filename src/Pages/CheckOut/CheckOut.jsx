@@ -11,8 +11,8 @@ const CheckOut = () => {
       <section className="container-fluid m-0 p-3 p-lg-5 checkout ">
         <div className="checkout-content py-lg-5">
         <div className="row ">
-          <div className="col-md-6 ">
-            <img src="/images/checkoutImg.png" alt="product Image" />
+          <div className="col-md-6 p-4">
+            <img  className="w-100" src="/images/checkout/checkoutImg.png" alt="product Image" />
           </div>
           <div className="col-md-6 pt-lg-5">
             <div className="product-description">
@@ -75,19 +75,19 @@ const CheckOut = () => {
         <div className="related-images mt-5">
           <div className="item-and-name">
             <img width={200} src="/images/checkout/related-1.png" alt="item" />
-            <p className="f-col-w m-0">CHOCOLATE TRUFFLE</p>
+            <p className="f-col-w m-0 fw-700">CHOCOLATE TRUFFLE</p>
             <p className="f-col-y m-0">Rs. 900.00</p>
           </div>
 
           <div className="item-and-name">
-            <img width={200} src="/images/checkout/related-1.png" alt="item" />
-            <p className="f-col-w m-0">CHOCOLATE TRUFFLE</p>
+            <img width={200} src="/images/checkout/related-2.png" alt="item" />
+            <p className="f-col-w m-0 fw-700">CHOCOLATE TRUFFLE</p>
             <p className="f-col-y m-0">Rs. 900.00</p>
           </div>
 
           <div className="item-and-name">
-            <img width={200} src="/images/checkout/related-1.png" alt="item" />
-            <p className="f-col-w m-0">CHOCOLATE TRUFFLE</p>
+            <img width={200} src="/images/checkout/related-3.png" alt="item" />
+            <p className="f-col-w m-0 fw-700">CHOCOLATE TRUFFLE</p>
             <p className="f-col-y m-0">Rs. 900.00</p>
           </div>
         </div>
