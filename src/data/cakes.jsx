@@ -18,7 +18,7 @@ export const cakes = [
         <TabCards
           index={2}
           img={"/images/cakes/cakes-2.png"}
-          title={"Angel food cake"}
+          title={"Angel Cake"}
           description={
             "Ingredients: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus. Donec vitae vulputate nunc, in laoreet urna."
           }
@@ -28,7 +28,7 @@ export const cakes = [
         <TabCards
           index={3}
           img={"/images/cakes/cakes-3.png"}
-          title={"New York baked cheesecake."}
+          title={"Cheese Cakes"}
           description={
             "Ingredients: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus. Donec vitae vulputate nunc, in laoreet urna."
           }
@@ -61,7 +61,7 @@ export const cakes = [
 
         <TabCards
           img={"/images/cakes/cakes-1.png"}
-          title={"New York baked cheesecake."}
+          title={"Cheese Cake"}
           description={
             "Ingredients: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus. Donec vitae vulputate nunc, in laoreet urna."
           }
@@ -94,7 +94,7 @@ export const cakes = [
 
         <TabCards
           img={"/images/cakes/cakes-2.png"}
-          title={"Vanilla cupcakes"}
+          title={"Vanilla Cupcakes"}
           description={
             "Ingredients: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus. Donec vitae vulputate nunc, in laoreet urna."
           }
@@ -109,7 +109,7 @@ export const cakes = [
       <div>
         <TabCards
           img={"/images/cakes/cakes-3.png"}
-          title={"Vanilla cupcakes"}
+          title={"Vanilla Cupcakes"}
           description={
             "Ingredients: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus. Donec vitae vulputate nunc, in laoreet urna."
           }
@@ -124,7 +124,7 @@ export const cakes = [
       <div>
         <TabCards
           img={"/images/cakes/cakes-1.png"}
-          title={"Vanilla cupcakes"}
+          title={"Vanilla Cupcakes"}
           description={
             "Ingredients: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus. Donec vitae vulputate nunc, in laoreet urna."
           }
@@ -154,7 +154,7 @@ export const cakes = [
       <div>
         <TabCards
           img={"/images/cakes/cakes-3.png"}
-          title={"Vanilla cupcakes"}
+          title={"Vanilla Cupcakes"}
           description={
             "Ingredients: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus. Donec vitae vulputate nunc, in laoreet urna."
           }

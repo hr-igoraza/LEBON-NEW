@@ -9,7 +9,7 @@ const TabCards = (props) => {
           <img src={props.img} alt={props.title} />
         </div>
         <div className="tab-item-details">
-          <h3 className="card-item-name">
+          <h3 className="card-item-name fs-3">
             {props.title ? `${props.title}` : "Title"}
           </h3>
           <p className="bottomline">
