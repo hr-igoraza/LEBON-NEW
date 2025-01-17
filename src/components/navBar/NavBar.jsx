@@ -49,6 +49,12 @@ const NavBar = () => {
                 </NavLink>
               </li>
 
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/menu">
+                  Menu
+                </NavLink>
+              </li>
+
               {/* ========= */}
               {/* <select class="form-select" aria-label="Default select example">
                 <option className="ib"selected>Open this select menu</option>
@@ -70,11 +76,6 @@ const NavBar = () => {
               <li className="nav-item">
                 <NavLink className="nav-link" to="/pastries">
                   Pastries
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/menu">
-                  Menu
                 </NavLink>
               </li>
 

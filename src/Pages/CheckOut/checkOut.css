@@ -1,0 +1,23 @@
+.product-description{
+    
+    text-align: left;
+}
+
+.checkout{
+    display : flex;
+    align-items: center;
+    justify-content : center;
+}
+
+.size{
+    display: flex;
+    gap: 10px;
+    align-items:center;
+}
+
+.size-container{
+    display : flex;
+    flex-direction: column;
+    align-items : start;
+
+}
