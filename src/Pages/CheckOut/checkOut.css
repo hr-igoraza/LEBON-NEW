@@ -105,3 +105,9 @@
     width: 75%;
     justify-content: space-evenly;
 }
+
+/* .item-and-name{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;;
+} */
