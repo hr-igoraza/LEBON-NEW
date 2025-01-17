@@ -74,19 +74,19 @@ const CheckOut = () => {
         <h2 className="cinzel f-3 f-col-y fw-700">Related Products</h2>
         <div className="related-images mt-5">
           <div className="item-and-name">
-            <img width={300} src="/images/checkout/related-1.png" alt="item" />
+            <img width={350} src="/images/checkout/related-1.png" alt="item" />
             <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
             <p className="f-col-y m-0">Rs. 900.00</p>
           </div>
 
           <div className="item-and-name">
-            <img width={300} src="/images/checkout/related-2.png" alt="item" />
+            <img width={350} src="/images/checkout/related-2.png" alt="item" />
             <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
             <p className="f-col-y m-0">Rs. 900.00</p>
           </div>
 
           <div className="item-and-name">
-            <img width={300} src="/images/checkout/related-3.png" alt="item" />
+            <img width={350} src="/images/checkout/related-3.png" alt="item" />
             <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
             <p className="f-col-y m-0">Rs. 900.00</p>
           </div>
