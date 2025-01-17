@@ -11,8 +11,8 @@ const CheckOut = () => {
       <section className="container-fluid m-0 p-3 p-lg-5 checkout ">
         <div className="checkout-content py-lg-5">
         <div className="row ">
-          <div className="col-md-6 p-4">
-            <img  className="w-100" src="/images/checkout/checkoutImg.png" alt="product Image" />
+          <div className="col-md-6 p-5">
+            <img  className="w-100" src="/images/checkout/productShowcase.png" alt="product Image" />
           </div>
           <div className="col-md-6 pt-lg-5">
             <div className="product-description">
