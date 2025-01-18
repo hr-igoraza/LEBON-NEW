@@ -83,12 +83,25 @@ const CheckOut = () => {
                     />
                   </div>
                 </div>
-                <p className="f-4 f-col-w mt-5">
+
+                <p className="f-4 f-col-w mt-4">
                   A luxurious combo of red velvet, white and chocolate sponge
                   cakes layered with fluffy white cream, red velvet cream,
                   chocolate cream, and syrup with an elegant garnish of white
                   truffle and black truffle.
                 </p>
+                {/* non-veg icon */}
+
+                <div className="non-veg-icon mt-4 ">
+                    <img
+                      width={30}
+                      height={30}
+                      src="/images/checkout/non-veg.png"
+                      alt="add"
+                    />
+                    <p className="f-5 f-col-w">Non-Veg</p>
+                  </div>      
+
               </div>
               <div className="size-container">
                 <div className="size">
@@ -129,7 +142,12 @@ const CheckOut = () => {
                 </p>
               </div>
 
-              <div className="pickup mt-4">
+              <div className="delivery-available pt-4 gap-4">
+                <img width={40} src="/images/checkout/delivery.png" alt="delivery" />
+                <p className="f-col-w f-4 m-0">Delivery Available</p>
+              </div>
+
+              {/* <div className="pickup mt-4">
                 <input
                   type="checkbox"
                   checked={pickup}
@@ -141,7 +159,7 @@ const CheckOut = () => {
                   </p>
                   <p className="f-col-w m-0">Usually ready in 24 hours</p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Checkout Button */}
               {/* <button className="checkout-btn" onClick={handleCheckout}>
