@@ -5,6 +5,8 @@ import "./pastries.css";
 import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
+import Button from "../../components/buttons/Button.jsx";
+
 
 const Pastries = () => {
   const handleTabChange = (index) => {
@@ -37,7 +39,18 @@ const Pastries = () => {
             <Tab tabs={tabs} onTabChange={handleTabChange} />
           </div>
         </div>
+
+        <div className="load-more">
+        <Button
+          className={"button fw-300"}
+          divClass={`bt-container txt-black bt-ct-yellow  mt-2 px-4`}
+        >
+          Load More
+        </Button>
+      </div>
+
       </section>
+    
 
       <Footer />
     </>

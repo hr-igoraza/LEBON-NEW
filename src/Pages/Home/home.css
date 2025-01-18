@@ -162,3 +162,8 @@
   font-size: 1.6em;
   text-decoration-color: #f5be32;
 }
+
+
+.load-more svg{
+display: none !important;
+}

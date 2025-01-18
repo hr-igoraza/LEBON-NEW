@@ -3,6 +3,7 @@ import Button from "../../components/buttons/Button.jsx";
 import Tab from "../../components/tabs/Tab";
 import { cakes } from "../../data/cakes.jsx";
 import Footer from "../../components/footer/Footer.jsx";
+
 const Cakes = () => {
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
@@ -29,6 +30,15 @@ const Cakes = () => {
           <div className="specialities-tab col-12">
             <Tab tabs={cakes} onTabChange={handleTabChange} />
           </div>
+        </div>
+
+        <div className="load-more">
+          <Button
+            className={"button fw-300"}
+            divClass={`bt-container txt-black bt-ct-yellow my-5`}
+          >
+            Load More
+          </Button>
         </div>
       </section>
 

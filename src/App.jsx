@@ -8,11 +8,12 @@ import Menu from "./Pages/Menu/Menu";
 import NavBar from "./components/navBar/NavBar";
 import CheckOut from "./Pages/CheckOut/CheckOut";
 import PageNotFound from "./Pages/PageNotFound";
+import Gallery from "./Pages/Gallery/Gallery";
 
 function App() {
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/newarrivals" element={<NewArrivals />} />
@@ -20,8 +21,8 @@ function App() {
         <Route path="/pastries" element={<Pastries />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="*" element={<PageNotFound />} />
-
       </Routes>
     </>
   );

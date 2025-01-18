@@ -4,6 +4,8 @@ import "./newArrivals.css";
 import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
+import Button from "../../components/buttons/Button.jsx";
+
 
 const NewArrivals = () => {
   const handleTabChange = (index) => {
@@ -36,7 +38,17 @@ const NewArrivals = () => {
             <Tab tabs={tabs} onTabChange={handleTabChange} />
           </div>
         </div>
+
+        <div className="load-more">
+      <Button
+          className={"button fw-300"}
+          divClass={`bt-container txt-black bt-ct-yellow px-4`}
+        >
+          Load More
+        </Button>
+        </div>
       </section>
+      
       <Footer />
     </>
   );

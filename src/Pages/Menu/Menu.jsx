@@ -4,6 +4,7 @@ import "./menu.css";
 import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
+import Button from "../../components/buttons/Button.jsx";
 
 const Menu = () => {
   const handleTabChange = (index) => {
@@ -36,7 +37,19 @@ const Menu = () => {
             <Tab tabs={tabs} onTabChange={handleTabChange} />
           </div>
         </div>
+        <div className="load-more">
+      <Button
+          className={"button fw-300"}
+          divClass={`bt-container txt-black bt-ct-yellow px-4`}
+        >
+          Load More
+        </Button>
+        </div>
       </section>
+
+     
+
+      
       <Footer />
     </>
   );
