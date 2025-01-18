@@ -33,7 +33,7 @@ const ImageSlider = () => {
       <div className="slider-container mb-3">
         <Slider ref={sliderRef} {...settings}>
           {images.map((image) => (
-            <div key={image.id} className="text-center">
+            <div key={image.id} className="text-center  " >
               <ReactImageMagnify
                 {...{
                   smallImage: {
@@ -43,8 +43,8 @@ const ImageSlider = () => {
                   },
                   largeImage: {
                     src: image.src,  
-                    width: 1200,      
-                    height: 1800,     
+                    width: "",      
+                    height: "2000",     
                   },
                   lensStyle: { 
                     backgroundColor: 'rgba(0, 0, 0, 0.3)', 
