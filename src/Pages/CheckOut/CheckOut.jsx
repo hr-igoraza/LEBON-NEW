@@ -10,7 +10,7 @@ const CheckOut = () => {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("1");
   const [message, setMessage] = useState("");
-  const [pickup, setPickup] = useState(false);  // To handle pickup option
+  const [pickup, setPickup] = useState(false); // To handle pickup option
 
   // Function to handle quantity change
   const handleQuantityChange = (action) => {
@@ -38,7 +38,9 @@ const CheckOut = () => {
 
   // Function to create a WhatsApp URL with order details
   const handleCheckout = () => {
-    const orderDetails = `*Order Details*%0AProduct: Choco Ricota%0ASize: ${size}%0AQuantity: ${quantity}%0AMessage: ${message}%0APickup: ${pickup ? "Yes" : "No"}`;
+    const orderDetails = `*Order Details*%0AProduct: Choco Ricota%0ASize: ${size}%0AQuantity: ${quantity}%0AMessage: ${message}%0APickup: ${
+      pickup ? "Yes" : "No"
+    }`;
 
     // Replace this with the admin's WhatsApp number
     const adminPhoneNumber = "9061536976"; // Replace with actual phone number
@@ -47,7 +49,7 @@ const CheckOut = () => {
     // Open WhatsApp
     window.open(whatsappUrl, "_blank");
   };
-  
+
   return (
     <>
       <NavBar />
@@ -82,7 +84,10 @@ const CheckOut = () => {
                   </div>
                 </div>
                 <p className="f-4 f-col-w mt-5">
-                  A luxurious combo of red velvet, white and chocolate sponge cakes layered with fluffy white cream, red velvet cream, chocolate cream, and syrup with an elegant garnish of white truffle and black truffle.
+                  A luxurious combo of red velvet, white and chocolate sponge
+                  cakes layered with fluffy white cream, red velvet cream,
+                  chocolate cream, and syrup with an elegant garnish of white
+                  truffle and black truffle.
                 </p>
               </div>
               <div className="size-container">
@@ -117,7 +122,7 @@ const CheckOut = () => {
                 />
               </div>
 
-              <div className="whatsapp mt-5" onClick={handleCheckout} >
+              <div className="whatsapp mt-5" onClick={handleCheckout}>
                 <img src="/images/whatsapp.svg" alt="whatsapp" />
                 <p className="whatsapp-txt m-0 text-dark fw-700">
                   CHAT ON WHATSAPP ORDER
@@ -131,7 +136,9 @@ const CheckOut = () => {
                   onChange={handlePickupChange}
                 />
                 <div className="pickup-text">
-                  <p className="f-col-w m-0">Pickup available at I have selected my pickup store</p>
+                  <p className="f-col-w m-0">
+                    Pickup available at I have selected my pickup store
+                  </p>
                   <p className="f-col-w m-0">Usually ready in 24 hours</p>
                 </div>
               </div>
@@ -148,7 +155,23 @@ const CheckOut = () => {
       <section className="related-products my-lg-5 py-lg-5">
         <h2 className="cinzel f-3 f-col-y fw-700">Related Products</h2>
         <div className="related-images mt-5">
-          {/* Add related products here */}
+          <div className="item-and-name">
+            <img width={350} src="/images/checkout/related-1.png" alt="item" />
+            <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
+            <p className="f-col-y m-0">Rs. 900.00</p>
+          </div>
+
+          <div className="item-and-name">
+            <img width={350} src="/images/checkout/related-2.png" alt="item" />
+            <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
+            <p className="f-col-y m-0">Rs. 900.00</p>
+          </div>
+
+          <div className="item-and-name">
+            <img width={350} src="/images/checkout/related-3.png" alt="item" />
+            <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
+            <p className="f-col-y m-0">Rs. 900.00</p>
+          </div>
         </div>
       </section>
 
