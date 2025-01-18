@@ -5,11 +5,17 @@ import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import Button from "../../components/buttons/Button.jsx";
-
+import { useNavigate } from "react-router-dom";
 
 const NewArrivals = () => {
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
+  };
+
+  const navigate = useNavigate();
+
+  const navigatetoGallery = () => {
+    navigate("/gallery");
   };
   return (
     <>
@@ -40,15 +46,16 @@ const NewArrivals = () => {
         </div>
 
         <div className="load-more">
-      <Button
-          className={"button fw-300"}
-          divClass={`bt-container txt-black bt-ct-yellow px-4`}
-        >
-          Load More
-        </Button>
+          <Button
+            className={"button fw-300"}
+            divClass={`bt-container txt-black bt-ct-yellow px-4`}
+            onClick={navigatetoGallery}
+          >
+            Load More
+          </Button>
         </div>
       </section>
-      
+
       <Footer />
     </>
   );

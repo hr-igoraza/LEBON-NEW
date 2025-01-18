@@ -7,11 +7,19 @@ import ItemCard from "../../components/itemCards/ItemCard";
 import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
 import { events } from "../../data/diningEvents.jsx";
-// import FWNavBar from "../../components/FWNavBar.jsx";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
   };
+
+  const navigate = useNavigate();
+
+  const navigatetoGallery = () => {
+    navigate("/gallery");
+  };
+
   return (
     <>
       {/* <NavBar /> */}
@@ -175,58 +183,52 @@ const Home = () => {
         </div>
       </section>
 
-      {/* =========vd0 ====== */}
+      {/* ======gallery===== */}
+
       <section className="container my-5 p-3 p-lg-5">
         <div className="section-heading mb-lg-4">
-          {/* <p className="overline f-5 ls-2 "><Gallary></Gallary></p> */}
           <h2 className="title f-2">Gallary</h2>
-          {/* <p className="bottomline">
-              A journey for making successful luxury restaurant
-              <br /> with the best services
-            </p> */}
         </div>
 
-        {/* ================== */}
-
-        <div class="row">
-          <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        <div className="row">
+          <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              class="w-100 shadow-1-strong rounded mb-4"
+              className="w-100 shadow-1-strong rounded mb-4"
               alt="Boat on Calm Water"
             />
 
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-              class="w-100 shadow-1-strong rounded mb-4"
+              className="w-100 shadow-1-strong rounded mb-4"
               alt="Wintry Mountain Landscape"
             />
           </div>
 
-          <div class="col-lg-4 mb-4 mb-lg-0">
+          <div className="col-lg-4 mb-4 mb-lg-0">
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-              class="w-100 shadow-1-strong rounded mb-4"
+              className="w-100 shadow-1-strong rounded mb-4"
               alt="Mountains in the Clouds"
             />
 
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              class="w-100 shadow-1-strong rounded mb-4"
+              className="w-100 shadow-1-strong rounded mb-4"
               alt="Boat on Calm Water"
             />
           </div>
 
-          <div class="col-lg-4 mb-4 mb-lg-0">
+          <div className="col-lg-4 mb-4 mb-lg-0">
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-              class="w-100 shadow-1-strong rounded mb-4"
+              className="w-100 shadow-1-strong rounded mb-4"
               alt="Waves at Sea"
             />
 
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-              class="w-100 shadow-1-strong rounded mb-4"
+              className="w-100 shadow-1-strong rounded mb-4"
               alt="Yosemite National Park"
             />
           </div>
@@ -254,6 +256,7 @@ const Home = () => {
                   className={"button txt-yellow"}
                   divClass={"bt-container mt-5"}
                   stroke={"#f5be32"}
+                  onClick={navigatetoGallery}
                 >
                   Learn More
                 </Button>

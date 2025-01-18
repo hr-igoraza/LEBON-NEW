@@ -6,11 +6,18 @@ import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import Button from "../../components/buttons/Button.jsx";
+import { useNavigate } from "react-router-dom";
 
 
 const Pastries = () => {
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
+  };
+
+  const navigate = useNavigate();
+
+  const navigatetoGallery = () => {
+    navigate("/gallery");
   };
   return (
     <>
@@ -44,6 +51,7 @@ const Pastries = () => {
         <Button
           className={"button fw-300"}
           divClass={`bt-container txt-black bt-ct-yellow  mt-2 px-4`}
+          onClick={navigatetoGallery}
         >
           Load More
         </Button>

@@ -3,10 +3,16 @@ import Button from "../../components/buttons/Button.jsx";
 import Tab from "../../components/tabs/Tab";
 import { cakes } from "../../data/cakes.jsx";
 import Footer from "../../components/footer/Footer.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Cakes = () => {
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
+  };
+  const navigate = useNavigate();
+
+  const navigatetoGallery = () => {
+    navigate("/gallery");
   };
   return (
     <>
@@ -36,6 +42,8 @@ const Cakes = () => {
           <Button
             className={"button fw-300"}
             divClass={`bt-container txt-black bt-ct-yellow my-5`}
+            onClick={navigatetoGallery}
+
           >
             Load More
           </Button>
