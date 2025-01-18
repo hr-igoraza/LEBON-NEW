@@ -42,10 +42,76 @@
     display: flex;
     gap: 10px;
     align-items:center;
+    width: 200px;
+    /* height: 100px; */
 }
+
+.size select{
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+
+    /* font-family: ; */
+    font-size: 40px;
+    /* font-color: #f5be32; */
+    color: white;
+    font-weight: 600;
+    appearance: none; 
+}
+
+.size option{
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+
+    /* font-family: ; */
+    font-size: 20px;
+    /* font-color: #f5be32; */
+    color: black;
+    font-weight: 500;
+    appearance: none; 
+}
+
+select:focus{
+outline: transparent !important;
+border: transparent !important;
+/* border-color: #FFCF0D !important; */
+}
+
+.form-select:focus{
+    outline: transparent !important;
+    border: transparent !important;
+    /* border-color: #FFCF0D !important; */
+    box-shadow: none !important;
+    }
+    
+
+
+select:active{
+    outline: none !important;
+border: none !important;
+}
+
+
+
+
+select {
+    -webkit-appearance: none !important; /* For Safari */
+    -moz-appearance: none !important; /* For Firefox */
+    appearance: none !important; /* Standard */
+    background-image: none !important; /* Remove the default background */
+  }
+
+/* select::after {
+    border: none!important;
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "/images/VectorDown.png"!important;
+    vertical-align: 0;
+  } */
 
 .size-container{
     display : flex;
+
     flex-direction: column;
     align-items : flex-start;
 
@@ -111,3 +177,4 @@
     flex-direction: column;
     gap: 10px;;
 } */
+

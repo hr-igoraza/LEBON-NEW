@@ -5,10 +5,11 @@ import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
 
 const CheckOut = () => {
+
+
   return (
     <>
       <NavBar />
-
 
       <section className="container-fluid m-0 p-3 p-lg-5 checkout ">
         <div className="checkout-content py-lg-5">
@@ -20,10 +21,9 @@ const CheckOut = () => {
                 alt="product Image"
               /> */}
 
-      <ImageSlider />
-
+              <ImageSlider />
             </div>
-            <div className="col-md-6 pt-lg-5">
+            <div className="col-md-6 p-4 pt-lg-5">
               <div className="product-description">
                 {/* <h2 className="f-1 f-col-w cinzel fw-700">Choco Ricota</h2> */}
                 <h2 className="heading f-1">Choco Ricota</h2>
@@ -54,15 +54,35 @@ const CheckOut = () => {
               </div>
               <div className="size-container">
                 <div className="size">
-                  <h3 className="f-3 fw-700 f-col-w  ">Size 1</h3>
+                  {/* <h3 className="f-3 fw-700 f-col-w  ">Size 1</h3>
                   <img
                     width={25}
                     height={15}
                     className=""
                     src="./images/VectorDown.png"
                     alt="down"
+                  /> */}
+
+                  <select
+                    class="form-select "
+                    aria-label="Default select example"
+                  >
+                    <option selected  >Size</option>
+                    <option value="1">Size 1</option>
+                    <option value="2">Size 2</option>
+                    <option value="3">Size 3</option>
+                  </select>
+                  <img
+                    width={25}
+                    height={15}
+                    className=""
+                    src="/images/VectorDown.png"
+                    alt="down"
+                    aria-label="Default select example"
                   />
                 </div>
+
+              
                 <img src="/images/line.svg" alt="svg" />
               </div>
 
@@ -73,7 +93,9 @@ const CheckOut = () => {
 
               <div className="whatsapp mt-5">
                 <img src="/images/whatsapp.svg" alt="whatsapp" />
-                <p className="whatsapp-txt m-0 text-dark fw-700">CHAT ON WHATSAPP ORDER</p>
+                <p className="whatsapp-txt m-0 text-dark fw-700">
+                  CHAT ON WHATSAPP ORDER
+                </p>
               </div>
 
               <div className="pickup mt-4">
@@ -112,9 +134,7 @@ const CheckOut = () => {
           </div>
         </div>
       </section>
-
-
-
+ 
       <Footer />
     </>
   );
