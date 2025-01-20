@@ -1,49 +1,85 @@
-import React, { useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import "./checkOut.css";
 import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
-import axios from "axios";
+import { CartContext } from "../../context/CartContext";
 
 const CheckOut = () => {
-  // State management for product quantity, size, and message
-  const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = useState("1");
-  const [message, setMessage] = useState("");
-  const [pickup, setPickup] = useState(false); // To handle pickup option
+  const { cart } = useContext(CartContext); // Access cart items from context
+  const [quantity, setQuantity] = useState({}); // State for quantity (per item)
+  const [size, setSize] = useState({}); // State for size (per item)
+  const [message, setMessage] = useState({}); // State for custom messages (per item)
+  const [sliderImages, setSliderImages] = useState([])
+
+  // Initialize states dynamically based on cart items
+  useEffect(() => {
+    const initialQuantities = {};
+    const initialSizes = {};
+    const initialMessages = {};
+    cart.forEach((item, index) => {
+      initialQuantities[index] = item.quantity || 1;
+      initialSizes[index] = item.size || "1";
+      initialMessages[index] = item.message || "";
+    });
+    setQuantity(initialQuantities);
+    setSize(initialSizes);
+    setMessage(initialMessages);
+  }, [cart]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        
+        const response = await axios.get("https://api/#");
+        setSliderImages(response.data.images); 
+        console.error("Error fetching images:", error);
+      } finally {
+        setIsLoading(false); 
+      }
+    };
+
+    fetchImages();
+  }, []);
 
   // Function to handle quantity change
-  const handleQuantityChange = (action) => {
-    if (action === "increase") {
-      setQuantity(quantity + 1);
-    } else if (action === "decrease" && quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+  const handleQuantityChange = (action, index) => {
+    setQuantity((prev) => ({
+      ...prev,
+      [index]: action === "increase" ? prev[index] + 1 : Math.max(prev[index] - 1, 1),
+    }));
   };
 
   // Function to handle size selection
-  const handleSizeChange = (e) => {
-    setSize(e.target.value);
+  const handleSizeChange = (e, index) => {
+    setSize((prev) => ({
+      ...prev,
+      [index]: e.target.value,
+    }));
   };
 
   // Function to handle message input
-  const handleMessageChange = (e) => {
-    setMessage(e.target.value);
+  const handleMessageChange = (e, index) => {
+    setMessage((prev) => ({
+      ...prev,
+      [index]: e.target.value,
+    }));
   };
 
-  // Function to handle pickup checkbox
-  const handlePickupChange = () => {
-    setPickup(!pickup);
-  };
-
-  // Function to create a WhatsApp URL with order details
+  // WhatsApp checkout
   const handleCheckout = () => {
-    const orderDetails = `*Order Details*%0AProduct: Choco Ricota%0ASize: ${size}%0AQuantity: ${quantity}%0AMessage: ${message}%0APickup: ${
-      pickup ? "Yes" : "No"
-    }`;
+    const orderDetails = cart
+      .map(
+        (item, index) =>
+          `*Order Details*%0AProduct: ${item.title}%0ASize: ${
+            size[index]
+          }%0AQuantity: ${quantity[index]}%0AMessage: ${
+            message[index]
+          }%0APrice: Rs.${item.price}`
+      )
+      .join("%0A%0A");
 
-    // Replace this with the admin's WhatsApp number
-    const adminPhoneNumber = "9061536976"; // Replace with actual phone number
+    const adminPhoneNumber = "997987549374"; // Replace with actual phone number
     const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${orderDetails}`;
 
     // Open WhatsApp
@@ -53,146 +89,96 @@ const CheckOut = () => {
   return (
     <>
       <NavBar />
-
       <section className="container-fluid m-0 p-3 p-lg-5 checkout">
         <div className="checkout-content py-lg-5">
-          <div className="row">
-            <div className="col-md-6 p-5">
-              <ImageSlider />
-            </div>
-            <div className="col-md-6 p-4 pt-lg-5">
-              <div className="product-description">
-                <h2 className="heading f-1">Choco Ricota</h2>
-                <div className="price-count">
-                  <h3 className="f-2 f-col-y">Rs. 1,200.00</h3>
-                  <div className="count">
-                    <img
-                      width={45}
-                      height={45}
-                      src="/images/checkout/reduce.png"
-                      alt="reduce"
-                      onClick={() => handleQuantityChange("decrease")}
-                    />
-                    <p className="f-4 f-col-w">{quantity}</p>
-                    <img
-                      width={45}
-                      height={45}
-                      src="/images/checkout/add.png"
-                      alt="add"
-                      onClick={() => handleQuantityChange("increase")}
-                    />
+          <h2 className="f-3">Your Cart</h2>
+          <div className="cart-items">
+            {cart.map((item, index) => (
+              <div className="cart-item row mb-5" key={index}>
+                <div className="col-md-6">
+                  <ImageSlider  images={sliderImages}/>
+                </div>
+                <div className="col-md-6">
+                  <div className="product-description">
+                    <h2 className="heading f-1">{item.title}</h2>
+                    <div className="price-count">
+                      <h3 className="f-2 f-col-y">Rs. {item.price}</h3>
+                      <div className="count">
+                        <img
+                          width={45}
+                          height={45}
+                          src="/images/checkout/reduce.png"
+                          alt="reduce"
+                          onClick={() => handleQuantityChange("decrease", index)}
+                        />
+                        <p className="f-4 f-col-w">{quantity[index]}</p>
+                        <img
+                          width={45}
+                          height={45}
+                          src="/images/checkout/add.png"
+                          alt="add"
+                          onClick={() => handleQuantityChange("increase", index)}
+                        />
+                      </div>
+                    </div>
+
+                    <p className="f-4 f-col-w mt-4">{item.description}</p>
+
+                    <div className="non-veg-icon mt-4 ">
+                      <img
+                        width={30}
+                        height={30}
+                        src="/images/checkout/non-veg.png"
+                        alt="non-veg"
+                      />
+                      <p className="f-5 f-col-w">Non-Veg</p>
+                    </div>
+
+                    <div className="size-container mt-4">
+                      <div className="size">
+                        <select
+                          className="form-select"
+                          aria-label="Select Size"
+                          value={size[index]}
+                          onChange={(e) => handleSizeChange(e, index)}
+                        >
+                          <option value="1">Size 1</option>
+                          <option value="2">Size 2</option>
+                          <option value="3">Size 3</option>
+                        </select>
+                        <img
+                          width={25}
+                          height={15}
+                          src="/images/VectorDown.png"
+                          alt="down"
+                        />
+                      </div>
+                      <img src="/images/line.svg" alt="svg" />
+                    </div>
+
+                    <div className="message mt-4">
+                      <p className="f-col-w f-4">Message On Cakes</p>
+                      <input
+                        className="msg-input"
+                        type="text"
+                        value={message[index]}
+                        onChange={(e) => handleMessageChange(e, index)}
+                      />
+                    </div>
+
+                    <div className="whatsapp mt-5" onClick={handleCheckout}>
+                      <img src="/images/whatsapp.svg" alt="whatsapp" />
+                      <p className="whatsapp-txt m-0 text-dark fw-700">
+                        CHAT ON WHATSAPP ORDER
+                      </p>
+                    </div>
                   </div>
                 </div>
-
-                <p className="f-4 f-col-w mt-4">
-                  A luxurious combo of red velvet, white and chocolate sponge
-                  cakes layered with fluffy white cream, red velvet cream,
-                  chocolate cream, and syrup with an elegant garnish of white
-                  truffle and black truffle.
-                </p>
-                {/* non-veg icon */}
-
-                <div className="non-veg-icon mt-4 ">
-                    <img
-                      width={30}
-                      height={30}
-                      src="/images/checkout/non-veg.png"
-                      alt="add"
-                    />
-                    <p className="f-5 f-col-w">Non-Veg</p>
-                  </div>      
-
               </div>
-              <div className="size-container">
-                <div className="size">
-                  <select
-                    className="form-select"
-                    aria-label="Select Size"
-                    value={size}
-                    onChange={handleSizeChange}
-                  >
-                    <option value="1">Size 1</option>
-                    <option value="2">Size 2</option>
-                    <option value="3">Size 3</option>
-                  </select>
-                  <img
-                    width={25}
-                    height={15}
-                    src="/images/VectorDown.png"
-                    alt="down"
-                  />
-                </div>
-                <img src="/images/line.svg" alt="svg" />
-              </div>
-
-              <div className="message mt-4">
-                <p className="f-col-w f-4">Message On Cakes</p>
-                <input
-                  className="msg-input"
-                  type="text"
-                  value={message}
-                  onChange={handleMessageChange}
-                />
-              </div>
-
-              <div className="whatsapp mt-5" onClick={handleCheckout}>
-                <img src="/images/whatsapp.svg" alt="whatsapp" />
-                <p className="whatsapp-txt m-0 text-dark fw-700">
-                  CHAT ON WHATSAPP ORDER
-                </p>
-              </div>
-
-              <div className="delivery-available pt-4 gap-4">
-                <img width={40} src="/images/checkout/delivery.png" alt="delivery" />
-                <p className="f-col-w f-4 m-0">Delivery Available</p>
-              </div>
-
-              {/* <div className="pickup mt-4">
-                <input
-                  type="checkbox"
-                  checked={pickup}
-                  onChange={handlePickupChange}
-                />
-                <div className="pickup-text">
-                  <p className="f-col-w m-0">
-                    Pickup available at I have selected my pickup store
-                  </p>
-                  <p className="f-col-w m-0">Usually ready in 24 hours</p>
-                </div>
-              </div> */}
-
-              {/* Checkout Button */}
-              {/* <button className="checkout-btn" onClick={handleCheckout}>
-                Proceed to Checkout (WhatsApp)
-              </button> */}
-            </div>
+            ))}
           </div>
         </div>
       </section>
-
-      <section className="related-products my-lg-5 py-lg-5">
-        <h2 className="cinzel f-3 f-col-y fw-700">Related Products</h2>
-        <div className="related-images mt-5">
-          <div className="item-and-name">
-            <img width={350} src="/images/checkout/related-1.png" alt="item" />
-            <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
-            <p className="f-col-y m-0">Rs. 900.00</p>
-          </div>
-
-          <div className="item-and-name">
-            <img width={350} src="/images/checkout/related-2.png" alt="item" />
-            <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
-            <p className="f-col-y m-0">Rs. 900.00</p>
-          </div>
-
-          <div className="item-and-name">
-            <img width={350} src="/images/checkout/related-3.png" alt="item" />
-            <p className="f-col-w m-0 fw-700 mt-3">CHOCOLATE TRUFFLE</p>
-            <p className="f-col-y m-0">Rs. 900.00</p>
-          </div>
-        </div>
-      </section>
-
       <Footer />
     </>
   );

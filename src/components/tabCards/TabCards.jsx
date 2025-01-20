@@ -1,15 +1,44 @@
 import React from "react";
 import "./tabCards.css";
-import Button from "../buttons/Button"
+import Button from "../buttons/Button";
 import { useNavigate } from "react-router-dom";
+import { CartContext } from "../../context/cartContext";
+import { useContext, useState } from "react";
 
 const TabCards = (props) => {
-
   const navigate = useNavigate();
 
-  function handleNavigate() {
-    navigate("/checkout");
+  // function handleNavigate() {
+  //   navigate("/checkout");
+  // }
+
+  const { addToCart } = useContext(CartContext);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function handleOrderNow() {
+    setIsLoading(true);
+    try {
+      if (!props.title || !props.price || !props.img) {
+        console.error("Missing required product information.");
+        return;
+      }
+
+      addToCart({
+        id: props.id,
+        title: props.title,
+        description: props.description,
+        price: props.price,
+        img: props.img,
+      });
+      navigate("/checkout");
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    } finally {
+      setIsLoading(false);
+    }
   }
+
   return (
     <>
       <div className="tab-card">
@@ -26,19 +55,19 @@ const TabCards = (props) => {
               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus."}
           </p>
 
-          <p className="title f-2 cinzel">{props.price ? `${props.price}` : "500"}</p>
-        
+          <p className="title f-2 cinzel">
+            {props.price ? `${props.price}` : "500"}
+          </p>
+
           <Button
-          className={"button txt-yellow "}
-          divClass={"bt-container"}
-          stroke={"#f5be32"}
-          onClick ={handleNavigate}
-        >
-          ORDER NOW
-        </Button>
-        
+            className={"button txt-yellow "}
+            divClass={"bt-container"}
+            stroke={"#f5be32"}
+            onClick={handleOrderNow}
+          >
+            ORDER NOW
+          </Button>
         </div>
-    
       </div>
     </>
   );
