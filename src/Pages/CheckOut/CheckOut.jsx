@@ -3,16 +3,18 @@ import "./checkOut.css";
 import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/cartContext";
+import axios from "axios";
 
 const CheckOut = () => {
-  const { cart } = useContext(CartContext); // Access cart items from context
-  const [quantity, setQuantity] = useState({}); // State for quantity (per item)
-  const [size, setSize] = useState({}); // State for size (per item)
-  const [message, setMessage] = useState({}); // State for custom messages (per item)
-  const [sliderImages, setSliderImages] = useState([])
+  const { cart } = useContext(CartContext); 
+  const [quantity, setQuantity] = useState({}); 
+  const [size, setSize] = useState({}); 
+  const [message, setMessage] = useState({}); 
+  const [sliderImages, setSliderImages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize states dynamically based on cart items
+
   useEffect(() => {
     const initialQuantities = {};
     const initialSizes = {};
@@ -30,15 +32,13 @@ const CheckOut = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        
-        const response = await axios.get("https://api/#");
-        setSliderImages(response.data.images); 
+        const response = await axios.get(`/menu/${id}`);
+        setSliderImages(response.data.images);
         console.error("Error fetching images:", error);
       } finally {
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     };
-
     fetchImages();
   }, []);
 
@@ -46,7 +46,8 @@ const CheckOut = () => {
   const handleQuantityChange = (action, index) => {
     setQuantity((prev) => ({
       ...prev,
-      [index]: action === "increase" ? prev[index] + 1 : Math.max(prev[index] - 1, 1),
+      [index]:
+        action === "increase" ? prev[index] + 1 : Math.max(prev[index] - 1, 1),
     }));
   };
 
@@ -71,11 +72,7 @@ const CheckOut = () => {
     const orderDetails = cart
       .map(
         (item, index) =>
-          `*Order Details*%0AProduct: ${item.title}%0ASize: ${
-            size[index]
-          }%0AQuantity: ${quantity[index]}%0AMessage: ${
-            message[index]
-          }%0APrice: Rs.${item.price}`
+          `*Order Details*%0AProduct: ${item.title}%0ASize: ${size[index]}%0AQuantity: ${quantity[index]}%0AMessage: ${message[index]}%0APrice: Rs.${item.price}`
       )
       .join("%0A%0A");
 
@@ -91,13 +88,21 @@ const CheckOut = () => {
       <NavBar />
       <section className="container-fluid m-0 p-3 p-lg-5 checkout">
         <div className="checkout-content py-lg-5">
-          <h2 className="f-3">Your Cart</h2>
           <div className="cart-items">
             {cart.map((item, index) => (
               <div className="cart-item row mb-5" key={index}>
-                <div className="col-md-6">
+                {/* <div className="col-md-6">
                   <ImageSlider  images={sliderImages}/>
+                </div> */}
+
+                <div className="col-md-6 p-5">
+                  {isLoading ? (
+                    <p className="text-center f-3 f-col-w">Loading images...</p>
+                  ) : (
+                    <ImageSlider images={sliderImages} />
+                  )}
                 </div>
+                {/* ===slider */}
                 <div className="col-md-6">
                   <div className="product-description">
                     <h2 className="heading f-1">{item.title}</h2>
@@ -109,7 +114,9 @@ const CheckOut = () => {
                           height={45}
                           src="/images/checkout/reduce.png"
                           alt="reduce"
-                          onClick={() => handleQuantityChange("decrease", index)}
+                          onClick={() =>
+                            handleQuantityChange("decrease", index)
+                          }
                         />
                         <p className="f-4 f-col-w">{quantity[index]}</p>
                         <img
@@ -117,7 +124,9 @@ const CheckOut = () => {
                           height={45}
                           src="/images/checkout/add.png"
                           alt="add"
-                          onClick={() => handleQuantityChange("increase", index)}
+                          onClick={() =>
+                            handleQuantityChange("increase", index)
+                          }
                         />
                       </div>
                     </div>
@@ -159,9 +168,10 @@ const CheckOut = () => {
                     <div className="message mt-4">
                       <p className="f-col-w f-4">Message On Cakes</p>
                       <input
-                        className="msg-input"
+                        className="msg-input p-3"
                         type="text"
                         value={message[index]}
+                        placeholder="Enter your message"
                         onChange={(e) => handleMessageChange(e, index)}
                       />
                     </div>
