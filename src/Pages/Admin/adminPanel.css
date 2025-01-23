@@ -6,3 +6,22 @@
 /* .admin-panel{
   margin-top: 100px;
 } */
+
+.tab-btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #f5be32;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tab-btn.active {
+  background-color: #ff9800; /* Active tab color */
+  font-weight: bold;
+}
+
+.tab-btn:hover {
+  background-color: #e68900;
+}

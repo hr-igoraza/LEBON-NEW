@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../utils/api";
 
-const ViewItem = () => {
+const ViewItem = ({ setActiveTab }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const navigate = useNavigate(); 
+  const [feedback, setFeedback] = useState(""); // To show feedback after deletion
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await API.get("/menu"); 
+        const response = await API.get("/menu");
         setItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -27,22 +28,31 @@ const ViewItem = () => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
         await API.delete(`/menu/${id}`);
-        setItems(items.filter((item) => item._id !== id));
+        setItems((prevItems) => prevItems.filter((item) => item._id !== id));
+        setFeedback("Item deleted successfully.");
+        setTimeout(() => setFeedback(""), 3000); // Clear feedback after 3 seconds
       } catch (err) {
-        alert("Failed to delete item.");
+        setFeedback("Failed to delete item. Please try again.");
+        setTimeout(() => setFeedback(""), 3000);
       }
     }
   };
 
+  const handleEdit = (id) => {
+    setActiveTab("edit");
+    navigate(`/edit-item/${id}`);
+  };
+
   return (
     <div className="text-white">
-      <h2>View Items</h2>
+      <h2>Menu Items</h2>
       <p>Here you can view all the items.</p>
 
       {loading && <p>Loading items...</p>}
-      {error && <p className="text-danger">{error}</p>} 
+      {error && <p className="text-danger">{error}</p>}
+      {feedback && <p className="text-success">{feedback}</p>} 
 
-      {!loading && items.length === 0 && <p>No items available.</p>} 
+      {!loading && items.length === 0 && <p>No items available.</p>}
 
       {!loading && items.length > 0 && (
         <div className="table-responsive">
@@ -60,11 +70,15 @@ const ViewItem = () => {
               {items.map((item) => (
                 <tr key={item._id}>
                   <td>
-                    <img
-                      src={`/uploads/${item.itemImages[0]}`} 
-                      alt={item.itemName}
-                      style={{ width: "80px", height: "80px", objectFit: "cover" }}
-                    />
+                    {item.itemImages && item.itemImages.length > 0 ? (
+                      <img
+                        src={`/uploads/${item.itemImages[0]}`}
+                        alt={item.itemName}
+                        style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                      />
+                    ) : (
+                      <span>No image</span>
+                    )}
                   </td>
                   <td>{item.itemName}</td>
                   <td>{item.description}</td>
@@ -72,13 +86,13 @@ const ViewItem = () => {
                   <td>
                     <button
                       className="btn btn-warning btn-sm me-2"
-                      onClick={() => navigate(`/edit-item/${item._id}`)} 
+                      onClick={() => handleEdit(item._id)}
                     >
                       Edit
                     </button>
                     <button
                       className="btn btn-danger btn-sm"
-                      onClick={() => handleDelete(item._id)} 
+                      onClick={() => handleDelete(item._id)}
                     >
                       Delete
                     </button>
