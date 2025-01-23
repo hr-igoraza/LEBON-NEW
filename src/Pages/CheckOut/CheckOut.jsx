@@ -34,7 +34,7 @@ const CheckOut = () => {
       try {
         const response = await axios.get(`/menu/${id}`);
         setSliderImages(response.data.images);
-        console.error("Error fetching images:", error);
+        // console.error("Error fetching images:", error);
       } finally {
         setIsLoading(false);
       }

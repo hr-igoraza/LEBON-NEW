@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
           setAdmin({ token, user: decodedToken });
         }
       } catch (err) {
-        console.error("Invalid token:", err);
+        // console.error("Invalid token:", err);
         logout();
       }
     }

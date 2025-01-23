@@ -27,7 +27,7 @@ const Login = () => {
 
       if (token) {
         localStorage.setItem("accessToken", token); 
-        console.log(token)
+        // console.log(token)
         setLoading(false); 
         setFormData({ email: "", password: "" });   
         navigate("/adminpanel");

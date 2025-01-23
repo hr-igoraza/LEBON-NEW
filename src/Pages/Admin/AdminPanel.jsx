@@ -67,12 +67,12 @@ const AdminPanel = () => {
               >
                 View Gallery
               </button>
-              <button
+              {/* <button
                 className={`tab-btn ${activeTab === "edit" ? "active" : ""}`}
                 onClick={() => setActiveTab("edit")}
               >
                 Edit Gallery
-              </button>
+              </button> */}
             </>
           )}
         </div>

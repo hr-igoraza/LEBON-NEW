@@ -6,7 +6,7 @@ const ViewItem = ({ setActiveTab }) => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [feedback, setFeedback] = useState(""); // To show feedback after deletion
+  const [feedback, setFeedback] = useState(""); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const ViewItem = ({ setActiveTab }) => {
         await API.delete(`/menu/${id}`);
         setItems((prevItems) => prevItems.filter((item) => item._id !== id));
         setFeedback("Item deleted successfully.");
-        setTimeout(() => setFeedback(""), 3000); // Clear feedback after 3 seconds
+        setTimeout(() => setFeedback(""), 3000); 
       } catch (err) {
         setFeedback("Failed to delete item. Please try again.");
         setTimeout(() => setFeedback(""), 3000);
@@ -50,7 +50,7 @@ const ViewItem = ({ setActiveTab }) => {
 
       {loading && <p>Loading items...</p>}
       {error && <p className="text-danger">{error}</p>}
-      {feedback && <p className="text-success">{feedback}</p>} 
+      {feedback && <p className="text-success">{feedback}</p>}
 
       {!loading && items.length === 0 && <p>No items available.</p>}
 
@@ -63,6 +63,7 @@ const ViewItem = ({ setActiveTab }) => {
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
+                <th>Category</th> 
                 <th>Actions</th>
               </tr>
             </thead>
@@ -72,9 +73,13 @@ const ViewItem = ({ setActiveTab }) => {
                   <td>
                     {item.itemImages && item.itemImages.length > 0 ? (
                       <img
-                        src={`/uploads/${item.itemImages[0]}`}
+                        src={item.itemImages[0]}
                         alt={item.itemName}
-                        style={{ width: "80px", height: "80px", objectFit: "cover" }}
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          objectFit: "cover",
+                        }}
                       />
                     ) : (
                       <span>No image</span>
@@ -82,14 +87,9 @@ const ViewItem = ({ setActiveTab }) => {
                   </td>
                   <td>{item.itemName}</td>
                   <td>{item.description}</td>
-                  <td>${item.price}</td>
+                  <td>₹{item.price}</td>
+                  <td>{item.category}</td> 
                   <td>
-                    <button
-                      className="btn btn-warning btn-sm me-2"
-                      onClick={() => handleEdit(item._id)}
-                    >
-                      Edit
-                    </button>
                     <button
                       className="btn btn-danger btn-sm"
                       onClick={() => handleDelete(item._id)}

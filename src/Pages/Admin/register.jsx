@@ -45,7 +45,7 @@ const Signup = () => {
       }, 1000); 
     } catch (err) {
       setError(err.response?.data?.message || "Signup failed. Please try again.");
-      console.log(err);
+      // console.log(err);
     } finally {
       setLoading(false); 
     }
