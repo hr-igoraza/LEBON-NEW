@@ -6,6 +6,7 @@ import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import Button from "../../components/buttons/Button.jsx";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../../components/navBar/NavBar.jsx";
 
 const NewArrivals = () => {
   const handleTabChange = (index) => {
@@ -19,6 +20,8 @@ const NewArrivals = () => {
   };
   return (
     <>
+
+    <NavBar/>
       <section className="dividerImage">
         <img
           className="w-100"

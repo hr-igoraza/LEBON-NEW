@@ -11,24 +11,28 @@ import PageNotFound from "./Pages/PageNotFound";
 import Gallery from "./Pages/Gallery/Gallery";
 import RegisterPage from "./Pages/Admin/register";
 import LoginPage from "./Pages/Admin/login";
-import AdminPage from "./Pages/Admin/AdminPanel";
-import PrivateRoute from "./utils/PrivateAuth";
+import AdminPanel from "./Pages/Admin/AdminPanel";
+import ProtectedRoute from "./utils/PrivateAuth";
+// import { AuthProvider } from "./context/authContext";
 
 function App() {
   return (
     <>
-      <NavBar />
       <Routes>
-        <Route path="/admin-signup" element={<RegisterPage />} />
-        <Route path="/admin-login" element={<LoginPage />} />
+        <Route path="/signup" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route
-          path="/admin-panel"
-          element={
-            <PrivateRoute>
-              <AdminPage />
-            </PrivateRoute>
-          }
-        />
+            path="/adminpanel"
+            element={
+
+              // <AuthProvider>
+              //   <AdminPanel/>
+              // </AuthProvider>
+              <ProtectedRoute>
+                <AdminPanel />
+              </ProtectedRoute>
+            }
+          />
 
         <Route path="/" element={<Home />} />
         <Route path="/newarrivals" element={<NewArrivals />} />

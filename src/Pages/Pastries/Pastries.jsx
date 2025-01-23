@@ -7,6 +7,7 @@ import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import Button from "../../components/buttons/Button.jsx";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../../components/navBar/NavBar.jsx";
 
 
 const Pastries = () => {
@@ -21,6 +22,7 @@ const Pastries = () => {
   };
   return (
     <>
+    <NavBar/>
       <section className="dividerImage">
         <img
           className="w-100"

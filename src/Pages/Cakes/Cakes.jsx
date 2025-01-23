@@ -4,6 +4,7 @@ import Tab from "../../components/tabs/Tab";
 import { cakes } from "../../data/cakes.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../../components/navBar/NavBar.jsx";
 
 const Cakes = () => {
   const handleTabChange = (index) => {
@@ -16,6 +17,7 @@ const Cakes = () => {
   };
   return (
     <>
+    <NavBar/>
       <section className="dividerImage">
         <img className="w-100" src="/images/cakes/cakesImg.png" alt="cakes" />
       </section>
