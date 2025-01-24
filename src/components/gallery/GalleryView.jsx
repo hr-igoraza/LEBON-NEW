@@ -85,7 +85,7 @@ const GalleryView = ({ setActiveTab }) => {
       )}
       <form onSubmit={handleAddImages} className="mb-4">
         <div className="form-group">
-          <label htmlFor="imageUpload">Upload New Images</label>
+          <label htmlFor="imageUpload " className="text-white mb-4" >Upload New Images</label>
           <input type="file" className="form-control" id="imageUpload" multiple onChange={handleImageChange} />
         </div>
         <button type="submit" className="btn btn-primary mt-2" disabled={uploading}>

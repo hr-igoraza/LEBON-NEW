@@ -13,6 +13,7 @@ const ViewItem = ({ setActiveTab }) => {
     const fetchItems = async () => {
       try {
         const response = await API.get("/menu");
+        console.log(response)
         setItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -63,7 +64,9 @@ const ViewItem = ({ setActiveTab }) => {
                 <th>Name</th>
                 <th>Description</th>
                 <th>Price</th>
-                <th>Category</th> 
+                <th>Category</th>
+                <th>Deliverable</th>
+                <th>Veg/Non-Veg</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -88,7 +91,9 @@ const ViewItem = ({ setActiveTab }) => {
                   <td>{item.itemName}</td>
                   <td>{item.description}</td>
                   <td>₹{item.price}</td>
-                  <td>{item.category}</td> 
+                  <td>{item.category}</td>
+                  <td>{item.isDeliverable ? "Yes" : "No"}</td>
+                  <td>{item.isVeg ? "Veg" : "Non-Veg"}</td>
                   <td>
                     <button
                       className="btn btn-danger btn-sm"

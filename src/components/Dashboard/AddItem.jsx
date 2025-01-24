@@ -7,6 +7,8 @@ const AddItem = () => {
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
   const [images, setImages] = useState([]);
+  const [isDeliverable, setIsDeliverable] = useState(false); // Updated state for deliverable
+  const [isVeg, setIsVeg] = useState(false); // Updated state for veg/non-veg
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,15 +20,29 @@ const AddItem = () => {
     setMessage("");
     setMessageType("");
 
+    // Form validation
+    if (!itemName || !description || !price || !category || images.length === 0) {
+      setMessage("Please fill in all fields and upload at least one image.");
+      setMessageType("error");
+      setLoading(false);
+      return;
+    }
+
     const formData = new FormData();
     formData.append("itemName", itemName);
     formData.append("description", description);
     formData.append("price", price);
     formData.append("category", category);
+    formData.append("isDeliverable", isDeliverable); 
+    formData.append("isVeg", isVeg); 
 
+  
     Array.from(images).forEach((image) => {
       formData.append("itemImages", image);
     });
+
+
+    console.log(formData);
 
     try {
       const response = await API.post("/menu/addtomenu", formData, {
@@ -34,6 +50,7 @@ const AddItem = () => {
           "Content-Type": "multipart/form-data",
         },
       });
+
       setMessage("Item added successfully!");
       setMessageType("success");
       setLoading(false);
@@ -41,6 +58,8 @@ const AddItem = () => {
       setDescription("");
       setPrice("");
       setCategory("");
+      setIsDeliverable(false); // Reset deliverable
+      setIsVeg(false); // Reset veg/non-veg
       setImages([]);
     } catch (error) {
       setMessage(error.response?.data?.message || "Error adding item.");
@@ -56,7 +75,7 @@ const AddItem = () => {
 
   return (
     <div className="container">
-      <div className="text-white ">
+      <div className="text-white">
         <h2>Add Item</h2>
         <p>Here you can add a new item to the menu.</p>
 
@@ -132,6 +151,40 @@ const AddItem = () => {
                   <option value="new arrivals">New Arrivals</option>
                   <option value="cakes">Cakes</option>
                   <option value="menu">Menu</option>
+                </select>
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="isDeliverable" className="form-label">
+                  Deliverable
+                </label>
+                <select
+                  id="isDeliverable"
+                  className="form-control"
+                  value={isDeliverable}
+                  onChange={(e) => setIsDeliverable(e.target.value === "true")}
+                  required
+                >
+                  <option value="">Select Deliverable</option>
+                  <option value="true">Yes</option>
+                  <option value="false">No</option>
+                </select>
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="isVeg" className="form-label">
+                  Veg/Non-Veg
+                </label>
+                <select
+                  id="isVeg"
+                  className="form-control"
+                  value={isVeg}
+                  onChange={(e) => setIsVeg(e.target.value === "true")}
+                  required
+                >
+                  <option value="">Select Veg/Non-Veg</option>
+                  <option value="true">Veg</option>
+                  <option value="false">Non-Veg</option>
                 </select>
               </div>
 

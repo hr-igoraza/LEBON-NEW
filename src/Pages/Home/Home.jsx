@@ -6,7 +6,7 @@ import Button from "../../components/buttons/Button";
 import ItemCard from "../../components/itemCards/ItemCard";
 import Tab from "../../components/tabs/Tab";
 import { tabs } from "../../data/specialities.jsx";
-import { events } from "../../data/diningEvents.jsx";
+import Events from "../../data/diningEvents.jsx";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -120,7 +120,8 @@ const Home = () => {
           </div>
 
           <div className="event-specialities-tab ">
-            <Tab tabs={events} onTabChange={handleTabChange} />
+            {/* <Tab tabs={events} onTabChange={handleTabChange} /> */}
+            <Events/>
           </div>
         </div>
       </section>
@@ -235,6 +236,9 @@ const Home = () => {
         </div>
 
         {/* ======================= */}
+
+
+        
 
         <div className="row mt-lg-5">
           <div className="col-12 col-lg-6 ">

@@ -1,128 +1,105 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./gallery.css";
 import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import Button from "../../components/buttons/Button";
+import API from "../../utils/api"; // Import your axios instance
 
 const Gallery = () => {
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await API.get("/gallery");
+        setImages(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to load images.");
+        setLoading(false);
+      }
+    };
+
+    fetchImages();
+  }, []);
+
+  const openModal = (index) => {
+    setCurrentImageIndex(index);
+    setModalIsOpen(true);
+    document.body.style.overflow = "hidden"; // Prevent scrolling
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+    document.body.style.overflow = "auto"; // Enable scrolling
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
   return (
     <>
       <NavBar />
 
+
+
+
       <section className="container my-500px mt-5 p-3 p-lg-5">
         <div className="section-heading mb-lg-4 mt-5">
-          {/* <p className="overline f-5 ls-2 "><Gallary></Gallary></p> */}
-          <h2 className="title f-2 ">Gallary</h2>
-          {/* <p className="bottomline">
-              A journey for making successful luxury restaurant
-              <br /> with the best services
-            </p> */}
+          <h2 className="title f-2">Gallery</h2>
         </div>
 
-        {/* ================== */}
+        {loading && <p>Loading images...</p>}
+        {error && <p className="text-danger">{error}</p>}
 
-        <div className="row">
-          <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Boat on Calm Water"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Wintry Mountain Landscape"
-            />
-          </div>
-
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Mountains in the Clouds"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Boat on Calm Water"
-            />
-          </div>
-
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Waves at Sea"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Yosemite National Park"
-            />
-          </div>
-          
+        <div className="gallery-grid">
+          {images.map((image, index) => (
+            <div className="gallery-item" key={index} onClick={() => openModal(index)}>
+              <img
+                src={image.image}
+                className="gallery-image"
+                alt={`Gallery Image ${index + 1}`}
+              />
+            </div>
+          ))}
         </div>
 
-        {/* rows of 3 images in a row  with same height */}
-
-        
-        <div className="row">
-          <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Boat on Calm Water"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Wintry Mountain Landscape"
-            />
+        {modalIsOpen && (
+          <div className="modal-overlay" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="close-button" onClick={closeModal}>
+                &times;
+              </button>
+              <button className="prev-button" onClick={prevImage}>
+                &#10094;
+              </button>
+              {images[currentImageIndex] && (
+                <img
+                  src={images[currentImageIndex].image}
+                  className="modal-image"
+                  alt={`Gallery Image ${currentImageIndex + 1}`}
+                />
+              )}
+              <button className="next-button" onClick={nextImage}>
+                &#10095;
+              </button>
+            </div>
           </div>
-
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Mountains in the Clouds"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Boat on Calm Water"
-            />
-          </div>
-
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Waves at Sea"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Yosemite National Park"
-            />
-          </div>
-          
-        </div>
-            
-
-        
-
-        {/* ======================= */}
+        )}
 
         <div className="row mt-lg-5">
-          <div className="col-12 col-lg-6 ">
+          <div className="col-12 col-lg-6">
             <div className="text-white bottomline our-story-text">
-              <div className="p-2 p-md-5 mt-2  mt-md-0">
+              <div className="p-2 p-md-5 mt-2 mt-md-0">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Integer feugiat urna id leo euismod rhoncus. Aliquam erat
@@ -146,13 +123,6 @@ const Gallery = () => {
             </div>
           </div>
           <div className="col-lg-6 col-12">
-            {/* <iframe
-              width="100%"
-              height={"500px"}
-              src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              frameborder="0"
-            ></iframe> */}
-
             <iframe
               width="560"
               height="400"

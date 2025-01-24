@@ -1,15 +1,26 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate, Link } from "react-router";
 import Button from "../buttons/Button";
 import "./navbar.css";
 // import DropDown from "../FWNavBar";
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const onScrollTo = (id) => {
     const element = document.querySelector(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleAboutClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      const aboutSection = document.querySelector("#aboutUs");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
   };
 
   return (
@@ -79,14 +90,29 @@ const NavBar = () => {
                 </NavLink>
               </li>
 
-              <li className="nav-item">
+              <li className="nav-item dropdown">
                 <NavLink
-                  onClick={() => onScrollTo("#aboutUs")}
-                  className="nav-link"
-                  to="#"
+                  className="nav-link dropdown-toggle"
+                  // to="#"
+                  id="aboutDropdown"
                 >
                   About
                 </NavLink>
+                <div className="dropdown-menu" aria-labelledby="aboutDropdown">
+                  <p
+                    className="dropdown-item text-dark"
+                    to="#"
+                    onClick={handleAboutClick}
+                  >
+                    About Us
+                  </p>
+                  <NavLink
+                    className="dropdown-item text-dark"
+                    to="/gallery"
+                  >
+                    Gallery
+                  </NavLink>
+                </div>
               </li>
               <li className="nav-item">
                 <NavLink
