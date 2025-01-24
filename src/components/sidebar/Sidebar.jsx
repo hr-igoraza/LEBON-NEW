@@ -26,6 +26,26 @@ const Sidebar = ({ setActiveSection, setActiveTab }) => {
             Gallery
           </button>
         </li>
+        <li className="nav-item">
+          <button className="nav-link" onClick={() => setActiveSection("cakes")}>
+            Cakes
+          </button>
+        </li>
+        <li className="nav-item">
+          <button className="nav-link" onClick={() => setActiveSection("newArrivals")}>
+            New Arrivals
+          </button>
+        </li>
+        <li className="nav-item">
+          <button className="nav-link" onClick={() => setActiveSection("pastries")}>
+            Pastries
+          </button>
+        </li>
+        <li className="nav-item">
+          <button className="nav-link" onClick={() => setActiveSection("todaysSpecial")}>
+            Today's Special
+          </button>
+        </li>
       </ul>
       <div className="logout-btn-container mt-5">
         <button className="btn btn-danger w-75" onClick={handleLogout}>

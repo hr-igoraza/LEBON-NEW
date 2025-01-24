@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import API from "../../utils/api"; 
+import API from "../../../utils/api"; // Use your axios instance
 
-const AddItem = () => {
+const AddNewArrivalItem = () => {
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("new arrivals"); // Set default category to "new arrivals"
   const [images, setImages] = useState([]);
-  const [isDeliverable, setIsDeliverable] = useState(false); 
-  const [isVeg, setIsVeg] = useState(false); 
+  const [isDeliverable, setIsDeliverable] = useState(false); // Updated state for deliverable
+  const [isVeg, setIsVeg] = useState(false); // Updated state for veg/non-veg
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
   const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const AddItem = () => {
     setMessageType("");
 
     // Form validation
-    if (!itemName || !description || !price || !category || images.length === 0) {
+    if (!itemName || !description || !price || images.length === 0) {
       setMessage("Please fill in all fields and upload at least one image.");
       setMessageType("error");
       setLoading(false);
@@ -33,33 +33,29 @@ const AddItem = () => {
     formData.append("description", description);
     formData.append("price", price);
     formData.append("category", category);
-    formData.append("isDeliverable", isDeliverable); 
-    formData.append("isVeg", isVeg); 
+    formData.append("isDeliverable", isDeliverable);
+    formData.append("isVeg", isVeg);
 
-  
     Array.from(images).forEach((image) => {
       formData.append("itemImages", image);
     });
 
-
-    console.log(formData);
-
     try {
-      const response = await API.post("/menu/addtomenu", formData, {
+      const response = await API.post("/newarrivals/add", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
-      setMessage("Item added successfully!");
+      setMessage("Item added to New Arrivals successfully!");
       setMessageType("success");
       setLoading(false);
       setItemName("");
       setDescription("");
       setPrice("");
-      setCategory("");
-      setIsDeliverable(false); 
-      setIsVeg(false); 
+      setCategory("new arrivals"); // Reset category to "new arrivals"
+      setIsDeliverable(false);
+      setIsVeg(false);
       setImages([]);
     } catch (error) {
       setMessage(error.response?.data?.message || "Error adding item.");
@@ -76,8 +72,8 @@ const AddItem = () => {
   return (
     <div className="container">
       <div className="text-white">
-        <h2>Add Item</h2>
-        <p>Here you can add a new item to the menu.</p>
+        <h2>Add New Arrival Item</h2>
+        <p>Here you can add a new item to the New Arrivals category.</p>
 
         {message && (
           <div
@@ -91,7 +87,7 @@ const AddItem = () => {
         )}
 
         <div className="row">
-          <div className=" colo-8 col-lg-8">
+          <div className="col-8 col-lg-8">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="itemName" className="form-label">
@@ -136,25 +132,6 @@ const AddItem = () => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="category" className="form-label">
-                  Category
-                </label>
-                <select
-                  id="category"
-                  className="form-control bg-dark text-white"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  required
-                >
-                  <option value="">Select Category</option>
-                  <option value="todays special">Today's Special</option>
-                  <option value="new arrivals">New Arrivals</option>
-                  <option value="cakes">Cakes</option>
-                  <option value="menu">Menu</option>
-                </select>
-              </div>
-
-              <div className="mb-3">
                 <label htmlFor="isDeliverable" className="form-label">
                   Deliverable
                 </label>
@@ -189,7 +166,7 @@ const AddItem = () => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="itemImages" className="form-label mb-2 ">
+                <label htmlFor="itemImages" className="form-label mb-2">
                   Item Images
                 </label>
                 <input
@@ -228,4 +205,4 @@ const AddItem = () => {
   );
 };
 
-export default AddItem;
+export default AddNewArrivalItem;

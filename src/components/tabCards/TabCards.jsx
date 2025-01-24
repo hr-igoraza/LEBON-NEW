@@ -30,6 +30,7 @@ const TabCards = (props) => {
         description: props.description,
         price: props.price,
         img: props.img,
+        
       });
       navigate("/checkout");
     } catch (error) {

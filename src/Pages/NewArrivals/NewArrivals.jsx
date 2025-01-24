@@ -7,6 +7,7 @@ import Footer from "../../components/footer/Footer.jsx";
 import Button from "../../components/buttons/Button.jsx";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/navBar/NavBar.jsx";
+import NewArrivalTab from "../../data/NewArrivalsData.jsx";
 
 const NewArrivals = () => {
   const handleTabChange = (index) => {
@@ -44,7 +45,9 @@ const NewArrivals = () => {
           </div>
 
           <div className="specialities-tab col-12">
-            <Tab tabs={tabs} onTabChange={handleTabChange} />
+            {/* <Tab tabs={tabs} onTabChange={handleTabChange} /> */}
+
+            <NewArrivalTab/>
           </div>
         </div>
 

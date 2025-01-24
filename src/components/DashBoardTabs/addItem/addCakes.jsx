@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import API from "../../utils/api"; 
+import API from "../../../utils/api"; 
 
-const AddItem = () => {
+const AddCakeItem = () => {
   const [itemName, setItemName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("cakes"); 
   const [images, setImages] = useState([]);
   const [isDeliverable, setIsDeliverable] = useState(false); 
   const [isVeg, setIsVeg] = useState(false); 
@@ -20,8 +20,8 @@ const AddItem = () => {
     setMessage("");
     setMessageType("");
 
-    // Form validation
-    if (!itemName || !description || !price || !category || images.length === 0) {
+    
+    if (!itemName || !description || !price || images.length === 0) {
       setMessage("Please fill in all fields and upload at least one image.");
       setMessageType("error");
       setLoading(false);
@@ -36,28 +36,24 @@ const AddItem = () => {
     formData.append("isDeliverable", isDeliverable); 
     formData.append("isVeg", isVeg); 
 
-  
     Array.from(images).forEach((image) => {
       formData.append("itemImages", image);
     });
 
-
-    console.log(formData);
-
     try {
-      const response = await API.post("/menu/addtomenu", formData, {
+      const response = await API.post("/cakes/add", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
 
-      setMessage("Item added successfully!");
+      setMessage("Item added to Cakes successfully!");
       setMessageType("success");
       setLoading(false);
       setItemName("");
       setDescription("");
       setPrice("");
-      setCategory("");
+      setCategory("cakes"); 
       setIsDeliverable(false); 
       setIsVeg(false); 
       setImages([]);
@@ -76,8 +72,8 @@ const AddItem = () => {
   return (
     <div className="container">
       <div className="text-white">
-        <h2>Add Item</h2>
-        <p>Here you can add a new item to the menu.</p>
+        <h2>Add Cake Item</h2>
+        <p>Here you can add a new item to the Cakes category.</p>
 
         {message && (
           <div
@@ -91,7 +87,7 @@ const AddItem = () => {
         )}
 
         <div className="row">
-          <div className=" colo-8 col-lg-8">
+          <div className="col-8 col-lg-8">
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="itemName" className="form-label">
@@ -136,25 +132,6 @@ const AddItem = () => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="category" className="form-label">
-                  Category
-                </label>
-                <select
-                  id="category"
-                  className="form-control bg-dark text-white"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  required
-                >
-                  <option value="">Select Category</option>
-                  <option value="todays special">Today's Special</option>
-                  <option value="new arrivals">New Arrivals</option>
-                  <option value="cakes">Cakes</option>
-                  <option value="menu">Menu</option>
-                </select>
-              </div>
-
-              <div className="mb-3">
                 <label htmlFor="isDeliverable" className="form-label">
                   Deliverable
                 </label>
@@ -189,7 +166,7 @@ const AddItem = () => {
               </div>
 
               <div className="mb-3">
-                <label htmlFor="itemImages" className="form-label mb-2 ">
+                <label htmlFor="itemImages" className="form-label mb-2">
                   Item Images
                 </label>
                 <input
@@ -228,4 +205,4 @@ const AddItem = () => {
   );
 };
 
-export default AddItem;
+export default AddCakeItem;
