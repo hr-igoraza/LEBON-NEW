@@ -29,7 +29,9 @@ const EventCards = (props) => {
             </div>
           </div>
           <div className="col-lg-8 col-md-12 image">
-            <div className="event-cardImg">
+            <div className="event-cardImg"
+            style={{backgroundImage: `url(${props.img})`}}
+            >
               <img src={props.img} alt={props.title} />
             </div>
           </div>

@@ -13,7 +13,7 @@ import RegisterPage from "./Pages/Admin/register";
 import LoginPage from "./Pages/Admin/login";
 import AdminPanel from "./Pages/Admin/AdminPanel";
 import ProtectedRoute from "./utils/PrivateAuth";
-// import { AuthProvider } from "./context/authContext";
+import { AuthProvider } from "./context/authContext";
 
 function App() {
   return (
@@ -22,17 +22,15 @@ function App() {
         <Route path="/signup" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
-            path="/adminpanel"
-            element={
-
-              // <AuthProvider>
-              //   <AdminPanel/>
-              // </AuthProvider>
+          path="/adminpanel"
+          element={
+            <AuthProvider>
               <ProtectedRoute>
                 <AdminPanel />
               </ProtectedRoute>
-            }
-          />
+            </AuthProvider>
+          }
+        />
 
         <Route path="/" element={<Home />} />
         <Route path="/newarrivals" element={<NewArrivals />} />
