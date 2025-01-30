@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import "./adminPanel.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import ViewItem from "../../components/Dashboard/ViewItem";
-import AddItem from "../../components/Dashboard/addItem";
-import EditItem from "../../components/Dashboard/editItem";
+import AddItem from "../../components/Dashboard/AddItem";
+import EditItem from "../../components/Dashboard/EditItem";
 import GalleryView from "../../components/Gallery/GalleryView";
 import GalleryEdit from "../../components/Gallery/GalleryEdit";
-import AddCakeItem from "../../components/DashBoardTabs/addItem/addCakes";
-import AddNewArrivalItem from "../../components/DashBoardTabs/addItem/addNewArrivals";
-import AddPastryItem from "../../components/DashBoardTabs/addItem/addPastries";
-import AddSpecialItem from "../../components/DashBoardTabs/addItem/addTodaysSpecial";
+// import AddCakeItem from "../../components/DashBoardTabs/addItem/addCakes";
+// import AddNewArrivalItem from "../../components/DashBoardTabs/addItem/addNewArrivals";
+// import AddPastryItem from "../../components/DashBoardTabs/addItem/addPastries";
+// import AddSpecialItem from "../../components/DashBoardTabs/addItem/addTodaysSpecial";
 
-import Cakes from "../../components/DashBoardTabs/CakesDash";
-import NewArrivals from "../../components/DashBoardTabs/NewArrivalsDash";
-import Pastries from "../../components/DashBoardTabs/Pastries";
-import TodaysSpecial from "../../components/DashBoardTabs/TodaysSpecialDash";
+// import Cakes from "../../components/DashBoardTabs/CakesDash";
+// import NewArrivals from "../../components/DashBoardTabs/NewArrivalsDash";
+// import Pastries from "../../components/DashBoardTabs/Pastries";
+// import TodaysSpecial from "../../components/DashBoardTabs/TodaysSpecialDash";
 
 const AdminPanel = () => {
   const [activeSection, setActiveSection] = useState("menu");
