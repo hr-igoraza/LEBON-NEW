@@ -8,6 +8,7 @@ import Footer from "../../components/footer/Footer.jsx";
 import Button from "../../components/buttons/Button.jsx";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/navBar/NavBar.jsx";
+import ProductTab from "../../data/TabData.jsx";
 
 
 const Pastries = () => {
@@ -37,7 +38,7 @@ const Pastries = () => {
         <div className="our-specialities mb-lg-4">
           <div className="section-heading ">
             <p className="overline  f-4 ls-2">Quality Food For You</p>
-            <h2 className="title">Our Specialities</h2>
+            <h2 className="title">Pastries</h2>
             <p className="bottomline">
               Authentic food from our restaurant served <br /> with high quality
               ingredients
@@ -45,7 +46,9 @@ const Pastries = () => {
           </div>
 
           <div className="specialities-tab col-12">
-            <Tab tabs={tabs} onTabChange={handleTabChange} />
+            {/* <Tab tabs={tabs} onTabChange={handleTabChange} /> */}
+            <ProductTab category="Pastries" />
+
           </div>
         </div>
 

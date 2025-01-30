@@ -5,15 +5,15 @@ import API from "../../utils/api";
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // Loading state
+  const [loading, setLoading] = useState(false); 
   const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(""); // Clear any previous error
-    setLoading(true); // Start loading state
+    setError(""); 
+    setLoading(true); 
 
-    // Simple input validation
+    
     if (!formData.email || !formData.password) {
       setError("Both email and password are required.");
       setLoading(false);
@@ -21,7 +21,7 @@ const Login = () => {
     }
 
     try {
-      const response = await API.post("/admin/login", formData); 
+      const response = await API.post("api/admin/login", formData); 
       const token = response.data.accessToken;
       navigate("/adminpanel");
 

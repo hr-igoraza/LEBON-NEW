@@ -1,10 +1,10 @@
 import "./cakes.css";
 import Button from "../../components/buttons/Button.jsx";
 import Tab from "../../components/tabs/Tab";
-import CakesTab from "../../data/cakesData.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/navBar/NavBar.jsx";
+import ProductTab from "../../data/TabData.jsx";
 
 const Cakes = () => {
   const handleTabChange = (index) => {
@@ -28,7 +28,7 @@ const Cakes = () => {
         <div className="our-specialities mb-lg-4">
           <div className="section-heading ">
             <p className="overline  f-4 ls-2">Quality Food For You</p>
-            <h2 className="title">Our Specialities</h2>
+            <h2 className="title">Cakes</h2>
             <p className="bottomline">
               Authentic food from our restaurant served <br /> with high quality
               ingredients
@@ -37,7 +37,8 @@ const Cakes = () => {
 
           <div className="specialities-tab col-12">
             {/* <Tab tabs={CakesTab} onTabChange={handleTabChange} /> */}
-            <CakesTab/>
+            {/* <CakesTab/> */}
+            <ProductTab category="Cakes" />
           </div>
         </div>
 

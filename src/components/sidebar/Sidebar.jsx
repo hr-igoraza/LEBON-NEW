@@ -10,7 +10,7 @@ const Sidebar = ({ setActiveSection, setActiveTab }) => {
   const handleLogout = () => {
     logout();
     navigate("/login");
-  };
+  };  
 
   return (
     <div className="sidebar px-2">
@@ -26,7 +26,7 @@ const Sidebar = ({ setActiveSection, setActiveTab }) => {
             Gallery
           </button>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <button className="nav-link" onClick={() => setActiveSection("cakes")}>
             Cakes
           </button>
@@ -45,7 +45,7 @@ const Sidebar = ({ setActiveSection, setActiveTab }) => {
           <button className="nav-link" onClick={() => setActiveSection("todaysSpecial")}>
             Today's Special
           </button>
-        </li>
+        </li> */}
       </ul>
       <div className="logout-btn-container mt-5">
         <button className="btn btn-danger w-75" onClick={handleLogout}>

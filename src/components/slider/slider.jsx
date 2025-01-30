@@ -1,20 +1,20 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import "./imageSlider.css"; 
-const ImageSlider = () => {
+import "./imageSlider.css";
+import "./slider.css";
+import API from "../../utils/api";
+
+const ImageSlider = ({ images }) => {
+  // const [images, setImages] = useState([]); 
   const sliderRef = useRef(null);
-  const images = [
-    { id: 0, src: "/images/checkout/check-1.png" },
-    { id: 1, src: "/images/checkout/check-2.png" },
-    { id: 2, src: "/images/checkout/check-3.png" },
-  ];
 
   const settings = {
     dots: false,
     arrows: false,
-    infinite: true,
+    infinite: images.length > 1,
+    // infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -22,41 +22,59 @@ const ImageSlider = () => {
 
   const goToSlide = (index) => {
     if (sliderRef.current) {
-      sliderRef.current.slickGoTo(index); 
+      sliderRef.current.slickGoTo(index);
     }
   };
+
+  // useEffect(() => {
+  //   const fetchImages = async () => {
+  //     try {
+  //       const response = await API.get(`/api/products/${id}`);
+  //       console.log("API Response:", response.data);
+  //       if (response.data && response.data.images) {
+  //         setImages(response.data.images); // Update state with images from API
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching product images:", error);
+  //     }
+  //   };
+
+  //   if (id) {
+  //     fetchImages();
+  //   }
+  // }, [id]);
 
   return (
     <div className="container mt-4">
       <div className="slider-container mb-3">
         <Slider ref={sliderRef} {...settings}>
-          {images.map((image) => (
-            <div key={image.id} className="text-center">
-              <img
-                src={image.src}
-                alt={`Cake Slide ${image.id}`}
-                className="img-fluid "
-                style={{ 
-                    // maxHeight: "500px"
-                 }}
-              />
-            </div>
-          ))}
+          {images.length > 0 ? (
+            images.map((image, index) => (
+              <div key={index} className="text-center slider-image">
+                <img
+                  src={image}
+                  alt={`Product Image ${index + 1}`}
+                  className="img-fluid"
+                />
+              </div>
+            ))
+          ) : (
+            <p className="text-center">Loading images...</p>
+          )}
         </Slider>
       </div>
 
-      <div className="row gap-2 ">
+      <div className="row gap-2">
         {images.map((image, index) => (
           <div
-            key={image.id}
+            key={index}
             className="col-auto m-0 thumbnail-container"
             onClick={() => goToSlide(index)}
             style={{ cursor: "pointer" }}
-            
           >
             <img
-              src={image.src}
-              alt={`Thumbnail ${image.id}`}
+              src={image}
+              alt={`Thumbnail ${index + 1}`}
               className="thumbnail-img"
               style={{
                 width: "80px",

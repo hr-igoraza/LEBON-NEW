@@ -7,11 +7,6 @@ import { useContext, useState } from "react";
 
 const TabCards = (props) => {
   const navigate = useNavigate();
-
-  // function handleNavigate() {
-  //   navigate("/checkout");
-  // }
-
   const { addToCart } = useContext(CartContext);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -30,6 +25,8 @@ const TabCards = (props) => {
         description: props.description,
         price: props.price,
         img: props.img,
+        isVeg: props.isVeg,
+        isDeliverable: props.isDeliverable
         
       });
       navigate("/checkout");

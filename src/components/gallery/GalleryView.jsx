@@ -14,7 +14,7 @@ const GalleryView = ({ setActiveTab }) => {
   useEffect(() => {
     const fetchGalleryItems = async () => {
       try {
-        const response = await API.get("/gallery");
+        const response = await API.get("api/gallery");
         setGalleryItems(response.data);
         setLoading(false);
       } catch (err) {
@@ -28,7 +28,7 @@ const GalleryView = ({ setActiveTab }) => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
-        await API.delete(`/gallery/${id}`);
+        await API.delete(`api/gallery/${id}`);
         setGalleryItems((prevItems) => prevItems.filter((item) => item._id !== id));
         setFeedback("Item deleted successfully.");
         setTimeout(() => setFeedback(""), 3000);
@@ -52,7 +52,7 @@ const GalleryView = ({ setActiveTab }) => {
       formData.append("images", image);
     });
     try {
-      const response = await API.post("/gallery", formData, {
+      const response = await API.post("api/gallery", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

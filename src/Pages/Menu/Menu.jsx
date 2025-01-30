@@ -7,6 +7,7 @@ import Footer from "../../components/footer/Footer.jsx";
 import Button from "../../components/buttons/Button.jsx";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/navBar/NavBar.jsx";
+import ProductTab from "../../data/TabData.jsx";
 
 const Menu = () => {
   const handleTabChange = (index) => {
@@ -35,7 +36,7 @@ const Menu = () => {
         <div className="our-specialities mb-lg-4">
           <div className="section-heading ">
             <p className="overline  f-4 ls-2">Quality Food For You</p>
-            <h2 className="title">Our Specialities</h2>
+            <h2 className="title">Menu</h2>
             <p className="bottomline">
               Authentic food from our restaurant served <br /> with high quality
               ingredients
@@ -43,7 +44,10 @@ const Menu = () => {
           </div>
 
           <div className="specialities-tab col-12">
-            <Tab tabs={tabs} onTabChange={handleTabChange} />
+            {/* <Tab tabs={tabs} onTabChange={handleTabChange} /> */}
+
+            <ProductTab category="Menu" />
+
           </div>
         </div>
         <div className="load-more">

@@ -41,43 +41,44 @@ const AdminPanel = () => {
         default:
           return <GalleryView />;
       }
-    } else if (activeSection === "cakes") {
-      switch (activeTab) {
-        case "view":
-          return <Cakes setActiveTab={setActiveTab} />;
-        case "add":
-          return <AddCakeItem />;
-        default:
-          return <ViewItem setActiveTab={setActiveTab} />;
-      }
-    } else if (activeSection === "newArrivals") {
-      switch (activeTab) {
-        case "view":
-          return <NewArrivals setActiveTab={setActiveTab} />;
-        case "add":
-          return <AddNewArrivalItem />;
-        default:
-          return <ViewItem setActiveTab={setActiveTab} />;
-      }
-    } else if (activeSection === "pastries") {
-      switch (activeTab) {
-        case "view":
-          return <Pastries setActiveTab={setActiveTab} />;
-        case "add":
-          return <AddPastryItem />;
-        default:
-          return <ViewItem setActiveTab={setActiveTab} />;
-      }
-    } else if (activeSection === "todaysSpecial") {
-      switch (activeTab) {
-        case "view":
-          return <TodaysSpecial setActiveTab={setActiveTab} />;
-        case "add":
-          return <AddSpecialItem />;
-        default:
-          return <ViewItem setActiveTab={setActiveTab} />;
-      }
     }
+    //  else if (activeSection === "cakes") {
+    //   switch (activeTab) {
+    //     case "view":
+    //       return <Cakes setActiveTab={setActiveTab} />;
+    //     case "add":
+    //       return <AddCakeItem />;
+    //     default:
+    //       return <ViewItem setActiveTab={setActiveTab} />;
+    //   }
+    // } else if (activeSection === "newArrivals") {
+    //   switch (activeTab) {
+    //     case "view":
+    //       return <NewArrivals setActiveTab={setActiveTab} />;
+    //     case "add":
+    //       return <AddNewArrivalItem />;
+    //     default:
+    //       return <ViewItem setActiveTab={setActiveTab} />;
+    //   }
+    // } else if (activeSection === "pastries") {
+    //   switch (activeTab) {
+    //     case "view":
+    //       return <Pastries setActiveTab={setActiveTab} />;
+    //     case "add":
+    //       return <AddPastryItem />;
+    //     default:
+    //       return <ViewItem setActiveTab={setActiveTab} />;
+    //   }
+    // } else if (activeSection === "todaysSpecial") {
+    //   switch (activeTab) {
+    //     case "view":
+    //       return <TodaysSpecial setActiveTab={setActiveTab} />;
+    //     case "add":
+    //       return <AddSpecialItem />;
+    //     default:
+    //       return <ViewItem setActiveTab={setActiveTab} />;
+    //   }
+    // }
   };
 
   return (

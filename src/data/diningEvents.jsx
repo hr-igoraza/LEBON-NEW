@@ -1,69 +1,67 @@
 import React, { useEffect, useState } from "react";
 import Tab from "../components/tabs/Tab";
 import EventCards from "../components/eventCards/EventCards";
-import API from "../utils/api"; // Use your axios instance
+import API from "../utils/api"; // Assuming this is your axios instance
 
-const Events = () => {
+const Events = ({ category }) => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // Fetch and transform menu items
   useEffect(() => {
-    const fetchMenuItems = async () => {
+    const fetchEvents = async () => {
       try {
-        const response = await API.get("/menu");
-        const menuItems = response.data;
+        const response = await API.get(`/events?category=${category}`); // Using the category prop in the API call
+        const eventItems = response.data;
 
-        // Group items by category
-        const groupedEvents = menuItems.reduce((acc, item) => {
-          acc[item.category] = acc[item.category] || [];
-          acc[item.category].push(item);
+        // Group events by subcategory (or use 'Uncategorized' as fallback)
+        const groupedEvents = eventItems.reduce((acc, event) => {
+          const subCategory = event.subCategory?.name || "Uncategorized"; // Handle missing subcategories
+          acc[subCategory] = acc[subCategory] || [];
+          acc[subCategory].push(event);
           return acc;
         }, {});
 
-        // Transform grouped items into tab structure
-        const transformedEvents = Object.keys(groupedEvents).map(
-          (category) => ({
-            label: category,
-            content: (
-              <div className="event-list">
-                {groupedEvents[category].map((item) => (
-                  <EventCards
-                    key={item._id} // Assuming each item has a unique _id
-                    img={item.itemImages?.[0] || "/placeholder.jpg"} // Fallback image
-                    title={item.itemName}
-                    description={item.description}
-                    price={`$${item.price}`}
-                  />
-                ))}
-              </div>
-            ),
-          })
-        );
+        // Transform grouped events into tabs
+        const transformedEvents = Object.keys(groupedEvents).map((subCategory) => ({
+          label: subCategory,
+          content: (
+            <div className="event-list">
+              {groupedEvents[subCategory].map((event) => (
+                <EventCards
+                  key={event._id}
+                  img={event.itemImages?.[0] || "/placeholder.jpg"}
+                  title={event.itemName}
+                  description={event.description}
+                  price={`$${event.price}`}
+                />
+              ))}
+            </div>
+          ),
+        }));
 
         setEvents(transformedEvents);
         setLoading(false);
       } catch (err) {
-        console.error("Error fetching menu items:", err);
+        console.error("Error fetching events:", err);
         setError("Failed to load events. Please try again later.");
         setLoading(false);
       }
     };
 
-    fetchMenuItems();
-  }, []);
+    fetchEvents();
+  }, [category]); // The effect will run again if the category changes
 
   return (
     <div>
       {loading ? (
-        <p>Loading events...</p>
+        <p>Loading {category} events...</p>
       ) : error ? (
-        <p className="error-message">{error}</p>
+        <p className="error-message text-white text-center">{error}</p>
       ) : events.length > 0 ? (
         <Tab tabs={events} />
       ) : (
-        <p>No events available.</p>
+        <p className="text-center text-white">No {category} events available.</p>
       )}
     </div>
   );

@@ -4,16 +4,15 @@ import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
 import { CartContext } from "../../context/cartContext";
-import axios from "axios";
+import API from "../../utils/api";
 
 const CheckOut = () => {
-  const { cart } = useContext(CartContext); 
-  const [quantity, setQuantity] = useState({}); 
-  const [size, setSize] = useState({}); 
-  const [message, setMessage] = useState({}); 
-  const [sliderImages, setSliderImages] = useState([]);
+  const { cart } = useContext(CartContext);
+  const [quantity, setQuantity] = useState({});
+  const [size, setSize] = useState({});
+  const [message, setMessage] = useState({});
+  const [sliderImages, setSliderImages] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
 
   useEffect(() => {
     const initialQuantities = {};
@@ -32,22 +31,27 @@ const CheckOut = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`/menu/${id}`);
-        setSliderImages(response.data.images);
-        // console.error("Error fetching images:", error);
+        const images = {};
+        for (const item of cart) {
+          const response = await API.get(`/api/products/${item.id}`);
+          console.log("API Response:", response.data);
+          images[item.id] = response.data.images; 
+        }
+        setSliderImages(images);
+      } catch (error) {
+        console.error("Error fetching product images:", error);
       } finally {
         setIsLoading(false);
       }
     };
     fetchImages();
-  }, []);
+  }, [cart]);
 
   // Function to handle quantity change
   const handleQuantityChange = (action, index) => {
     setQuantity((prev) => ({
       ...prev,
-      [index]:
-        action === "increase" ? prev[index] + 1 : Math.max(prev[index] - 1, 1),
+      [index]: action === "increase" ? prev[index] + 1 : Math.max(prev[index] - 1, 1),
     }));
   };
 
@@ -91,18 +95,13 @@ const CheckOut = () => {
           <div className="cart-items">
             {cart.map((item, index) => (
               <div className="cart-item row mb-5" key={index}>
-                {/* <div className="col-md-6">
-                  <ImageSlider  images={sliderImages}/>
-                </div> */}
-
                 <div className="col-md-6 p-5">
                   {isLoading ? (
                     <p className="text-center f-3 f-col-w">Loading images...</p>
                   ) : (
-                    <ImageSlider images={sliderImages} />
+                    <ImageSlider images={sliderImages[item.id] || []} />
                   )}
                 </div>
-                {/* ===slider */}
                 <div className="col-md-6">
                   <div className="product-description">
                     <h2 className="heading f-1">{item.title}</h2>
@@ -114,9 +113,7 @@ const CheckOut = () => {
                           height={45}
                           src="/images/checkout/reduce.png"
                           alt="reduce"
-                          onClick={() =>
-                            handleQuantityChange("decrease", index)
-                          }
+                          onClick={() => handleQuantityChange("decrease", index)}
                         />
                         <p className="f-4 f-col-w">{quantity[index]}</p>
                         <img
@@ -124,16 +121,14 @@ const CheckOut = () => {
                           height={45}
                           src="/images/checkout/add.png"
                           alt="add"
-                          onClick={() =>
-                            handleQuantityChange("increase", index)
-                          }
+                          onClick={() => handleQuantityChange("increase", index)}
                         />
                       </div>
                     </div>
 
                     <p className="f-4 f-col-w mt-4">{item.description}</p>
 
-                    <div className="non-veg-icon mt-4 ">
+                    <div className="non-veg-icon mt-4">
                       <img
                         width={30}
                         height={30}
@@ -155,12 +150,7 @@ const CheckOut = () => {
                           <option value="2">Size 2</option>
                           <option value="3">Size 3</option>
                         </select>
-                        <img
-                          width={25}
-                          height={15}
-                          src="/images/VectorDown.png"
-                          alt="down"
-                        />
+                        <img width={25} height={15} src="/images/VectorDown.png" alt="down" />
                       </div>
                       <img src="/images/line.svg" alt="svg" />
                     </div>
@@ -178,9 +168,7 @@ const CheckOut = () => {
 
                     <div className="whatsapp mt-5" onClick={handleCheckout}>
                       <img src="/images/whatsapp.svg" alt="whatsapp" />
-                      <p className="whatsapp-txt m-0 text-dark fw-700">
-                        CHAT ON WHATSAPP ORDER
-                      </p>
+                      <p className="whatsapp-txt m-0 text-dark fw-700">CHAT ON WHATSAPP ORDER</p>
                     </div>
                   </div>
                 </div>

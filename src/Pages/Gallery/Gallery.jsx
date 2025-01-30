@@ -15,7 +15,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await API.get("/gallery");
+        const response = await API.get("api/gallery");
         setImages(response.data);
         setLoading(false);
       } catch (err) {

@@ -36,7 +36,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await API.post("/admin/register", formData);
+      const response = await API.post("api/admin/register", formData);
       const token = response.data.token; 
       localStorage.setItem("accessToken", token); 
       setMessage("Signup successful! Redirecting to admin panel...");
