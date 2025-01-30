@@ -7,7 +7,7 @@ import "./slider.css";
 import API from "../../utils/api";
 
 const ImageSlider = ({ images }) => {
-  // const [images, setImages] = useState([]); 
+  // const [images, setImages] = useState([]);
   const sliderRef = useRef(null);
 
   const settings = {

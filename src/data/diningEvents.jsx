@@ -11,8 +11,9 @@ const Events = ({ category }) => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await API.get(`/events?category=${category}`); // Using the category prop in the API call
+        const response = await API.get(`api/products?category=${category}`); // Using the category prop in the API call
         const eventItems = response.data;
+        console.log(eventItems);
 
         // Group events by subcategory (or use 'Uncategorized' as fallback)
         const groupedEvents = eventItems.reduce((acc, event) => {
@@ -30,8 +31,8 @@ const Events = ({ category }) => {
               {groupedEvents[subCategory].map((event) => (
                 <EventCards
                   key={event._id}
-                  img={event.itemImages?.[0] || "/placeholder.jpg"}
-                  title={event.itemName}
+                  img={event.images?.[0] || "/placeholder.jpg"}
+                  title={event.name}
                   description={event.description}
                   price={`$${event.price}`}
                 />

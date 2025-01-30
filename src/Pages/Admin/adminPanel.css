@@ -7,6 +7,8 @@
   margin-top: 100px;
 } */
 
+
+
 .tab-btn {
   padding: 10px 20px;
   margin: 0 10px;
@@ -24,4 +26,13 @@
 
 .tab-btn:hover {
   background-color: #e68900;
+}
+
+
+/* mediaquery */
+
+@media screen and (max-width: 768px) {
+  .admin-panel {
+    overflow-x: scroll;
+  }
 }

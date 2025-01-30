@@ -14,6 +14,7 @@ import LoginPage from "./Pages/Admin/login";
 import AdminPanel from "./Pages/Admin/AdminPanel";
 import ProtectedRoute from "./utils/PrivateAuth";
 import { AuthProvider } from "./context/authContext";
+import EditItem from "./components/Dashboard/editItem";
 
 function App() {
   return (
@@ -27,6 +28,17 @@ function App() {
             <AuthProvider>
               <ProtectedRoute>
                 <AdminPanel />
+              </ProtectedRoute>
+            </AuthProvider>
+          }
+        />
+
+        <Route
+          path="/edit/:id"
+          element={
+            <AuthProvider>
+              <ProtectedRoute>
+                <EditItem />
               </ProtectedRoute>
             </AuthProvider>
           }

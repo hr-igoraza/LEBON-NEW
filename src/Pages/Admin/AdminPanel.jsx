@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./adminPanel.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import ViewItem from "../../components/Dashboard/viewItem";
+import ViewItem from "../../components/Dashboard/ViewItem";
 import AddItem from "../../components/Dashboard/addItem";
 import EditItem from "../../components/Dashboard/editItem";
 import GalleryView from "../../components/Gallery/GalleryView";

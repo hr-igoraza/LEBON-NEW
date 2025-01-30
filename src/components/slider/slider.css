@@ -55,6 +55,13 @@
 .thumbnail-img {
   object-fit: cover;
   transition: transform 0.3s ease;
+  
+}
+
+.thumbnail-img:hover{
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  
 }
 
 .thumbnail-container.active .thumbnail-img {

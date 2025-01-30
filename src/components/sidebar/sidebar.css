@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   padding-top: 20px;
+  z-index: 99;
 }
 
 .sidebar h2 {
