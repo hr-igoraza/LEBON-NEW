@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./adminPanel.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import ViewItem from "../../components/Dashboard/ViewItem";//import
+import ViewItem from "../../components/Dashboard/ViewItem"; //import
 import AddItem from "../../components/Dashboard/AddItem";
 import EditItem from "../../components/Dashboard/EditItem";
-import GalleryView from "../../components/Gallery/Gallery";
+import GalleryView from "../../components/gallery/GalleryView";
 // import GalleryEdit from "../../components/Gallery/GalleryEdit";
 // import AddCakeItem from "../../components/DashBoardTabs/addItem/addCakes";
 // import AddNewArrivalItem from "../../components/DashBoardTabs/addItem/addNewArrivals";
