@@ -8,6 +8,7 @@ import Tab from "../../components/tabs/Tab";
 import Events from "../../data/diningEvents.jsx";
 import { useNavigate } from "react-router-dom";
 import ProductTab from "../../data/TabData.jsx";
+import GalleryComponent from "../../components/GalleryComponent/GalleryComponent.jsx";
 
 const Home = () => {
   const handleTabChange = (index) => {
@@ -33,9 +34,9 @@ const Home = () => {
             Taste the rich flavor of <br /> high quality cakes
           </h1>
           <p className="bottomline f-4 fw-300">
-            We only use the five star quality for <br /> our menu, come and get
-            the richness in <br />
-            every food we serve.
+            we bake with love and perfection,
+            <br /> bringing you the richest flavors and the finest quality!
+            {/* Whether it's a birthday, wedding, or a sweet craving, our cakes make every moment special! */}
           </p>
           <Button
             className={"button "}
@@ -123,8 +124,6 @@ const Home = () => {
           <div className="event-specialities-tab ">
             {/* <Tab tabs={events} onTabChange={handleTabChange} /> */}
             <Events category={"Dining Events"} />
-
-            
           </div>
         </div>
       </section>
@@ -159,27 +158,29 @@ const Home = () => {
             </div>
             <div className="col-12 col-lg-6 ">
               <div className="text-white bottomline our-story-text">
-                <div className="p-2 p-md-5 mt-2  mt-md-0">
+                <div className="p-2 p-md-5 mt-md-5">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Integer feugiat urna id leo euismod rhoncus. Aliquam erat
-                    volutpat. Nulla id aliquam neque, at dignissim quam.
-                    Praesent et lacus accumsan, consequat nisl a, mattis sapien.
+                    Founded in July 2019, LEBONCAKES has grown to become one of
+                    the most loved confectioneries in Alappuzha. We are
+                    passionate about crafting high-quality cakes with rich
+                    flavors and premium ingredients, making every bite a
+                    delight.
                   </p>
                   <p>
-                    Nam sodales ullamcorper aliquet. Phasellus ut pretium
-                    libero, vitae imperdiet purus. Sed sed tincidunt velit.
-                    Aliquam vitae ipsum molestie, vehicula nisi quis, finibus
-                    leo.
+                    We offer fast home delivery, ensuring that every cake order
+                    reaches you within 1 hour in and around Kochi, Alappuzha,
+                    and Kottayam. Whether it's a last-minute celebration or a
+                    sweet craving, LEBONCAKES is here to deliver happiness—fresh
+                    and on time!
                   </p>
 
-                  <Button
+                  {/* <Button
                     className={"button txt-yellow"}
                     divClass={"bt-container mt-5"}
                     stroke={"#f5be32"}
                   >
                     MORE ABOUT US
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
             </div>
@@ -238,25 +239,19 @@ const Home = () => {
           </div>
         </div>
 
+        {/* <GalleryComponent /> */}
+
         {/* ======================= */}
-
-
-        
 
         <div className="row mt-lg-5">
           <div className="col-12 col-lg-6 ">
             <div className="text-white bottomline our-story-text">
-              <div className="p-2 p-md-5 mt-2  mt-md-0">
+              <div className="">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer feugiat urna id leo euismod rhoncus. Aliquam erat
-                  volutpat. Nulla id aliquam neque, at dignissim quam. Praesent
-                  et lacus accumsan, consequat nisl a, mattis sapien.
+                Welcome to our cake gallery! At LEBONCAKES, we take pride in crafting visually stunning and irresistibly delicious cakes for every occasion. Whether you're celebrating a birthday, wedding, or simply indulging in a sweet treat, our cakes are designed to leave a lasting impression.
                 </p>
                 <p>
-                  Nam sodales ullamcorper aliquet. Phasellus ut pretium libero,
-                  vitae imperdiet purus. Sed sed tincidunt velit. Aliquam vitae
-                  ipsum molestie, vehicula nisi quis, finibus leo.
+                Browse through our face book page Lebon cakes and delicacies and insta pages @Leboncakes to see the varieties....Call or whatsapp anytime at <strong>8593880999</strong> or <strong>8593882999</strong> for your orders...
                 </p>
 
                 <Button

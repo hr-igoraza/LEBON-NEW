@@ -3,49 +3,11 @@ import "./gallery.css";
 import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import Button from "../../components/buttons/Button";
-import API from "../../utils/api"; // Import your axios instance
+import API from "../../utils/api"; 
+import GalleryComponent from "../../components/GalleryComponent/GalleryComponent";
 
 const Gallery = () => {
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await API.get("api/gallery");
-        setImages(response.data);
-        setLoading(false);
-      } catch (err) {
-        setError("Failed to load images.");
-        setLoading(false);
-      }
-    };
-
-    fetchImages();
-  }, []);
-
-  const openModal = (index) => {
-    setCurrentImageIndex(index);
-    setModalIsOpen(true);
-    document.body.style.overflow = "hidden"; // Prevent scrolling
-  };
-
-  const closeModal = () => {
-    setModalIsOpen(false);
-    document.body.style.overflow = "auto"; // Enable scrolling
-  };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
+  
   return (
     <>
       <NavBar />
@@ -54,7 +16,9 @@ const Gallery = () => {
 
 
       <section className="container my-500px mt-5 p-3 p-lg-5">
-        <div className="section-heading mb-lg-4 mt-5">
+
+        <GalleryComponent/>
+        {/* <div className="section-heading mb-lg-4 mt-5">
           <h2 className="title f-2">Gallery</h2>
         </div>
 
@@ -94,7 +58,7 @@ const Gallery = () => {
               </button>
             </div>
           </div>
-        )}
+        )} */}
 
         <div className="row mt-lg-5">
           <div className="col-12 col-lg-6">

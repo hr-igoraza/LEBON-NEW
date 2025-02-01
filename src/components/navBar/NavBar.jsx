@@ -23,11 +23,15 @@ const NavBar = () => {
     }, 150);
   };
 
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg px-lg-4 px-2 ">
         <div className="container-fluid p-2 px-lg-5">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand" href="#" onClick={handleLogoClick}>
             <img width={100} src="/images/lebonLogo.png" alt="" />
           </a>
           <button
@@ -106,10 +110,7 @@ const NavBar = () => {
                   >
                     About Us
                   </p>
-                  <NavLink
-                    className="dropdown-item text-dark"
-                    to="/gallery"
-                  >
+                  <NavLink className="dropdown-item text-dark" to="/gallery">
                     Gallery
                   </NavLink>
                 </div>
@@ -124,14 +125,18 @@ const NavBar = () => {
                 </NavLink>
               </li>
             </ul>
-            <div className="d-flex">
-              <Button
+            <div className="d-flex gap-2 align-center delivery-container">
+              {/* <Button
                 className="button txt-yellow"
                 divClass="nav-item bt-container"
                 stroke="#f5be32"
               >
                 RESERVATION
-              </Button>
+              </Button> */}
+
+<img  width={50} src="/images/deliveryAvailable.png" alt="delivery available" />
+<p className="delivery-available">Delivery Available</p>
+
             </div>
           </div>
         </div>
