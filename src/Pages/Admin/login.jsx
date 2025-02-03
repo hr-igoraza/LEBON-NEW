@@ -91,12 +91,12 @@ const Login = () => {
             {loading ? "Logging in..." : "Login"}
           </button>
         </form>
-        {/* <p className="text-center mt-3 text-white">
+        <p className="text-center mt-3 text-white">
           Don't have an account?{" "}
           <Link to="/signup" style={{ color: "#f5be32" }}>
             Signup
           </Link>
-        </p> */}
+        </p>
       </div>
     </div>
   );

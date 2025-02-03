@@ -350,14 +350,14 @@ const AddProduct = () => {
                   </option>
                 ))}
               </select>
-              {/* <button
+              <button
                 type="button"
                 className="btn btn-outline-light"
                 onClick={handleAddCategory}
                 disabled={loading}
               >
                 + Add
-              </button> */}
+              </button>
             </div>
           </div>
 
