@@ -13,7 +13,7 @@ const Events = ({ category }) => {
       try {
         const response = await API.get(`api/products?category=${category}`); // Using the category prop in the API call
         const eventItems = response.data;
-        console.log(eventItems);
+        // console.log(eventItems);
 
         // Group events by subcategory (or use 'Uncategorized' as fallback)
         const groupedEvents = eventItems.reduce((acc, event) => {
