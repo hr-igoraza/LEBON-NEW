@@ -18,7 +18,7 @@ const ItemCard = (props) => {
               : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut imperdiet lectus."}
           </p>
 
-          <Rate className="my-3" style={{}} defaultValue={props.rating} />
+          <Rate className="my-3" style={{}} disabled defaultValue={props.rating} />
 
           <Button
             className={"button txt-yellow "}

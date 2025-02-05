@@ -1,106 +1,100 @@
 .checkout {
-    background: url("/images/checkoutBgImg.png");
-    background-position: center;
-    background-size: cover;
-  
-    /* height: 100vh; */
-  
-    /* display: flex;
+  background: url("/images/checkoutBgImg.png");
+  background-position: center;
+  background-size: cover;
+
+  /* height: 100vh; */
+
+  /* display: flex;
     align-items: center;
     justify-content: center;
     text-align: center; */
-  }
-  
-  .checkout-content{
-    margin-top: 175px;
-  }
-
-  .price-count{
-    width: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .count{
-    display: flex;
-    gap: 20px;
-  }
-
-.product-description{
-    
-    text-align: left;
 }
 
-.checkout{
-    display : flex;
-    align-items: center;
-    justify-content : center;
+.checkout-content {
+  margin-top: 175px;
 }
 
-.size{
-    display: flex;
-    gap: 10px;
-    align-items:center;
-    width: 200px;
-    /* height: 100px; */
+.price-count {
+  width: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.size select{
-    background-color: transparent !important;
-    border: none !important;
-    outline: none !important;
-
-    /* font-family: ; */
-    font-size: 40px;
-    /* font-color: #f5be32; */
-    color: white;
-    font-weight: 600;
-    appearance: none; 
+.count {
+  display: flex;
+  gap: 20px;
 }
 
-.size option{
-    background-color: transparent !important;
-    border: none !important;
-    outline: none !important;
-
-    /* font-family: ; */
-    font-size: 20px;
-    /* font-color: #f5be32; */
-    color: black;
-    font-weight: 500;
-    appearance: none; 
+.product-description {
+  text-align: left;
 }
 
-select:focus{
-outline: transparent !important;
-border: transparent !important;
-/* border-color: #FFCF0D !important; */
+.checkout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.form-select:focus{
-    outline: transparent !important;
-    border: transparent !important;
-    /* border-color: #FFCF0D !important; */
-    box-shadow: none !important;
-    }
-    
-
-
-select:active{
-    outline: none !important;
-border: none !important;
+.size {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 200px;
+  /* height: 100px; */
 }
 
+.size select {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
 
+  /* font-family: ; */
+  font-size: 40px;
+  /* font-color: #f5be32; */
+  color: white;
+  font-weight: 600;
+  appearance: none;
+}
 
+.size option {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+
+  /* font-family: ; */
+  font-size: 20px;
+  /* font-color: #f5be32; */
+  color: black;
+  font-weight: 500;
+  appearance: none;
+}
+
+select:focus {
+  outline: transparent !important;
+  border: transparent !important;
+  /* border-color: #FFCF0D !important; */
+}
+
+.form-select:focus {
+  outline: transparent !important;
+  border: transparent !important;
+  /* border-color: #FFCF0D !important; */
+  box-shadow: none !important;
+}
+
+select:active {
+  outline: none !important;
+  border: none !important;
+}
 
 select {
-    -webkit-appearance: none !important; /* For Safari */
-    -moz-appearance: none !important; /* For Firefox */
-    appearance: none !important; /* Standard */
-    background-image: none !important; /* Remove the default background */
-  }
+  -webkit-appearance: none !important; /* For Safari */
+  -moz-appearance: none !important; /* For Firefox */
+  appearance: none !important; /* Standard */
+  background-image: none !important; /* Remove the default background */
+}
 
 /* select::after {
     border: none!important;
@@ -109,71 +103,68 @@ select {
     vertical-align: 0;
   } */
 
-.size-container{
-    display : flex;
+.size-container {
+  display: flex;
 
-    flex-direction: column;
-    align-items : flex-start;
-
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.message{
-    display : flex;
-    flex-direction: column;
-    align-items : flex-start;
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.msg-input{
-    width : 50%;
-    border-radius : 10px;
-    height : 60px;
-    border : none;  
-    padding : 0.2em .3em;
+.msg-input {
+  width: 50%;
+  border-radius: 10px;
+  height: 60px;
+  border: none;
+  padding: 0.2em 0.3em;
 }
 
-.msg-input:focus{
-    border : none;  
-    outline : none
-
+.msg-input:focus {
+  border: none;
+  outline: none;
 }
 
-.whatsapp{
-    /* background-color: #FFCF0D; */
-    background-color: #25d366;
-    color : white;
-    display: flex;
-    gap: 10px;
-    align-items:center; 
-    justify-content: flex-start;
+.whatsapp {
+  /* background-color: #FFCF0D; */
+  background-color: #25d366;
+  color: white;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
 
-    padding: 0.5em 1em;
-    width: fit-content;
+  padding: 0.5em 1em;
+  width: fit-content;
 
-    cursor: pointer;
-    user-select: none;
+  cursor: pointer;
+  user-select: none;
 }
 
-.pickup{
-    display: flex;
-    gap: 20px;
-
+.pickup {
+  display: flex;
+  gap: 20px;
 }
-.pickup input{
-    width: 20px;
-}
-
-.related-products{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.pickup input {
+  width: 20px;
 }
 
-.related-images{
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+.related-products {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.related-images {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
 }
 
 /* .item-and-name{
@@ -182,13 +173,19 @@ select {
     gap: 10px;;
 } */
 
-.delivery-available{
-    display: flex;
-    gap: 10px;
-    align-items:center; 
+.delivery-available {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.non-veg-icon{
-display: flex;
-gap: 10px;
+.non-veg-icon {
+  display: flex;
+  gap: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .checkout-slider {
+    width: 400px;
+  }
 }

@@ -53,9 +53,6 @@
     flex-direction: row !important;
   }
 
-  .cardImg {
-    width: 100%;
-  }
 
   .tab-item-details {
     width: 100%;
@@ -64,7 +61,7 @@
   }
 
   .cardImg {
-    min-width :300px;
+    min-width :100%;
     aspect-ratio: 1.5/1;
     background-position: center;
     background-size: cover;
