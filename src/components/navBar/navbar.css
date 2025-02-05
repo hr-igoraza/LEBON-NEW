@@ -2,6 +2,7 @@
   position: absolute !important;
   width: 100%;
   background-color: transparent;
+  z-index: 1000;
 }
 
 .navbar-brand {
@@ -104,3 +105,8 @@
 .nav-item:focus-within .dropdown-menu {
   display: block;
 }
+
+.dropdown-menu .active{
+  background-color: #f5be32 !important;
+}
+  

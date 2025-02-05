@@ -177,14 +177,14 @@ const ViewItem = ({ setActiveTab }) => {
                     <td>{item.isDeliverable ? "Yes" : "No"}</td>
                     <td>{item.isVeg ? "Veg" : "Non-Veg"}</td>
                     <td>
-                      <button
+                      {/* <button
                         className="btn btn-primary btn-sm"
                         onClick={() => handleEdit(item)}
                         data-bs-toggle="modal"
                         data-bs-target="#editItemModal"
                       >
                         Edit
-                      </button>
+                      </button> */}
                       <button
                         className="btn btn-danger btn-sm ms-2"
                         onClick={() => handleDelete(item._id)}
