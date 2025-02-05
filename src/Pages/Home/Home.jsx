@@ -21,6 +21,11 @@ const Home = () => {
     navigate("/gallery");
   };
 
+  const navigatetoMenu = () => {
+    navigate("/menu");
+  };
+
+
   return (
     <>
       <NavBar />
@@ -41,6 +46,7 @@ const Home = () => {
           <Button
             className={"button "}
             stroke={"#000000"}
+            onClick={navigatetoMenu}
             divClass={`bt-container txt-black bt-ct-yellow mt-5`}
           >
             GO TO MENU
