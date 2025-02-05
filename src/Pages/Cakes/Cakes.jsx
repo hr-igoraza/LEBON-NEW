@@ -42,7 +42,7 @@ const Cakes = () => {
           </div>
         </div>
 
-        <div className="load-more">
+        {/* <div className="load-more">
           <Button
             className={"button fw-300"}
             divClass={`bt-container txt-black bt-ct-yellow my-5`}
@@ -51,7 +51,7 @@ const Cakes = () => {
           >
             Load More
           </Button>
-        </div>
+        </div> */}
       </section>
 
       {/* ===========foote ====== */}

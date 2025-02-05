@@ -53,13 +53,13 @@ const Pastries = () => {
         </div>
 
         <div className="load-more">
-        <Button
+        {/* <Button
           className={"button fw-300"}
           divClass={`bt-container txt-black bt-ct-yellow  mt-2 px-4`}
           onClick={navigatetoGallery}
         >
           Load More
-        </Button>
+        </Button> */}
       </div>
 
       </section>
