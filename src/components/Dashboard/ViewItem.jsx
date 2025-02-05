@@ -10,10 +10,11 @@ const ViewItem = ({ setActiveTab }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [feedback, setFeedback] = useState("");
-  const [modalFeedback, setModalFeedback] = useState(""); // Feedback for modal actions
+  const [modalFeedback, setModalFeedback] = useState("");
   const [currentItem, setCurrentItem] = useState(null);
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
+  const [isSaving, setIsSaving] = useState(false); // Loading state for save button
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -57,6 +58,10 @@ const ViewItem = ({ setActiveTab }) => {
 
   const handleEdit = (item) => {
     setCurrentItem(item);
+    setSubcategories([]); // Reset subcategories
+    if (item.category) {
+      handleCategoryChange(item.category._id); // Fetch subcategories
+    }
     const modal = new window.bootstrap.Modal(
       document.getElementById("editItemModal")
     );
@@ -64,6 +69,12 @@ const ViewItem = ({ setActiveTab }) => {
   };
 
   const handleSave = async () => {
+    if (!currentItem.name || !currentItem.price || !currentItem.category) {
+      setModalFeedback("Please fill in all required fields.");
+      return;
+    }
+
+    setIsSaving(true);
     try {
       await API.put(`/api/products/${currentItem._id}`, currentItem);
       setItems((prevItems) =>
@@ -72,12 +83,16 @@ const ViewItem = ({ setActiveTab }) => {
         )
       );
       setModalFeedback("Item updated successfully.");
-      const modal = window.bootstrap.Modal.getInstance(
-        document.getElementById("editItemModal")
-      );
-      modal.hide();
+      setTimeout(() => {
+        const modal = window.bootstrap.Modal.getInstance(
+          document.getElementById("editItemModal")
+        );
+        modal.hide();
+      }, 1500); // Close modal after 1.5 seconds
     } catch (err) {
       setModalFeedback("Failed to update item. Please try again.");
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -98,7 +113,6 @@ const ViewItem = ({ setActiveTab }) => {
   };
 
   const handleCategoryChange = async (categoryId) => {
-    // Fetch subcategories based on selected category
     try {
       const response = await API.get(
         `/api/categories/${categoryId}/subcategories`
@@ -111,6 +125,7 @@ const ViewItem = ({ setActiveTab }) => {
 
   return (
     <>
+    <div className="wrapper">
       <div className="text-white">
         <h2>Menu Items</h2>
         <p>Here you can view all the items.</p>
@@ -157,11 +172,16 @@ const ViewItem = ({ setActiveTab }) => {
                     <td>{item.name}</td>
                     <td>{item.description}</td>
                     <td>₹{item.price}</td>
-                    <td>{item.category.name}</td>
+                    <td>{item.category?.name}</td>
                     <td>{item.isDeliverable ? "Yes" : "No"}</td>
                     <td>{item.isVeg ? "Veg" : "Non-Veg"}</td>
                     <td>
-                      {/* <button className="btn btn-primary btn-sm" onClick={() => handleEdit(item)} data-bs-toggle="modal" data-bs-target="#editItemModal">
+                      {/* <button
+                        className="btn btn-primary btn-sm"
+                        onClick={() => handleEdit(item)}
+                        data-bs-toggle="modal"
+                        data-bs-target="#editItemModal"
+                      >
                         Edit
                       </button> */}
                       <button
@@ -187,7 +207,7 @@ const ViewItem = ({ setActiveTab }) => {
         aria-labelledby="editItemModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div className="modal-dialog modal-lg">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="editItemModalLabel">
@@ -201,166 +221,191 @@ const ViewItem = ({ setActiveTab }) => {
               ></button>
             </div>
             <div className="modal-body">
-              {modalFeedback && <p className="text-success">{modalFeedback}</p>}
+              {modalFeedback && (
+                <div
+                  className={`alert ${
+                    modalFeedback.includes("successfully")
+                      ? "alert-success"
+                      : "alert-danger"
+                  }`}
+                >
+                  {modalFeedback}
+                </div>
+              )}
               {currentItem && (
-                <>
-                  {/* Category Dropdown */}
-                  <div className="form-group mb-2">
-                    <label>Category</label>
-                    <select
-                      className="form-control"
-                      value={
-                        currentItem.category ? currentItem.category._id : ""
-                      }
-                      onChange={(e) => {
-                        const categoryId = e.target.value;
-                        setCurrentItem({
-                          ...currentItem,
-                          category: { _id: categoryId },
-                        });
-                        handleCategoryChange(categoryId);
-                      }}
-                    >
-                      <option value="">Select Category</option>
-                      {categories.map((category) => (
-                        <option key={category._id} value={category._id}>
-                          {category.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Subcategory Dropdown */}
-                  {currentItem.category && currentItem.category._id && (
-                    <div className="form-group mb-2">
-                      <label>Subcategory</label>
+                <div className="row">
+                  <div className="col-md-12">
+                    {/* Category Dropdown
+                    <div className="form-group mb-3">
+                      <label>Category *</label>
                       <select
                         className="form-control"
-                        value={
-                          currentItem.subcategory
-                            ? currentItem.subcategory._id
-                            : ""
-                        }
-                        onChange={(e) =>
+                        value={currentItem.category?._id || ""}
+                        onChange={(e) => {
+                          const categoryId = e.target.value;
                           setCurrentItem({
                             ...currentItem,
-                            subcategory: { _id: e.target.value },
-                          })
-                        }
+                            category: { _id: categoryId },
+                          });
+                          handleCategoryChange(categoryId);
+                        }}
+                        required
                       >
-                        <option value="">Select Subcategory</option>
-                        {subcategories.map((subcategory) => (
-                          <option key={subcategory._id} value={subcategory._id}>
-                            {subcategory.name}
+                        <option value="">Select Category</option>
+                        {categories.map((category) => (
+                          <option key={category._id} value={category._id}>
+                            {category.name}
                           </option>
                         ))}
                       </select>
                     </div>
-                  )}
 
-                  {/* Other Fields */}
-                  <div className="form-group mb-2">
-                    <label>Name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={currentItem.name}
-                      onChange={(e) =>
-                        setCurrentItem({ ...currentItem, name: e.target.value })
-                      }
-                    />
-                  </div>
-                  <div className="form-group mb-2">
-                    <label>Description</label>
-                    <textarea
-                      className="form-control"
-                      value={currentItem.description}
-                      onChange={(e) =>
-                        setCurrentItem({
-                          ...currentItem,
-                          description: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="form-group mb-2">
-                    <label>Price</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      value={currentItem.price}
-                      onChange={(e) =>
-                        setCurrentItem({
-                          ...currentItem,
-                          price: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="form-group mb-2 gap-2">
-                    <label>Deliverable</label>
-                    <input
-                      type="checkbox"
-                      checked={currentItem.isDeliverable}
-                      onChange={(e) =>
-                        setCurrentItem({
-                          ...currentItem,
-                          isDeliverable: e.target.checked,
-                        })
-                      }
-                    />
-                  </div>
-                  <div className="form-group mb-2">
-                    <label>Veg/Non-Veg</label>
-                    <select
-                      className="form-control"
-                      value={currentItem.isVeg ? "Veg" : "Non-Veg"}
-                      onChange={(e) =>
-                        setCurrentItem({
-                          ...currentItem,
-                          isVeg: e.target.value === "Veg",
-                        })
-                      }
-                    >
-                      <option value="Veg">Veg</option>
-                      <option value="Non-Veg">Non-Veg</option>
-                    </select>
-                  </div>
+                    Subcategory Dropdown
+                    {currentItem.category && currentItem.category._id && (
+                      <div className="form-group mb-3">
+                        <label>Subcategory</label>
+                        <select
+                          className="form-control"
+                          value={currentItem.subcategory?._id || ""}
+                          onChange={(e) =>
+                            setCurrentItem({
+                              ...currentItem,
+                              subcategory: { _id: e.target.value },
+                            })
+                          }
+                        >
+                          <option value="">Select Subcategory</option>
+                          {subcategories.map((subcategory) => (
+                            <option key={subcategory._id} value={subcategory._id}>
+                              {subcategory.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    )} */}
 
-                  {/* Images Section */}
-                  <div className="form-group mb-2">
-                    <label>Images</label>
-                    <div className="d-flex flex-wrap">
-                      {currentItem.images && currentItem.images.length > 0 ? (
-                        currentItem.images.map((image, index) => (
-                          <div
-                            key={index}
-                            className="position-relative me-2 mb-2"
-                          >
-                            <img
-                              src={image}
-                              alt={`Image ${index}`}
-                              style={{
-                                width: "80px",
-                                height: "80px",
-                                objectFit: "cover",
-                              }}
-                            />
-                            <button
-                              type="button"
-                              className="btn-close position-absolute top-0 end-0"
-                              onClick={() => handleImageRemove(image)}
-                              style={{ backgroundColor: "#f5be32" }}
-                            ></button>
-                          </div>
-                        ))
-                      ) : (
-                        <p>No images uploaded.</p>
-                      )}
+                    {/* Name */}
+                    <div className="form-group mb-3">
+                      <label>Name *</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={currentItem.name}
+                        onChange={(e) =>
+                          setCurrentItem({ ...currentItem, name: e.target.value })
+                        }
+                        required
+                      />
                     </div>
-                    <input type="file" multiple onChange={handleImageUpload} />
+
+                    {/* Description */}
+                    <div className="form-group mb-3 ">
+                      <label>Description</label>
+                      <textarea
+                        className="form-control "
+                        value={currentItem.description}
+                        onChange={(e) =>
+                          setCurrentItem({
+                            ...currentItem,
+                            description: e.target.value,
+                          })
+                        }
+                      />
+                    </div>
                   </div>
-                </>
+
+                  <div className="col-md-12">
+                    {/* Price */}
+                    <div className="form-group mb-3">
+                      <label>Price *</label>
+                      <input
+                        type="number"
+                        className="form-control"
+                        value={currentItem.price}
+                        onChange={(e) =>
+                          setCurrentItem({
+                            ...currentItem,
+                            price: e.target.value,
+                          })
+                        }
+                        required
+                      />
+                    </div>
+
+                    {/* Deliverable */}
+                    <div className="form-group mb-3">
+                      <label>Deliverable</label>
+                      <input
+                        type="checkbox"
+                        checked={currentItem.isDeliverable}
+                        onChange={(e) =>
+                          setCurrentItem({
+                            ...currentItem,
+                            isDeliverable: e.target.checked,
+                          })
+                        }
+                      />
+                    </div>
+
+                    {/* Veg/Non-Veg */}
+                    <div className="form-group mb-3">
+                      <label>Veg/Non-Veg</label>
+                      <select
+                        className="form-control"
+                        value={currentItem.isVeg ? "Veg" : "Non-Veg"}
+                        onChange={(e) =>
+                          setCurrentItem({
+                            ...currentItem,
+                            isVeg: e.target.value === "Veg",
+                          })
+                        }
+                      >
+                        <option value="Veg">Veg</option>
+                        <option value="Non-Veg">Non-Veg</option>
+                      </select>
+                    </div>
+
+                    {/* Images Section */}
+                    <div className="form-group mb-3">
+                      <label>Images</label>
+                      <div className="d-flex flex-wrap gap-2">
+                        {currentItem.images && currentItem.images.length > 0 ? (
+                          currentItem.images.map((image, index) => (
+                            <div
+                              key={index}
+                              className="position-relative"
+                              style={{ width: "80px", height: "80px" }}
+                            >
+                              <img
+                                src={image}
+                                alt={`Image ${index}`}
+                                className="img-thumbnail"
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  objectFit: "cover",
+                                }}
+                              />
+                              <button
+                                type="button"
+                                className="btn-close position-absolute top-0 end-0 bg-danger"
+                                onClick={() => handleImageRemove(image)}
+                              ></button>
+                            </div>
+                          ))
+                        ) : (
+                          <p>No images uploaded.</p>
+                        )}
+                      </div>
+                      <input
+                        type="file"
+                        multiple
+                        onChange={handleImageUpload}
+                        className="form-control mt-2"
+                      />
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
             <div className="modal-footer">
@@ -375,12 +420,25 @@ const ViewItem = ({ setActiveTab }) => {
                 type="button"
                 className="btn btn-primary"
                 onClick={handleSave}
+                disabled={isSaving}
               >
-                Save Changes
+                {isSaving ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Saving...
+                  </>
+                ) : (
+                  "Save Changes"
+                )}
               </button>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
