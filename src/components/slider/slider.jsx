@@ -54,7 +54,7 @@ const ImageSlider = ({ images }) => {
                 <img
                   src={image}
                   alt={`Product Image ${index + 1}`}
-                  className="img-fluid w-100"
+                  className="img-fluid w-100 "
                 />
               </div>
             ))
