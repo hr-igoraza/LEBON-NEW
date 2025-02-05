@@ -36,6 +36,7 @@ const ProductTab = ({ category }) => {
                     id={product._id}
                     isVeg={product.isVeg}
                     isDeliverable={product.isDeliverable}
+                    category={product.category.name}
                   />
                 ))}
               </div>

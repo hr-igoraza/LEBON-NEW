@@ -35,7 +35,7 @@ const CheckOut = () => {
         for (const item of cart) {
           const response = await API.get(`/api/products/${item.id}`);
           console.log("API Response:", response.data);
-          images[item.id] = response.data.images; 
+          images[item.id] = response.data.images;
         }
         setSliderImages(images);
       } catch (error) {
@@ -51,7 +51,8 @@ const CheckOut = () => {
   const handleQuantityChange = (action, index) => {
     setQuantity((prev) => ({
       ...prev,
-      [index]: action === "increase" ? prev[index] + 1 : Math.max(prev[index] - 1, 1),
+      [index]:
+        action === "increase" ? prev[index] + 1 : Math.max(prev[index] - 1, 1),
     }));
   };
 
@@ -113,7 +114,9 @@ const CheckOut = () => {
                           height={45}
                           src="/images/checkout/reduce.png"
                           alt="reduce"
-                          onClick={() => handleQuantityChange("decrease", index)}
+                          onClick={() =>
+                            handleQuantityChange("decrease", index)
+                          }
                         />
                         <p className="f-4 f-col-w">{quantity[index]}</p>
                         <img
@@ -121,22 +124,46 @@ const CheckOut = () => {
                           height={45}
                           src="/images/checkout/add.png"
                           alt="add"
-                          onClick={() => handleQuantityChange("increase", index)}
+                          onClick={() =>
+                            handleQuantityChange("increase", index)
+                          }
                         />
                       </div>
                     </div>
 
                     <p className="f-4 f-col-w mt-4">{item.description}</p>
 
-                    <div className="non-veg-icon mt-4">
-                      <img
-                        width={30}
-                        height={30}
-                        src="/images/checkout/non-veg.png"
-                        alt="non-veg"
-                      />
-                      <p className="f-5 f-col-w">Non-Veg</p>
-                    </div>
+                    {/* Veg/Non-Veg Icon */}
+                    {item.isVeg !== undefined && (
+                      <div className="veg-nonveg-icon mt-4 d-flex gap-2 align-items-center">
+                        <img
+                          width={30}
+                          height={30}
+                          src={
+                            item.isVeg
+                              ? "/images/checkout/veg.png"
+                              : "/images/checkout/non-veg.png"
+                          }
+                          alt={item.isVeg ? "veg" : "non-veg"}
+                        />
+                        <p className="f-5 f-col-w m-0">
+                          {item.isVeg ? "Veg" : "Non-Veg"}
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Delivery Available Icon */}
+                    {item.isDeliverable !== undefined && (
+                      <div className="delivery-icon mt-4 d-flex gap-2 align-items-center">
+                        <img
+                          width={30}
+                          height={30}
+                          src="/images/checkout/delivery.png"
+                          alt="delivery available"
+                        />
+                        <p className="f-5 f-col-w m-0">Delivery Available</p>
+                      </div>
+                    )}
 
                     <div className="size-container mt-4">
                       <div className="size">
@@ -150,25 +177,34 @@ const CheckOut = () => {
                           <option value="2">Size 2</option>
                           <option value="3">Size 3</option>
                         </select>
-                        <img width={25} height={15} src="/images/VectorDown.png" alt="down" />
+                        <img
+                          width={25}
+                          height={15}
+                          src="/images/VectorDown.png"
+                          alt="down"
+                        />
                       </div>
                       <img src="/images/line.svg" alt="svg" />
                     </div>
 
-                    <div className="message mt-4">
-                      <p className="f-col-w f-4">Message On Cakes</p>
-                      <input
-                        className="msg-input p-3"
-                        type="text"
-                        value={message[index]}
-                        placeholder="Enter your message"
-                        onChange={(e) => handleMessageChange(e, index)}
-                      />
-                    </div>
+                    {item.category === "Cakes" && (
+                      <div className="message mt-4">
+                        <p className="f-col-w f-4">Message On Cakes</p>
+                        <input
+                          className="msg-input p-3"
+                          type="text"
+                          value={message[index]}
+                          placeholder="Enter your message"
+                          onChange={(e) => handleMessageChange(e, index)}
+                        />
+                      </div>
+                    )}
 
                     <div className="whatsapp mt-5" onClick={handleCheckout}>
                       <img src="/images/whatsapp.svg" alt="whatsapp" />
-                      <p className="whatsapp-txt m-0 text-dark fw-700">CHAT ON WHATSAPP ORDER</p>
+                      <p className="whatsapp-txt m-0 text-dark fw-700">
+                        CHAT ON WHATSAPP ORDER
+                      </p>
                     </div>
                   </div>
                 </div>

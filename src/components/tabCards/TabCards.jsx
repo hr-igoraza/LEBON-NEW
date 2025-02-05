@@ -26,8 +26,8 @@ const TabCards = (props) => {
         price: props.price,
         img: props.img,
         isVeg: props.isVeg,
-        isDeliverable: props.isDeliverable
-        
+        isDeliverable: props.isDeliverable,
+        category: props.category
       });
       navigate("/checkout");
     } catch (error) {
