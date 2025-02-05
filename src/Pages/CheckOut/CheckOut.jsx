@@ -34,12 +34,12 @@ const CheckOut = () => {
         const images = {};
         for (const item of cart) {
           const response = await API.get(`/api/products/${item.id}`);
-          console.log("API Response:", response.data);
+          // console.log("API Response:", response.data);
           images[item.id] = response.data.images;
         }
         setSliderImages(images);
       } catch (error) {
-        console.error("Error fetching product images:", error);
+        // console.error("Error fetching product images:", error);
       } finally {
         setIsLoading(false);
       }
@@ -92,18 +92,18 @@ const CheckOut = () => {
     <>
       <NavBar />
       <section className="container-fluid m-0 p-3 p-lg-5 checkout">
-        <div className="checkout-content py-lg-5">
+        <div className="  py-lg-5 checkout-content">
           <div className="cart-items">
             {cart.map((item, index) => (
               <div className="cart-item row mb-5" key={index}>
-                <div className="col-md-6 px-5 ">
+                <div className="col-12 col-md-6 px-5 ">
                   {isLoading ? (
                     <p className="text-center f-3 f-col-w">Loading images...</p>
                   ) : (
                     <ImageSlider images={sliderImages[item.id] || []} />
                   )}
                 </div>
-                <div className="col-md-6">
+                <div className="col-md-6 col-12">
                   <div className="product-description">
                     <h2 className="heading f-1">{item.title}</h2>
                     <div className="price-count">
@@ -118,7 +118,10 @@ const CheckOut = () => {
                             handleQuantityChange("decrease", index)
                           }
                         />
-                        <p className="f-4 f-col-w">{quantity[index]}</p>
+                        <p className="f-4 f-col-w">
+                          {quantity[index]}{" "}
+                          {item.category === "Cakes" ? "kg" : ""}
+                        </p>
                         <img
                           width={45}
                           height={45}
@@ -165,7 +168,7 @@ const CheckOut = () => {
                       </div>
                     )}
 
-                    <div className="size-container mt-4">
+                    {/* <div className="size-container mt-4">
                       <div className="size">
                         <select
                           className="form-select"
@@ -185,7 +188,7 @@ const CheckOut = () => {
                         />
                       </div>
                       <img src="/images/line.svg" alt="svg" />
-                    </div>
+                    </div> */}
 
                     {item.category === "Cakes" && (
                       <div className="message mt-4">
@@ -203,7 +206,7 @@ const CheckOut = () => {
                     <div className="whatsapp mt-5" onClick={handleCheckout}>
                       <img src="/images/whatsapp.svg" alt="whatsapp" />
                       <p className="whatsapp-txt m-0 text-dark fw-700">
-                        CHAT ON WHATSAPP ORDER
+                        ORDER ON WHATSAPP ORDER
                       </p>
                     </div>
                   </div>
