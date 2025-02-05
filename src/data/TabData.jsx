@@ -32,7 +32,7 @@ const ProductTab = ({ category }) => {
                     title={product.name}
                     img={product.images?.[0] || "/placeholder.jpg"}
                     description={product.description}
-                    price={`$${product.price}`}
+                    price={`₹${product.price}`}
                     id={product._id}
                     isVeg={product.isVeg}
                     isDeliverable={product.isDeliverable}

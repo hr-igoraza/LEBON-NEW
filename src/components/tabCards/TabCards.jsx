@@ -57,7 +57,7 @@ const TabCards = (props) => {
           </p>
 
           <p className="title f-2 cinzel">
-            {props.price ? `${props.price}` : "50"}
+            {props.price ? `${props.price}` : "60"}
           </p>
 
           <Button
