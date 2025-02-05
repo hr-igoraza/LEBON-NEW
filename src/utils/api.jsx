@@ -3,9 +3,9 @@ import axios from "axios";
 
 
 const API = axios.create({
-  baseURL: "http://localhost:8800/",  
+  // baseURL: "http://localhost:8800/",  
   // baseURL: "https://lebon-backend.onrender.com/", 
-  // baseURL: import.meta.env.VITE_BACKEND_URL, 
+  baseURL: import.meta.env.VITE_BACKEND_URL, 
 });
 
 
