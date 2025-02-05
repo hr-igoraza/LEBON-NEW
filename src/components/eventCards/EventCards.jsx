@@ -4,7 +4,7 @@ import "./eventCards.css";
 const EventCards = (props) => {
   return (
     <>
-      <div className="tab-card row">
+      <div className=" event-card row px-md-5">
         <div className="col-lg-4 col-md-12 ">
           <div className="event-tab-item-details">
             <div className="d-flex">
