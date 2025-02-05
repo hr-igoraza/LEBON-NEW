@@ -1,6 +1,6 @@
 {
     "rewrites": [
       { "source": "/adminpanel", "destination": "/index.html" },
-      { "source": "/(.*)", "destination": "/" }
+      // { "source": "/(.*)", "destination": "/" }
     ]
   }
