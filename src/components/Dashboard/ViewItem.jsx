@@ -14,7 +14,7 @@ const ViewItem = ({ setActiveTab }) => {
   const [currentItem, setCurrentItem] = useState(null);
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
-  const [isSaving, setIsSaving] = useState(false); // Loading state for save button
+  const [isSaving, setIsSaving] = useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -68,8 +68,8 @@ const ViewItem = ({ setActiveTab }) => {
     modal.show();
   };
 
-  const handleSave = async () => {
-    if (!currentItem.name || !currentItem.price || !currentItem.category) {
+  const   handleSave = async () => {
+    if (!currentItem.name || !currentItem.price || !currentItem.category || !currentItem.images || !currentItem.description) {
       setModalFeedback("Please fill in all required fields.");
       return;
     }
@@ -88,13 +88,14 @@ const ViewItem = ({ setActiveTab }) => {
           document.getElementById("editItemModal")
         );
         modal.hide();
-      }, 1500); // Close modal after 1.5 seconds
+      }, 1500); 
     } catch (err) {
       setModalFeedback("Failed to update item. Please try again.");
     } finally {
       setIsSaving(false);
     }
   };
+
 
   const handleImageRemove = (imageToRemove) => {
     setCurrentItem((prevItem) => ({
@@ -176,14 +177,14 @@ const ViewItem = ({ setActiveTab }) => {
                     <td>{item.isDeliverable ? "Yes" : "No"}</td>
                     <td>{item.isVeg ? "Veg" : "Non-Veg"}</td>
                     <td>
-                      {/* <button
+                      <button
                         className="btn btn-primary btn-sm"
                         onClick={() => handleEdit(item)}
                         data-bs-toggle="modal"
                         data-bs-target="#editItemModal"
                       >
                         Edit
-                      </button> */}
+                      </button>
                       <button
                         className="btn btn-danger btn-sm ms-2"
                         onClick={() => handleDelete(item._id)}
