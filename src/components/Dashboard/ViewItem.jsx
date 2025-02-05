@@ -342,7 +342,7 @@ const ViewItem = ({ setActiveTab }) => {
                       </div>
 
                       {/* Category */}
-                      <div className="form-group mb-3">
+                      {/* <div className="form-group mb-3">
                         <label>Category</label>
                         <select
                           className="form-control"
@@ -358,7 +358,7 @@ const ViewItem = ({ setActiveTab }) => {
                         </select>
                       </div>
 
-                      {/* Subcategory */}
+                      Subcategory
                       <div className="form-group mb-3">
                         <label>Subcategory</label>
                         <select
@@ -383,7 +383,7 @@ const ViewItem = ({ setActiveTab }) => {
                             </option>
                           ))}
                         </select>
-                      </div>
+                      </div> */}
 
                       {/* Images */}
                       <div className="form-group mb-3">
