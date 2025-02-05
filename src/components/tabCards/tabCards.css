@@ -62,4 +62,13 @@
   padding: 1em 1em;
     
   }
+
+  .cardImg {
+    min-width :300px;
+    aspect-ratio: 1.5/1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+  }
 }

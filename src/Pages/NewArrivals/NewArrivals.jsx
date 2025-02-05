@@ -51,7 +51,7 @@ const NewArrivals = () => {
           </div>
         </div>
 
-        <div className="load-more">
+        {/* <div className="load-more">
           <Button
             className={"button fw-300"}
             divClass={`bt-container txt-black bt-ct-yellow px-4`}
@@ -59,7 +59,7 @@ const NewArrivals = () => {
           >
             Load More
           </Button>
-        </div>
+        </div> */}
       </section>
 
       <Footer />
