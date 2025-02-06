@@ -39,8 +39,8 @@ const TabCards = (props) => {
 
   return (
     <>
-      <div className="tab-card">
-        <div className="cardImg"
+      <div className="tab-card ">
+        <div className="cardImg "
         
         style={{backgroundImage: `url(${props.img})`}}
         >

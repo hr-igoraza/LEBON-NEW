@@ -4,22 +4,20 @@
 
 .cardImg {
   object-fit: cover;
-  width: 55%;
 }
 .cardImg {
-  min-width :620px;
+  width: 620px;
   aspect-ratio: 1.5/1;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
 .cardImg img {
   width: 100%;
 }
 
-.card-item-name{
+.card-item-name {
   font-family: "Cinzel", serif;
   font-weight: 700;
   font-style: normal;
@@ -37,11 +35,9 @@
   min-width: 400px;
 }
 
-
 .tab-card:nth-child(even) {
   flex-direction: row-reverse;
 }
-
 
 @media only screen and (max-width: 768px) {
   .tab-card {
@@ -53,19 +49,27 @@
     flex-direction: row !important;
   }
 
-
   .tab-item-details {
     width: 100%;
-  padding: 1em 1em;
-    
+    padding: 1em 1em;
   }
 
   .cardImg {
-    min-width :100%;
+    width: 380px;
+    width: 100%;
     aspect-ratio: 1.5/1;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-  
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .cardImg {
+    width: 100%;
+  }
+
+  .tab-item-details {
+    min-width: 300px;
   }
 }
