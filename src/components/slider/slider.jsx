@@ -116,7 +116,7 @@ const ImageSlider = ({ images }) => {
               src={image}
               alt={`Thumbnail ${index + 1}`}
               className="thumbnail-img"
-              style={{ width: "80px", height: "75px" }}
+              // style={{ width: "80px", height: "75px" }}
             />
           </div>
         ))}
