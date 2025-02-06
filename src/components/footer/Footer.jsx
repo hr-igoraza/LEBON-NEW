@@ -5,14 +5,14 @@ import Button from "../buttons/Button";
 const Footer = () => {
   return (
     <>
-      <section className="container-fluid footer" id="footer">
+      <section className="container-fluid footer p-3 p-lg-5" id="footer">
         <h2 className="footer-title  f-55">
           We ready to have you <br />
           the best dining experiences
         </h2>
 
         <div className="row contacts">
-          <div className="col-lg-6 text-white d-flex gap-2">
+          <div className="col-lg-6 text-white footer-address gap-2">
             <div className="pt-1">
               <img className="icon " src="/images/location.svg" alt="" />
             </div>
