@@ -9,7 +9,7 @@ import Events from "../../data/diningEvents.jsx";
 import { useNavigate } from "react-router-dom";
 import ProductTab from "../../data/TabData.jsx";
 import GalleryComponent from "../../components/GalleryComponent/GalleryComponent.jsx";
-import NewFooter from "../../components/footer/NewFooter.jsx";
+import Footer from "../../components/footer/Footer.jsx";
 
 const Home = () => {
   const handleTabChange = (index) => {
@@ -303,7 +303,7 @@ const Home = () => {
       {/* bootstrap image carousel  */}
 
       {/* ======== Footer ======== */}
-      <NewFooter/>
+      <Footer />
 
       {/* ======== */}
     </>
