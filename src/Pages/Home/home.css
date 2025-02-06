@@ -82,3 +82,26 @@
 .load-more svg {
   display: none !important;
 }
+
+iframe{
+  width: 560px;
+  height: 400px;
+}
+
+@media only screen and (max-width: 768px) {
+  iframe{
+    width: 500px;
+    height: 300px;
+  }
+
+  .youtube-vdo{
+    flex-direction:column-reverse;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  iframe{
+    width: 370px;
+    height: 200px;
+  }
+}

@@ -249,7 +249,7 @@ const Home = () => {
 
         {/* ======================= */}
 
-        <div className="row mt-lg-5 mb-3 mb-lg-5  " >
+        <div className="row mt-lg-5 mb-3 mb-lg-5  youtube-vdo" >
           <div className="col-12 col-lg-6 ">
             <div className="text-white bottomline our-story-text">
               <div className="">
@@ -278,7 +278,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="col-lg-6 col-12">
+          <div className="col-lg-6 col-12 my-4 my-lg-0">
             {/* <iframe
               width="100%"
               height={"500px"}
@@ -287,8 +287,8 @@ const Home = () => {
             ></iframe> */}
 
             <iframe
-              width="560"
-              height="400"
+              // width="560"
+              // height="400"
               src="https://www.youtube.com/embed/L8S89BCjQvo?si=1hiCQXYpk4UqHxb5"
               title="YouTube video player"
               frameborder="0"
@@ -300,7 +300,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* bootstrap image carousel  */}
+
 
       {/* ======== Footer ======== */}
       <Footer />
