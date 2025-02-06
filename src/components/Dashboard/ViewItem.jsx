@@ -100,7 +100,7 @@ const ViewItem = ({ setActiveTab }) => {
         });
       }
 
-      const response = await API.patch(
+      const response = await API.put(
         `/api/products/${currentItem._id}`,
         formData,
         {
