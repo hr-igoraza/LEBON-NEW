@@ -17,6 +17,8 @@ import { AuthProvider } from "./context/authContext";
 import EditItem from "./components/Dashboard/EditItem";
 
 function App() {
+  // window.scrollTo(0, 0);  
+
   return (
     <>
       <Routes>

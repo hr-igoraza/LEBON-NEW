@@ -14,30 +14,29 @@ const Magnifier = ({ src, zoomLevel = 4 }) => {
   //   const { left, top, width, height } = e.target.getBoundingClientRect();
   //   const x = e.pageX - left;
   //   const y = e.pageY - top;
-  //   const xPercent = (x / width) * 150;
-  //   const yPercent = (y / height) * 150;
-    
+  //   const xPercent = (x / width) * 100;
+  //   const yPercent = (y / height) * 100;
+
   //   setLensPosition({ x: e.pageX, y: e.pageY });
   //   setBackgroundPosition(`${xPercent}% ${yPercent}%`);
   // };
 
   const handleMouseMove = (e) => {
-    const { left, top, width, height } = e.target.getBoundingClientRect();
-    
-    const x = e.clientX - left;
-    const y = e.clientY - top;
-  
-    const xPercent = (x / width) * 100;
-    const yPercent = (y / height) * 100;
-  
-    setLensPosition({ 
-      x: e.clientX - magnifierSize / 2 + 10, 
-      y: e.clientY - magnifierSize / 2 + 10 
+    const container = e.currentTarget.getBoundingClientRect();
+
+    const x = e.clientX - container.left;
+    const y = e.clientY - container.top;
+
+    const xPercent = (x / container.width) * 100;
+    const yPercent = (y / container.height) * 100;
+
+    setLensPosition({
+      x: e.clientX - magnifierSize / 2,
+      y: e.clientY - magnifierSize / 2,
     });
-  
+
     setBackgroundPosition(`${xPercent}% ${yPercent}%`);
   };
-  
 
   return (
     <div
@@ -47,7 +46,7 @@ const Magnifier = ({ src, zoomLevel = 4 }) => {
       onMouseMove={handleMouseMove}
       style={{ position: "relative", display: "inline-block" }}
     >
-      <img src={src} alt="Magnified" className="img-fluid w-100" />
+      <img src={src} alt="Magnified" className="img-fluid slider-item" />
       {showMagnifier && (
         <div
           className="magnifier-lens"
@@ -61,7 +60,7 @@ const Magnifier = ({ src, zoomLevel = 4 }) => {
             border: "2px solid #ccc",
             backgroundImage: `url(${src})`,
             backgroundSize: `${zoomLevel * 100}%`,
-            backgroundPosition,
+            backgroundPosition ,
             pointerEvents: "none",
             boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
           }}
@@ -90,7 +89,7 @@ const ImageSlider = ({ images }) => {
   };
 
   return (
-    <div className="container m-0 p-0 mt-lg-4 mt-2">
+    <div className="container m-0 p-0 mt-4">
       <div className="slider-container mb-3">
         <Slider ref={sliderRef} {...settings}>
           {images.length > 0 ? (

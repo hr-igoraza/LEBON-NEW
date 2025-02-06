@@ -14,6 +14,9 @@ const CheckOut = () => {
   const [sliderImages, setSliderImages] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
+  window.scrollTo(0, 0);  
+
+
   useEffect(() => {
     const initialQuantities = {};
     const initialSizes = {};
