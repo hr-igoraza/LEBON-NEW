@@ -40,9 +40,7 @@
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  color: #D9D9D9;
-  
-
+  color: #d9d9d9;
 }
 
 /* ============= */
@@ -64,7 +62,6 @@
   color: #f3d382;
 }
 
-
 /* ============= */
 
 .our-specialities {
@@ -72,98 +69,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 /* ============ */
 
-.load-more{
+.load-more {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* =========footer========= */
 
-.icon {
-  width: 31px;
-  height: 26px;
-}
-
-.footer {
-  background: url("/images/footerBg.png");
-  background-color: #1e1e1e;
-  height: 90vh;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer svg {
-  display: none;
-}
-
-.footer-title {
-  font-family: "Cinzel", serif;
-  font-weight: 600;
-  /* font-style:bold; */
-  font-size: 2.5em;
-  color: #f3d382;
-  text-align: center;
-  /* text-transform: uppercase; */
-}
-
-.contacts {
-  display: flex;
-  align-items: start;
-  justify-content: center;
-}
-
-.contacts a {
-  /* text-decoration: none; */
-  color: white;
-  cursor: pointer;
-}
-
-.foote-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-bottom .logo  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-.footer .links a {
-    font-family: Cormorant SC;
-   
-    
-
-
-
-  margin: 10px;
-  color: white;
-  text-decoration: underline;
-  font-size: 1.6em;
-  text-decoration-color: #f5be32;
-}
-
-
-.load-more svg{
-display: none !important;
+.load-more svg {
+  display: none !important;
 }

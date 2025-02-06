@@ -1,4 +1,4 @@
-
+/* 
 @media only screen and (max-width: 768px) {
     .footer-address{
         display: flex;
@@ -17,4 +17,71 @@
     }
 
     
+} */
+
+
+/* =========footer========= */
+
+.icon {
+    width: 31px;
+    height: 26px;
+  }
+  
+  .lebon-footer {
+    background: url("/images/footerBg.png");
+    background-color: #1e1e1e;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  .footer-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  
+  .footer-title {
+    font-family: "Cinzel", serif;
+    font-weight: 600;
+    /* font-style:bold; */
+    font-size: 2.5em;
+    color: #f3d382;
+    text-align: center;
+    /* text-transform: uppercase; */
+  }
+  
+
+  
+  .lebon-footer a , .lebon-footer p{
+    /* font-family: Cormorant SC; */
+    color: #d9d9d9 !important ;
+    text-decoration: none;
+  }
+
+/* .lebon-footer a{
+    text-decoration: none;
+    color: #d9d9d9 !important ;
+}
+
+.lebon-footer p {
+    color: #d9d9d9 !important ;
+} */
+
+.lebon-footer h5{
+    font-family: dm sans;
+    font-weight: 700;
+}
+
+.outlets   a{
+    text-decoration: underline;
 }

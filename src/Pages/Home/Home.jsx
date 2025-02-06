@@ -9,6 +9,7 @@ import Events from "../../data/diningEvents.jsx";
 import { useNavigate } from "react-router-dom";
 import ProductTab from "../../data/TabData.jsx";
 import GalleryComponent from "../../components/GalleryComponent/GalleryComponent.jsx";
+import NewFooter from "../../components/footer/NewFooter.jsx";
 
 const Home = () => {
   const handleTabChange = (index) => {
@@ -24,7 +25,6 @@ const Home = () => {
   const navigatetoMenu = () => {
     navigate("/menu");
   };
-
 
   return (
     <>
@@ -254,10 +254,17 @@ const Home = () => {
             <div className="text-white bottomline our-story-text">
               <div className="">
                 <p>
-                Welcome to our cake gallery! At LEBONCAKES, we take pride in crafting visually stunning and irresistibly delicious cakes for every occasion. Whether you're celebrating a birthday, wedding, or simply indulging in a sweet treat, our cakes are designed to leave a lasting impression.
+                  Welcome to our cake gallery! At LEBONCAKES, we take pride in
+                  crafting visually stunning and irresistibly delicious cakes
+                  for every occasion. Whether you're celebrating a birthday,
+                  wedding, or simply indulging in a sweet treat, our cakes are
+                  designed to leave a lasting impression.
                 </p>
                 <p>
-                Browse through our face book page Lebon cakes and delicacies and insta pages @Leboncakes to see the varieties....Call or whatsapp anytime at <strong>8593880999</strong> or <strong>8593882999</strong> for your orders...
+                  Browse through our face book page Lebon cakes and delicacies
+                  and insta pages @Leboncakes to see the varieties....Call or
+                  whatsapp anytime at <strong>8593880999</strong> or{" "}
+                  <strong>8593882999</strong> for your orders...
                 </p>
 
                 <Button
@@ -296,52 +303,9 @@ const Home = () => {
       {/* bootstrap image carousel  */}
 
       {/* ======== Footer ======== */}
+      <NewFooter/>
 
-      <section className="container-fluid footer" id="footer">
-        <h2 className="footer-title  f-55">
-          We ready to have you <br />
-          the best dining experiences
-        </h2>
-
-        <div className="row contacts">
-          <div className="col-lg-6 text-white d-flex gap-2">
-            <div className="pt-1">
-              <img className="icon " src="/images/location.svg" alt="" />
-            </div>
-            <p className="f-col-w f-4 dm-sans">
-              Village Office, Cherthala Road, North gate of devi temple,
-              <br /> Opposte of, Cherthala, Kerala 688524
-            </p>
-          </div>
-          <div className="col-lg-6 text-white d-flex gap-2 ">
-            <div className="pt-1">
-              <img className="icon " src="/images/phone.svg" alt="" />
-            </div>
-
-            <span className="f-col-w f-4 dm-sans ">
-              Call Us : <br /> <a href="tel:+1234567890">+85938 80999</a>
-            </span>
-          </div>
-        </div>
-
-        <Button
-          className={"button fw-300"}
-          divClass={`bt-container txt-black bt-ct-yellow my-5`}
-        >
-          Reserve A Table
-        </Button>
-
-        <div className="footer-bottom">
-          <div className="logo">
-            <img className="w-25" src="/images/lebonLogo.png" alt="logo" />
-          </div>
-          <div className="links">
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
-            <a href="#">Facebook</a>
-          </div>
-        </div>
-      </section>
+      {/* ======== */}
     </>
   );
 };
