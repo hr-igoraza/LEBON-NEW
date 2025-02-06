@@ -95,7 +95,7 @@ const CheckOut = () => {
         <div className="  py-lg-5 checkout-content">
           <div className="cart-items">
             {cart.map((item, index) => (
-              <div className="cart-item row mb-5 checkout-slider" key={index} >
+              <div className="cart-item row mb-5 checkout-slider" key={index}>
                 <div className="col-12 col-md-6 px-lg-5 px-2 ">
                   {isLoading ? (
                     <p className="text-center f-3 f-col-w">Loading images...</p>
@@ -203,7 +203,10 @@ const CheckOut = () => {
                       </div>
                     )}
 
-                    <div className="whatsapp mt-5" onClick={handleCheckout}>
+                    <div
+                      className="whatsapp mt-lg-5 my-3 "
+                      onClick={handleCheckout}
+                    >
                       <img src="/images/whatsapp.svg" alt="whatsapp" />
                       <p className="whatsapp-txt m-0 text-dark fw-700">
                         ORDER ON WHATSAPP

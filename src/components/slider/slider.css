@@ -85,3 +85,9 @@
 .zoom-image img {
   object-fit: contain;
 }
+
+@media (max-width: 768px) {
+  .slider-image {
+    width: 100%;
+  }
+}
