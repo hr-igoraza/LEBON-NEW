@@ -3,6 +3,22 @@
   margin: 0 auto;
 } */
 
+/* .magnifier-container {
+  position: relative;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.magnifier-lens {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 2px solid #ccc;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+} */
+
 .slider-image {
   aspect-ratio: 1/1;
   overflow: hidden;
