@@ -57,10 +57,14 @@ const ViewItem = ({ setActiveTab }) => {
   };
 
   const handleEdit = (item) => {
-    setCurrentItem(item);
-    setSubcategories([]); // Reset subcategories
+    setCurrentItem({
+      ...item,
+      category: item.category?._id,
+      subCategory: item.subCategory?._id,
+    });
+
     if (item.category) {
-      handleCategoryChange(item.category._id); // Fetch subcategories
+      handleCategoryChange(item.category._id);
     }
     const modal = new window.bootstrap.Modal(
       document.getElementById("editItemModal")
@@ -73,7 +77,6 @@ const ViewItem = ({ setActiveTab }) => {
       !currentItem.name ||
       !currentItem.price ||
       !currentItem.category ||
-      !currentItem.images ||
       !currentItem.description
     ) {
       setModalFeedback("Please fill in all required fields.");
@@ -82,13 +85,35 @@ const ViewItem = ({ setActiveTab }) => {
 
     setIsSaving(true);
     try {
-      // Save the item with actual image URLs
-      await API.put(`/api/products/${currentItem._id}`, currentItem);
+      const formData = new FormData();
+      formData.append("name", currentItem.name);
+      formData.append("description", currentItem.description);
+      formData.append("price", currentItem.price);
+      formData.append("isVeg", currentItem.isVeg);
+      formData.append("isDeliverable", currentItem.isDeliverable);
+      formData.append("category", currentItem.category);
+      formData.append("subCategory", currentItem.subCategory);
+
+      if (currentItem.newImages) {
+        currentItem.newImages.forEach((file) => {
+          formData.append("images", file);
+        });
+      }
+
+      const response = await API.patch(
+        `/api/products/${currentItem._id}`,
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+
       setItems((prevItems) =>
         prevItems.map((item) =>
-          item._id === currentItem._id ? currentItem : item
+          item._id === currentItem._id ? response.data.updatedProduct : item
         )
       );
+
       setModalFeedback("Item updated successfully.");
       setTimeout(() => {
         const modal = window.bootstrap.Modal.getInstance(
@@ -103,43 +128,36 @@ const ViewItem = ({ setActiveTab }) => {
     }
   };
 
-  const handleImageRemove = (imageToRemove) => {
-    setCurrentItem((prevItem) => ({
-      ...prevItem,
-      images: prevItem.images.filter((image) => image !== imageToRemove),
-    }));
-  };
-
-  const handleImageUpload = async (e) => {
+  const handleImageUpload = (e) => {
     const files = Array.from(e.target.files);
-    const uploadedImages = [];
-
-    for (const file of files) {
-      const formData = new FormData();
-      formData.append("image", file);
-
-      try {
-        const response = await API.post("/api/upload", formData, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-        uploadedImages.push(response.data.imageUrl); // Assuming server returns image URL
-      } catch (err) {
-        setError("Failed to upload image. Please try again.");
-      }
-    }
-
     setCurrentItem((prevItem) => ({
       ...prevItem,
-      images: [...prevItem.images, ...uploadedImages],
+      newImages: files,
     }));
   };
+
+
+  const handleImageRemove = (imageToRemove) => {
+    setCurrentItem((prevItem) => {
+      const updatedImages = prevItem.images.filter((image) => image !== imageToRemove);
+      const updatedNewImages = prevItem.newImages
+        ? prevItem.newImages.filter((file) => URL.createObjectURL(file) !== imageToRemove)
+        : [];
+  
+      return {
+        ...prevItem,
+        images: updatedImages,
+        newImages: updatedNewImages,
+      };
+    });
+  };
+  
 
   const handleCategoryChange = async (categoryId) => {
+    setCurrentItem((prev) => ({ ...prev, subCategory: "" })); // Reset subcategory on category change
     try {
-      const response = await API.get(
-        `/api/categories/${categoryId}/subcategories`
-      );
-      setSubcategories(response.data);
+      const response = await API.get(`/api/categories/${categoryId}`);
+      setSubcategories(response.data.subCategories || []);
     } catch (err) {
       setError("Failed to load subcategories.");
     }
@@ -342,12 +360,18 @@ const ViewItem = ({ setActiveTab }) => {
                       </div>
 
                       {/* Category */}
-                      {/* <div className="form-group mb-3">
+                      <div className="form-group mb-3">
                         <label>Category</label>
                         <select
                           className="form-control"
-                          value={currentItem.category?._id}
-                          onChange={(e) => handleCategoryChange(e.target.value)}
+                          value={currentItem.category || ""}
+                          onChange={(e) => {
+                            handleCategoryChange(e.target.value);
+                            setCurrentItem((prev) => ({
+                              ...prev,
+                              category: e.target.value,
+                            }));
+                          }}
                         >
                           <option value="">Select Category</option>
                           {categories.map((category) => (
@@ -357,21 +381,19 @@ const ViewItem = ({ setActiveTab }) => {
                           ))}
                         </select>
                       </div>
-
-                      Subcategory
+                      {/* Subcategory */}
                       <div className="form-group mb-3">
                         <label>Subcategory</label>
                         <select
                           className="form-control"
-                          value={currentItem.subcategory?._id}
+                          value={currentItem.subCategory || ""}
                           onChange={(e) =>
                             setCurrentItem({
                               ...currentItem,
-                              subcategory: subcategories.find(
-                                (sub) => sub._id === e.target.value
-                              ),
+                              subCategory: e.target.value,
                             })
                           }
+                          disabled={!currentItem.category}
                         >
                           <option value="">Select Subcategory</option>
                           {subcategories.map((subcategory) => (
@@ -383,11 +405,11 @@ const ViewItem = ({ setActiveTab }) => {
                             </option>
                           ))}
                         </select>
-                      </div> */}
+                      </div>
 
                       {/* Images */}
                       <div className="form-group mb-3">
-                        <label>Images</label>
+                        <label>Replace images</label>
                         <input
                           type="file"
                           className="form-control"
@@ -408,13 +430,13 @@ const ViewItem = ({ setActiveTab }) => {
                                   marginRight: "8px",
                                 }}
                               />
-                              <button
+                              {/* <button
                                 type="button"
                                 className="btn btn-danger btn-sm"
                                 onClick={() => handleImageRemove(image)}
                               >
                                 Remove
-                              </button>
+                              </button> */}
                             </div>
                           ))}
                         </div>
