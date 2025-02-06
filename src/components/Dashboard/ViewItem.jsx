@@ -430,13 +430,13 @@ const ViewItem = ({ setActiveTab }) => {
                                   marginRight: "8px",
                                 }}
                               />
-                              {/* <button
+                              <button
                                 type="button"
                                 className="btn btn-danger btn-sm"
                                 onClick={() => handleImageRemove(image)}
                               >
                                 Remove
-                              </button> */}
+                              </button>
                             </div>
                           ))}
                         </div>

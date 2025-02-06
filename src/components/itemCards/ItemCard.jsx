@@ -20,13 +20,13 @@ const ItemCard = (props) => {
 
           <Rate className="my-3" style={{}} disabled defaultValue={props.rating} />
 
-          <Button
+          {/* <Button
             className={"button txt-yellow "}
             divClass={"bt-container"}
             stroke={"#f5be32"}
           >
             ORDER NOW
-          </Button>
+          </Button> */}
         </div>
       </div>
     </>
