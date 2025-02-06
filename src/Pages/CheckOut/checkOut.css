@@ -202,6 +202,6 @@ select {
 
 @media only screen and (max-width: 320px) {
   .checkout-slider {
-    width: 320px;
+    width: 300px;
   }
 }
