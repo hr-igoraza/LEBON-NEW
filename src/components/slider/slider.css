@@ -57,9 +57,9 @@
 
 .slider-image {
   aspect-ratio: 1/1;
-  /* width: 400px; */
+  width: 400px;
   background-position: center;
-  background-size:contain;
+  background-size:cover;
   background-repeat: no-repeat;
 }
 

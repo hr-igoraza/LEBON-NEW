@@ -193,15 +193,15 @@ select {
     width: 100%;}
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 425px) {
   .checkout-slider {
-    width: 380px;
+    width: 390px;
   }
 }
 
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 375px) {
   .checkout-slider {
-    width: 300px;
+    width: 330px; 
   }
 }

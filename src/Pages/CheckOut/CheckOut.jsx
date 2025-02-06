@@ -96,7 +96,7 @@ const CheckOut = () => {
           <div className="cart-items">
             {cart.map((item, index) => (
               <div className="cart-item row mb-5 checkout-slider" key={index}>
-                <div className="col-12 col-md-6 px-lg-5 px-2 ">
+                <div className="col-lg-6 px-lg-5 px-2 ">
                   {isLoading ? (
                     <p className="text-center f-3 f-col-w">Loading images...</p>
                   ) : (
