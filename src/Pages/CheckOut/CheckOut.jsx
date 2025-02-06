@@ -14,8 +14,9 @@ const CheckOut = () => {
   const [sliderImages, setSliderImages] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
-  window.scrollTo(0, 0);  
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const initialQuantities = {};
@@ -161,13 +162,21 @@ const CheckOut = () => {
                     {/* Delivery Available Icon */}
                     {item.isDeliverable !== undefined && (
                       <div className="delivery-icon mt-4 d-flex gap-2 align-items-center">
-                        <img
-                          width={30}
-                          height={30}
-                          src="/images/checkout/delivery.png"
-                          alt="delivery available"
-                        />
-                        <p className="f-5 f-col-w m-0">Delivery Available</p>
+                        {item.isDeliverable ? (
+                          <>
+                            <img
+                              width={30}
+                              height={30}
+                              src="/images/checkout/delivery.png"
+                              alt="delivery available"
+                            />
+                            <p className="f-5 f-col-w m-0">
+                              Delivery Available
+                            </p>
+                          </>
+                        ) : (
+                          <p className="f-5 f-col-w m-0">Not Deliverable</p>
+                        )}
                       </div>
                     )}
 

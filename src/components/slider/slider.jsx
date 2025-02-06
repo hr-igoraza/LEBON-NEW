@@ -104,11 +104,11 @@ const ImageSlider = ({ images }) => {
         </Slider>
       </div>
 
-      <div className="row gap-2">
+      <div className="row gap-2 px-3">
         {images.map((image, index) => (
           <div
             key={index}
-            className="col-auto m-0 thumbnail-container"
+            className="col-auto m-0 thumbnail-container "
             onClick={() => goToSlide(index)}
             style={{ cursor: "pointer" }}
           >

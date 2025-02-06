@@ -191,6 +191,13 @@ select {
 
   .price-count {
     width: 100%;}
+
+    .checkout-content {
+      margin-top: 75px;
+    }
+
+    .msg-input {
+      width: 100%;}
 }
 
 @media only screen and (max-width: 425px) {

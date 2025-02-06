@@ -7,6 +7,10 @@ import API from "../../utils/api";
 import GalleryComponent from "../../components/GalleryComponent/GalleryComponent";
 
 const Gallery = () => {
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   
   return (
     <>
