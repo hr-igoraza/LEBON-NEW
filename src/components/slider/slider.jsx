@@ -90,7 +90,7 @@ const ImageSlider = ({ images }) => {
   };
 
   return (
-    <div className="container m-0 p-0 mt-4">
+    <div className="container m-0 p-0 mt-lg-4 mt-2">
       <div className="slider-container mb-3">
         <Slider ref={sliderRef} {...settings}>
           {images.length > 0 ? (

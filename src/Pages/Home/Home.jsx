@@ -249,7 +249,7 @@ const Home = () => {
 
         {/* ======================= */}
 
-        <div className="row mt-lg-5">
+        <div className="row mt-lg-5 mb-3 mb-lg-5  " >
           <div className="col-12 col-lg-6 ">
             <div className="text-white bottomline our-story-text">
               <div className="">
