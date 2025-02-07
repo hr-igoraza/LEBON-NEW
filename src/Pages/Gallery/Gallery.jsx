@@ -80,13 +80,13 @@ const Gallery = () => {
                   ipsum molestie, vehicula nisi quis, finibus leo.
                 </p>
 
-                <Button
+                {/* <Button
                   className={"button txt-yellow"}
                   divClass={"bt-container mt-5"}
                   stroke={"#f5be32"}
                 >
                   Learn More
-                </Button>
+                </Button> */}
               </div>
             </div>
           </div>
