@@ -88,7 +88,7 @@ const CheckOut = () => {
     const orderDetails = cart
       .map(
         (item, index) =>
-          `*Order Details*%0AProduct: ${item.title}%0ASize: ${size[index]}%0AQuantity: ${
+          `*Order Details*%0AProduct: ${item.title}%0AQuantity: ${
             quantity[index]
           }${item.category === "Cakes" ? " kg" : ""}%0AMessage: ${message[index]}%0APrice: Rs.${item.price}`
       )
