@@ -5,7 +5,6 @@ import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
 import { CartContext } from "../../context/cartContext";
 import API from "../../utils/api";
-import ProductZoom from "../../components/slider/product zoom/ProductZoom";
 
 const CheckOut = () => {
   const { cart } = useContext(CartContext);
@@ -120,8 +119,6 @@ const CheckOut = () => {
                   {isLoading ? (
                     <p className="text-center f-3 f-col-w">Loading images...</p>
                   ) : (
-                    // <ProductZoom images={sliderImages[item.id] || []} />
-
                     <ImageSlider images={sliderImages[item.id] || []} />
                   )}
                 </div>

@@ -26,17 +26,19 @@ const ProductZoom = ({ images = [] }) => {
       backgroundSize: "300%",
       backgroundPosition: `${x}% ${y}%`,
       display: "block",
-      top: `${e.clientY - 10}px`,
-      left: `${e.clientX - 10}px`,
-      width: "300px",
-      height: "300px",
-      border: "2px solid #ccc",
-      borderRadius: "8px",
+      top:-10,
+      left:600,
+      // top: `${e.clientY - 10}px`,
+      // left: `${e.clientX - 10}px`,
+      width: "600px",
+      height: "600px",
+      border: "1px solid #ccc",
+      borderRadius: "2px",
     });
   };
 
   const handleMouseLeave = () => {
-    setZoomStyle({ display: "none" });
+    setZoomStyle({ display: "none"  });
   };
 
   const handleThumbnailClick = (src) => {
@@ -60,6 +62,7 @@ const ProductZoom = ({ images = [] }) => {
                 alt="Product"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
+                style={{ cursor: "zoom-in" }}
               />
             )}
           </div>
