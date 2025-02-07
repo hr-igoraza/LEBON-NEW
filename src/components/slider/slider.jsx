@@ -66,7 +66,7 @@ const ProductZoom = ({ images = [] }) => {
               />
             )}
           </div>
-          <div className="d-flex mt-3 gap-2">
+          <div className="d-flex mt-3 gap-2 ps-2">
             {images.map((src, index) => (
               <div className="thumbnail-container">
                 <img
