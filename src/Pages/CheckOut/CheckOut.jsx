@@ -86,19 +86,23 @@ const CheckOut = () => {
 
   const handleCheckout = () => {
     const orderDetails = cart
-      .map(
-        (item, index) =>
-          `*Order Details*%0AProduct: ${item.title}%0AQuantity: ${
-            quantity[index]
-          }${item.category === "Cakes" ? " kg" : ""}%0AMessage: ${message[index]}%0APrice: Rs.${item.price}`
-      )
+      .map((item, index) => {
+        const messageText =
+          item.category === "Cakes" && message[index]
+            ? `%0AMessage: ${message[index]}`
+            : "";
+        return `*Order Details*%0AProduct: ${item.title}%0AQuantity: ${
+          quantity[index]
+        }${item.category === "Cakes" ? " kg" : ""}${messageText} %0APrice: Rs.${item.price}`;
+      })
       .join("%0A%0A");
-
+  
     const adminPhoneNumber = "+918921655023"; 
     const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${orderDetails}`;
-
+  
     window.open(whatsappUrl, "_blank");
   };
+  
 
   return (
     <>
