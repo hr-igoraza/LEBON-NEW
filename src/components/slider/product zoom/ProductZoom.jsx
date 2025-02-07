@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./slider.css";
+import "./ProductZoom.css";
 
 const ProductZoom = ({ images = [] }) => {
   const [zoomStyle, setZoomStyle] = useState({ display: "none" });
@@ -73,9 +73,9 @@ const ProductZoom = ({ images = [] }) => {
                   src={src}
                   alt="Thumbnail"
                   onClick={() => handleThumbnailClick(src)}
-                //   style={{ cursor: "pointer", width: "60px", height: "60px" }}
+                  //   style={{ cursor: "pointer", width: "60px", height: "60px" }}
                 />
-              </div>    
+              </div>
             ))}
           </div>
         </div>

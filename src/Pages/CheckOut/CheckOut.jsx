@@ -5,6 +5,7 @@ import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
 import { CartContext } from "../../context/cartContext";
 import API from "../../utils/api";
+import ProductZoom from "../../components/slider/product zoom/ProductZoom";
 
 const CheckOut = () => {
   const { cart } = useContext(CartContext);
@@ -20,11 +21,12 @@ const CheckOut = () => {
     // Warn user before page refresh or exit
     const handleBeforeUnload = (event) => {
       event.preventDefault();
-      event.returnValue = "Are you sure you want to leave? Your order details will be lost.";
+      event.returnValue =
+        "Are you sure you want to leave? Your order details will be lost.";
     };
 
     window.addEventListener("beforeunload", handleBeforeUnload);
-    
+
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
@@ -93,29 +95,33 @@ const CheckOut = () => {
             : "";
         return `*Order Details*%0AProduct: ${item.title}%0AQuantity: ${
           quantity[index]
-        }${item.category === "Cakes" ? " kg" : ""}${messageText} %0APrice: Rs.${item.price}`;
+        }${item.category === "Cakes" ? " kg" : ""}${messageText} %0APrice: Rs.${
+          item.price
+        }`;
       })
       .join("%0A%0A");
-  
-    const adminPhoneNumber = "+918921655023"; 
+
+    const adminPhoneNumber = "+918921655023";
     const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${orderDetails}`;
-  
+
     window.open(whatsappUrl, "_blank");
   };
-  
 
   return (
     <>
       <NavBar />
+
       <section className="container-fluid m-0 p-3 p-lg-5 checkout">
         <div className="py-lg-5 checkout-content">
           <div className="cart-items">
             {cart.map((item, index) => (
               <div className="cart-item row mb-5 checkout-slider" key={index}>
-                <div className="col-lg-6 px-lg-5 px-2 ">
+                <div className="col-lg-6 px-lg-5 px-2  ">
                   {isLoading ? (
                     <p className="text-center f-3 f-col-w">Loading images...</p>
                   ) : (
+                    // <ProductZoom images={sliderImages[item.id] || []} />
+
                     <ImageSlider images={sliderImages[item.id] || []} />
                   )}
                 </div>
@@ -203,7 +209,10 @@ const CheckOut = () => {
                       </div>
                     )}
 
-                    <div className="whatsapp mt-lg-5 my-3" onClick={handleCheckout}>
+                    <div
+                      className="whatsapp mt-lg-5 my-3"
+                      onClick={handleCheckout}
+                    >
                       <img src="/images/whatsapp.svg" alt="whatsapp" />
                       <p className="whatsapp-txt m-0 text-dark fw-700">
                         ORDER ON WHATSAPP
