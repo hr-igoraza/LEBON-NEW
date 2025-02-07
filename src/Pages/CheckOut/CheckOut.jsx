@@ -16,6 +16,18 @@ const CheckOut = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Warn user before page refresh or exit
+    const handleBeforeUnload = (event) => {
+      event.preventDefault();
+      event.returnValue = "Are you sure you want to leave? Your order details will be lost.";
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
   }, []);
 
   useEffect(() => {
@@ -38,12 +50,11 @@ const CheckOut = () => {
         const images = {};
         for (const item of cart) {
           const response = await API.get(`/api/products/${item.id}`);
-          // console.log("API Response:", response.data);
           images[item.id] = response.data.images;
         }
         setSliderImages(images);
       } catch (error) {
-        // console.error("Error fetching product images:", error);
+        console.error("Error fetching product images:", error);
       } finally {
         setIsLoading(false);
       }
@@ -51,7 +62,6 @@ const CheckOut = () => {
     fetchImages();
   }, [cart]);
 
-  // Function to handle quantity change
   const handleQuantityChange = (action, index) => {
     setQuantity((prev) => ({
       ...prev,
@@ -60,7 +70,6 @@ const CheckOut = () => {
     }));
   };
 
-  // Function to handle size selection
   const handleSizeChange = (e, index) => {
     setSize((prev) => ({
       ...prev,
@@ -68,7 +77,6 @@ const CheckOut = () => {
     }));
   };
 
-  // Function to handle message input
   const handleMessageChange = (e, index) => {
     setMessage((prev) => ({
       ...prev,
@@ -76,19 +84,19 @@ const CheckOut = () => {
     }));
   };
 
-  // WhatsApp checkout
   const handleCheckout = () => {
     const orderDetails = cart
       .map(
         (item, index) =>
-          `*Order Details*%0AProduct: ${item.title}%0ASize: ${size[index]}%0AQuantity: ${quantity[index]}%0AMessage: ${message[index]}%0APrice: Rs.${item.price}`
+          `*Order Details*%0AProduct: ${item.title}%0ASize: ${size[index]}%0AQuantity: ${
+            quantity[index]
+          }${item.category === "Cakes" ? " kg" : ""}%0AMessage: ${message[index]}%0APrice: Rs.${item.price}`
       )
       .join("%0A%0A");
 
     const adminPhoneNumber = "+918921655023"; 
     const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${orderDetails}`;
 
-    // Open WhatsApp
     window.open(whatsappUrl, "_blank");
   };
 
@@ -96,7 +104,7 @@ const CheckOut = () => {
     <>
       <NavBar />
       <section className="container-fluid m-0 p-3 p-lg-5 checkout">
-        <div className="  py-lg-5 checkout-content">
+        <div className="py-lg-5 checkout-content">
           <div className="cart-items">
             {cart.map((item, index) => (
               <div className="cart-item row mb-5 checkout-slider" key={index}>
@@ -140,7 +148,6 @@ const CheckOut = () => {
 
                     <p className="f-4 f-col-w mt-4">{item.description}</p>
 
-                    {/* Veg/Non-Veg Icon */}
                     {item.isVeg !== undefined && (
                       <div className="veg-nonveg-icon mt-4 d-flex gap-2 align-items-center">
                         <img
@@ -159,7 +166,6 @@ const CheckOut = () => {
                       </div>
                     )}
 
-                    {/* Delivery Available Icon */}
                     {item.isDeliverable !== undefined && (
                       <div className="delivery-icon mt-4 d-flex gap-2 align-items-center">
                         {item.isDeliverable ? (
@@ -180,28 +186,6 @@ const CheckOut = () => {
                       </div>
                     )}
 
-                    {/* <div className="size-container mt-4">
-                      <div className="size">
-                        <select
-                          className="form-select"
-                          aria-label="Select Size"
-                          value={size[index]}
-                          onChange={(e) => handleSizeChange(e, index)}
-                        >
-                          <option value="1">Size 1</option>
-                          <option value="2">Size 2</option>
-                          <option value="3">Size 3</option>
-                        </select>
-                        <img
-                          width={25}
-                          height={15}
-                          src="/images/VectorDown.png"
-                          alt="down"
-                        />
-                      </div>
-                      <img src="/images/line.svg" alt="svg" />
-                    </div> */}
-
                     {item.category === "Cakes" && (
                       <div className="message mt-4">
                         <p className="f-col-w f-4">Message On Cakes</p>
@@ -215,10 +199,7 @@ const CheckOut = () => {
                       </div>
                     )}
 
-                    <div
-                      className="whatsapp mt-lg-5 my-3 "
-                      onClick={handleCheckout}
-                    >
+                    <div className="whatsapp mt-lg-5 my-3" onClick={handleCheckout}>
                       <img src="/images/whatsapp.svg" alt="whatsapp" />
                       <p className="whatsapp-txt m-0 text-dark fw-700">
                         ORDER ON WHATSAPP
