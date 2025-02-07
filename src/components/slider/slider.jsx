@@ -7,7 +7,6 @@ const ProductZoom = ({ images = [] }) => {
   const [mainImage, setMainImage] = useState("");
   const imageRef = useRef(null);
 
-  // Set the first image when images array updates
   useEffect(() => {
     if (images.length > 0) {
       setMainImage(images[0]);
