@@ -85,7 +85,7 @@ const CheckOut = () => {
       )
       .join("%0A%0A");
 
-    const adminPhoneNumber = "997987549374"; // Replace with actual phone number
+    const adminPhoneNumber = "+918921655023"; 
     const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${orderDetails}`;
 
     // Open WhatsApp
