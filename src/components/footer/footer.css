@@ -1,26 +1,3 @@
-/* 
-@media only screen and (max-width: 768px) {
-    .footer-address{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .links{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .links a{
-        margin: 5px !important;
-    }
-
-    
-} */
-
-
-/* =========footer========= */
 
 .icon {
     width: 31px;
@@ -62,7 +39,7 @@
   
 
   
-  .lebon-footer a , .lebon-footer p{
+  .lebon-footer a , .lebon-footer ul p{
     /* font-family: Cormorant SC; */
     color: #d9d9d9 !important ;
     text-decoration: none;

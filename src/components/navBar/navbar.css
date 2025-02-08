@@ -36,24 +36,7 @@
   user-select: none;
 }
 
-.delivery-container{
-  border: #f5be32 2px solid;
-  padding: 0.2em 1em;
 
-}
-.delivery-available {
-  font-family: Cormorant SC;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24.22px;
-  color: #f5be32 !important;
-  font-weight: 700;
-
-  /* color: white !important   ;   */
-  /* cursor: pointer; */
-  user-select: none;
-  margin: 0 !important;
-}
 
 .navbar-nav a:focus {
   color: #f5be32 !important;

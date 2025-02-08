@@ -1,6 +1,7 @@
 import React from "react";
 import "./footer.css";
 import Button from "../buttons/Button";
+import DeliveryAvailableBtn from "../DeliveryButton/DeliveryAvailableBtn";
 
 const Footer = () => {
   return (
@@ -69,7 +70,7 @@ const Footer = () => {
               </li>
               <li>
                 <p className="text-body" href="#!">
-                  +910000045
+                +918593880999
                 </p>
               </li>
               <li>
@@ -152,14 +153,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <div className="d-flex gap-2 align-center delivery-container">
-          <img
-            width={50}
-            src="/images/deliveryAvailable.png"
-            alt="delivery available"
-          />
-          <p className="delivery-available">Delivery Available</p>
-        </div>
+      <DeliveryAvailableBtn/>
 
         <div className="footer-bottom my-4">
           <div className="logo">

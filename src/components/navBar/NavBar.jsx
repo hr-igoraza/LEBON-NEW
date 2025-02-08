@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, useNavigate, Link } from "react-router";
 import Button from "../buttons/Button";
 import "./navbar.css";
+import DeliveryAvailableBtn from "../DeliveryButton/DeliveryAvailableBtn";
 // import DropDown from "../FWNavBar";
 
 const NavBar = () => {
@@ -125,19 +126,8 @@ const NavBar = () => {
                 </NavLink>
               </li>
             </ul>
-            <div className="d-flex gap-2 align-center delivery-container">
-              {/* <Button
-                className="button txt-yellow"
-                divClass="nav-item bt-container"
-                stroke="#f5be32"
-              >
-                RESERVATION
-              </Button> */}
 
-<img  width={50} src="/images/deliveryAvailable.png" alt="delivery available" />
-<p className="delivery-available">Delivery Available</p>
-
-            </div>
+         <DeliveryAvailableBtn/>
           </div>
         </div>
       </nav>
