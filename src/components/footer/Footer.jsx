@@ -92,7 +92,7 @@ const Footer = () => {
                 <p className="text-body">email@gmail.com</p>
               </li>
               <li>
-                <p className="text-body">+918593880999</p>
+                <p className="text-body"> +918593880999</p>
               </li>
               <li>
                 <p className="text-body">
@@ -116,13 +116,13 @@ const Footer = () => {
                    Lebon Cakes and Delicacies,
                    North gate of Karthyayini
                    Devi temple, Cherthala,
-                  <a href="tel:+918593880999">+918593880999</a>
+                  <a href="tel:+918593880999"> +918593880999</a>
                 </p>
               </li>
               <li>
                 <p className="text-body">
                   Opposite to Moham hospital, Eramallore,
-                  <a href="tel:+918593882999">+918593882999</a>
+                  <a href="tel:+918593882999"> +918593882999</a>
                 </p>
               </li>
               <li>
@@ -130,14 +130,14 @@ const Footer = () => {
                   Opposite to Joy Alukkas
                    Near Iron Bridge
                    Alappuzha,
-                  <a href="tel:+918593883999">+918593883999</a>
+                  <a href="tel:+918593883999"> +918593883999</a>
                 </p>
               </li>
               <li>
                 <p className="text-body">
                   Fourth cross road, Panambilly nagar, <br />
-                  <a href="tel:+918593882999">+919562576114</a>,
-                  <a href="tel:+919847502453">+919847502453</a>
+                  <a href="tel:+918593882999"> +919562576114</a>,
+                  <a href="tel:+919847502453"> +919847502453</a>
                 </p>
               </li>
             </ul>
