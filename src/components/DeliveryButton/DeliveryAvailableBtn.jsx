@@ -1,11 +1,10 @@
 import React from "react";
 
 import "./deliveryAvailableBtn.css";
+import { adminPhoneNumber } from "../../utils/api";
 
 const DeliveryAvailableBtn = () => {
   const onDeliveryClick = () => {
-    
-    const adminPhoneNumber = "+918921655023";
     const message = "Can I know more about delivery options?";
     // const encodedMessage = encodeURIComponent(message);
     // const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${encodedMessage}`;

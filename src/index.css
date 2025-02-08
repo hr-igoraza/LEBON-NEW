@@ -30,6 +30,11 @@ body {
   font-size: 16px !important ;
 }
 
+.f-6 {
+  font-size: 12px !important ;
+  opacity: 0.5;
+}
+
 .ls-1 {
   letter-spacing: 0.3em !important;
 }

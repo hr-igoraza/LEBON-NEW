@@ -17,4 +17,6 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
+export const adminPhoneNumber = import.meta.env.VITE_ADMIN_PHONE_NUMBER;
+
 export default API;

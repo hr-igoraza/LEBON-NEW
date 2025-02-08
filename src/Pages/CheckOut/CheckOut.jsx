@@ -4,7 +4,7 @@ import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
 import { CartContext } from "../../context/cartContext";
-import API from "../../utils/api";
+import API ,{adminPhoneNumber} from "../../utils/api";
 
 const CheckOut = () => {
   const { cart } = useContext(CartContext);
@@ -100,7 +100,6 @@ const CheckOut = () => {
       })
       .join("%0A%0A");
 
-    const adminPhoneNumber = "+918921655023";
     const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${orderDetails}`;
 
     window.open(whatsappUrl, "_blank");

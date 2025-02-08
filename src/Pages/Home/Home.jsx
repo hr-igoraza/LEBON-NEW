@@ -160,9 +160,9 @@ const Home = () => {
             </p>
           </div>
           <div className="row mt-lg-5">
-            <div className="col-lg-6 col-12">
+            <div className="col-lg-6 col-12 d-flex justify-content-center">
               <img
-                className="w-100"
+                className="w-75 "
                 src="/images/ourStory.png"
                 alt="ourStory"
               />
