@@ -22,7 +22,7 @@ const onNameClick = (destination) =>{
       <div className="card col-10 col-md-4">
         <img src={props.img} className="card-img-top" alt="images" />
         <div className="card-body item-details">
-          <h5 onClick={()=>onNameClick(props.destination)} className="card-title f-3 item-name">{props.title}</h5>
+          <h5  className="card-title f-3 item-name">{props.title}</h5>
           <p className="card-text bottomline ">
             {props.description
               ? `${props.description}`
@@ -31,13 +31,14 @@ const onNameClick = (destination) =>{
 
           <Rate className="my-3" style={{}} disabled defaultValue={props.rating} />
 
-          {/* <Button
+          <Button
             className={"button txt-yellow "}
             divClass={"bt-container"}
             stroke={"#f5be32"}
+            onClick={()=>onNameClick(props.destination)}
           >
-            ORDER NOW
-          </Button> */}
+            View More
+          </Button>
         </div>
       </div>
     </>

@@ -60,10 +60,9 @@ const Home = () => {
         <div className="todays-special">
           <div className="section-heading mb-lg-4">
             <p className="overline f-5 ls-2">Special Menu</p>
-            <h2 className="title">Today's Special</h2>
+            <h2 className="title">Fresh & Delicious</h2>
             <p className="bottomline">
-              Special menu oftenly comes different everyday,
-              <br /> this is our special food for today
+            Explore our newest arrivals, from mouthwatering cakes to freshly baked pastries. Indulge in our irresistible treats!
             </p>
           </div>
           <div className="special-items row ">
