@@ -44,8 +44,7 @@ const NewArrivals = () => {
             <p className="overline  f-4 ls-2">Quality Food For You</p>
             <h2 className="title">New Arrivals</h2>
             <p className="bottomline">
-              Authentic food from our restaurant served <br /> with high quality
-              ingredients
+            Discover our latest creations! From seasonal specials to innovative twists on classics,<br/> there's always something new to excite your taste buds.
             </p>
           </div>
 

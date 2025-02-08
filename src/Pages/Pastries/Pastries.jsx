@@ -44,8 +44,7 @@ const Pastries = () => {
             <p className="overline  f-4 ls-2">Quality Food For You</p>
             <h2 className="title">Pastries</h2>
             <p className="bottomline">
-              Authentic food from our restaurant served <br /> with high quality
-              ingredients
+            Freshly baked daily. Flaky, buttery, and irresistibly light, <br/>our pastries are the ideal treat for any time of day.
             </p>
           </div>
 

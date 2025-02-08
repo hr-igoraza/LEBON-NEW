@@ -10,10 +10,9 @@ import NavBar from "../../components/navBar/NavBar.jsx";
 import ProductTab from "../../data/TabData.jsx";
 
 const Menu = () => {
-
-   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
   };
@@ -25,7 +24,7 @@ const Menu = () => {
   };
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <section className="dividerImage">
         <img
           className="w-100"
@@ -42,8 +41,8 @@ const Menu = () => {
             <p className="overline  f-4 ls-2">Quality Food For You</p>
             <h2 className="title">Menu</h2>
             <p className="bottomline">
-              Authentic food from our restaurant served <br /> with high quality
-              ingredients
+              Savor a curated selection of delicious dishes <br />
+              crafted with the finest ingredients.
             </p>
           </div>
 
@@ -51,7 +50,6 @@ const Menu = () => {
             {/* <Tab tabs={tabs} onTabChange={handleTabChange} /> */}
 
             <ProductTab category="Menu" />
-
           </div>
         </div>
         {/* <div className="load-more">
@@ -65,9 +63,6 @@ const Menu = () => {
         </div> */}
       </section>
 
-     
-
-      
       <Footer />
     </>
   );

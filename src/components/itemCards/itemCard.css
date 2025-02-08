@@ -24,19 +24,6 @@
 
 }
 
-.item-details h5{
-  cursor: pointer;
-}
-
-.item-details h5:hover{
-  color: #f5be32 !important;
-}
-
-
-.item-details h5:hover{
-  transform: scale(1.01);
-}
-
 .item-name {
   font-family: "DM Serif Display", serif;
   font-weight: 400;

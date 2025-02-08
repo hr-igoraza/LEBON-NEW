@@ -62,13 +62,18 @@ const Home = () => {
             <p className="overline f-5 ls-2">Special Menu</p>
             <h2 className="title">Fresh & Delicious</h2>
             <p className="bottomline">
-            Explore our newest arrivals, from mouthwatering cakes to freshly baked pastries. Indulge in our irresistible treats!
+              Explore our newest arrivals, from mouthwatering cakes to freshly
+              <br />
+              baked pastries. Indulge in our irresistible treats!
             </p>
           </div>
           <div className="special-items row ">
             <ItemCard
               img={"/images/item-1.png"}
               title={"New Arrivals"}
+              description={
+                "Discover our latest creations! From seasonal specials to innovative twists on classics, there's always something new to excite your taste buds."
+              }
               rating={5}
               destination={"newarrivals"}
             />
@@ -76,12 +81,18 @@ const Home = () => {
               img={"/images/item-2.png"}
               title={"Cakes"}
               rating={5}
+              description={
+                "Indulge in perfection. Our cakes are crafted with premium ingredients, layered with flavor, and designed to celebrate every moment."
+              }
               destination={"cakes"}
             />
             <ItemCard
               img={"/images/item-3.png"}
               title={"Pastries"}
               rating={5}
+              description={
+                "Freshly baked daily. Flaky, buttery, and irresistibly light—our pastries are the ideal treat for any time of day."
+              }
               destination={"pastries"}
             />
           </div>
@@ -152,8 +163,7 @@ const Home = () => {
             <p className="overline f-5 ls-2 ">About Us</p>
             <h2 className="title f-2">Our Story</h2>
             <p className="bottomline">
-              A journey for making successful luxury restaurant
-              <br /> with the best services
+            Crafting a fine dining experience with <br/>exceptional flavors and hospitality.
             </p>
           </div>
           <div className="row mt-lg-5">

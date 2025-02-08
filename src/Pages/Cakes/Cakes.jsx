@@ -8,7 +8,6 @@ import NavBar from "../../components/navBar/NavBar.jsx";
 import ProductTab from "../../data/TabData.jsx";
 
 const Cakes = () => {
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -22,7 +21,7 @@ const Cakes = () => {
   };
   return (
     <>
-    <NavBar/>
+      <NavBar />
       <section className="dividerImage">
         <img className="w-100" src="/images/cakes/cakesImg.png" alt="cakes" />
       </section>
@@ -35,8 +34,7 @@ const Cakes = () => {
             <p className="overline  f-4 ls-2">Quality Food For You</p>
             <h2 className="title">Cakes</h2>
             <p className="bottomline">
-              Authentic food from our restaurant served <br /> with high quality
-              ingredients
+            Indulge in perfection. Our cakes are crafted with premium ingredients,<br/> layered with flavor, and designed to celebrate every moment.
             </p>
           </div>
 
