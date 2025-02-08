@@ -2,11 +2,12 @@ import React from "react";
 import "./footer.css";
 import Button from "../buttons/Button";
 import DeliveryAvailableBtn from "../DeliveryButton/DeliveryAvailableBtn";
+import ChatWithUs from "../ChatWithUs/ChatWithUs";
 
 const Footer = () => {
   return (
     <>
-      <section className="container-fluid lebon-footer p-3 p-lg-5" id="footer">
+      <section className="container-fluid lebon-footer p-3 p-lg-5 position-relative" id="footer">
         <h2 className="footer-title  f-55">
           We ready to have you <br />
           the best dining experiences
@@ -155,11 +156,15 @@ const Footer = () => {
         </div>
       <DeliveryAvailableBtn/>
 
+
         <div className="footer-bottom my-4">
           <div className="logo">
             <img width={100} src="/images/lebonLogo.png" alt="logo" />
           </div>
         </div>
+
+        <ChatWithUs/>      
+
       </section>
     </>
   );

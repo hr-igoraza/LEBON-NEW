@@ -1,0 +1,36 @@
+.footer-whatsapp {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.footer-whatsapp:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* .footer-whatsapp::before {
+  content: "Chat With Us";
+  position: absolute;
+  bottom: 50px;
+  right: 35px;
+  width: 100%;
+  font-weight: 600;
+  color: #25d366;
+} */
+
+
+@media screen and (max-width: 768px) {
+    .footer-whatsapp{
+        bottom: 30px;
+        right: 1px;
+        width: 110px;
+
+    }
+    
+    .footer-whatsapp img{
+        width: 100%;
+    }
+}
