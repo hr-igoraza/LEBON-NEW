@@ -15,7 +15,7 @@ const Footer = () => {
 
         <div className="row w-100 mt-lg-5 mt-2">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0">
-            <h5 className="text-uppercase f-col-w">Heading</h5>
+            <h5 className="text-uppercase f-col-w ">Heading</h5>
 
             <ul className="list-unstyled mb-0 ">
               <li>
