@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./galleryComp.css";
 import API from "../../utils/api";
 
-const GalleryComponent = () => {
+const GalleryComponent = ({ limit }) => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -24,6 +24,9 @@ const GalleryComponent = () => {
     fetchImages();
   }, []);
 
+  // Apply limit condition
+  const displayedImages = limit ? images.slice(0, limit) : images;
+
   const openModal = (index) => {
     setCurrentImageIndex(index);
     setModalIsOpen(true);
@@ -44,6 +47,7 @@ const GalleryComponent = () => {
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
+
   return (
     <>
       <section className="container my-5 p-3 p-lg-5">
@@ -55,7 +59,7 @@ const GalleryComponent = () => {
         {error && <p className="text-danger">{error}</p>}
 
         <div className="gallery-grid">
-          {images.map((image, index) => (
+          {displayedImages.map((image, index) => (
             <div
               className="gallery-item"
               key={index}

@@ -196,60 +196,12 @@ const Home = () => {
 
       {/* ======gallery===== */}
 
-      <section className="container my-5 p-3 p-lg-5">
-        <div className="section-heading mb-lg-4">
-          <h2 className="title f-2">Gallary</h2>
-        </div>
-
-        <div className="row">
-          <div className="col-lg-4 col-md-12 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Boat on Calm Water"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain1.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Wintry Mountain Landscape"
-            />
-          </div>
-
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain2.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Mountains in the Clouds"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Boat on Calm Water"
-            />
-          </div>
-
-          <div className="col-lg-4 mb-4 mb-lg-0">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(18).webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Waves at Sea"
-            />
-
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp"
-              className="w-100 shadow-1-strong rounded mb-4"
-              alt="Yosemite National Park"
-            />
-          </div>
-        </div>
-
-        {/* <GalleryComponent /> */}
+      <section className="container">
+        <GalleryComponent limit={6} />
 
         {/* ======================= */}
 
-        <div className="row mt-lg-5 mb-3 mb-lg-5  youtube-vdo" >
+        <div className="row mt-lg-5 mb-3 mb-lg-5  youtube-vdo">
           <div className="col-12 col-lg-6 ">
             <div className="text-white bottomline our-story-text">
               <div className="">
@@ -299,8 +251,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* ======== Footer ======== */}
       <Footer />
