@@ -11,7 +11,7 @@ const Footer = () => {
         className="container-fluid lebon-footer p-3 p-lg-5 position-relative"
         id="footer"
       >
-        <h2 className="footer-title  f-55">
+        <h2 className="footer-title  f-2">
           We ready to have you <br />
           the best dining experiences
         </h2>

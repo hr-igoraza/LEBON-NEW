@@ -78,14 +78,12 @@ const Home = () => {
               title={"Cakes"}
               rating={5}
               destination={"cakes"}
-
             />
             <ItemCard
               img={"/images/item-3.png"}
               title={"Pastries"}
               rating={5}
               destination={"pastries"}
-
             />
           </div>
         </div>
@@ -120,7 +118,7 @@ const Home = () => {
       </section>
 
       {/* =========== Dining Events ======== */}
-
+      {/* 
       <section className="container my-5">
         <div className="dining-events">
           <div className="section-heading mb-lg-4">
@@ -133,11 +131,11 @@ const Home = () => {
           </div>
 
           <div className="event-specialities-tab ">
-            {/* <Tab tabs={events} onTabChange={handleTabChange} /> */}
+            
             <Events category={"Dining Events"} />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ===== Our Story ===== */}
 
