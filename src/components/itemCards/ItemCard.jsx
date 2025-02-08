@@ -21,7 +21,7 @@ const onNameClick = (destination) =>{
 
       <div className="card col-10 col-md-4">
         <img src={props.img} className="card-img-top" alt="images" />
-        <div className="card-body item-details">
+        <div className="card-body item-details px-4 ">
           <h5  className="card-title f-3 item-name">{props.title}</h5>
           <p className="card-text bottomline ">
             {props.description
@@ -33,7 +33,7 @@ const onNameClick = (destination) =>{
 
           <Button
             className={"button txt-yellow "}
-            divClass={"bt-container"}
+            divClass={"bt-container mt-3 mb-5"}
             stroke={"#f5be32"}
             onClick={()=>onNameClick(props.destination)}
           >
