@@ -1,6 +1,6 @@
 import React from "react";
 import "./menu.css";
-
+import { useEffect } from "react";
 import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
 import Footer from "../../components/footer/Footer.jsx";
@@ -10,6 +10,10 @@ import NavBar from "../../components/navBar/NavBar.jsx";
 import ProductTab from "../../data/TabData.jsx";
 
 const Menu = () => {
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
   };

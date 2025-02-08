@@ -2,11 +2,16 @@ import "./cakes.css";
 import Button from "../../components/buttons/Button.jsx";
 import Tab from "../../components/tabs/Tab";
 import Footer from "../../components/footer/Footer.jsx";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/navBar/NavBar.jsx";
 import ProductTab from "../../data/TabData.jsx";
 
 const Cakes = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
   };

@@ -1,9 +1,20 @@
 import React from "react";
 import "./itemCard.css";
 import { Rate } from "antd";
+import { useNavigate } from "react-router";
 import Button from "../buttons/Button";
 
 const ItemCard = (props) => {
+
+  const navigate = useNavigate();
+
+
+const onNameClick = (destination) =>{
+  navigate(`/${destination}`)
+}
+
+
+
   return (
     <>
 
@@ -11,7 +22,7 @@ const ItemCard = (props) => {
       <div className="card col-10 col-md-4">
         <img src={props.img} className="card-img-top" alt="images" />
         <div className="card-body item-details">
-          <h5 className="card-title f-3 item-name">{props.title}</h5>
+          <h5 onClick={()=>onNameClick(props.destination)} className="card-title f-3 item-name">{props.title}</h5>
           <p className="card-text bottomline ">
             {props.description
               ? `${props.description}`

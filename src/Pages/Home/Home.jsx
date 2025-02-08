@@ -69,18 +69,23 @@ const Home = () => {
           <div className="special-items row ">
             <ItemCard
               img={"/images/item-1.png"}
-              title={"Tuna Sushi"}
+              title={"New Arrivals"}
               rating={5}
+              destination={"newarrivals"}
             />
             <ItemCard
               img={"/images/item-2.png"}
-              title={"Salmon Sushi"}
-              rating={4}
+              title={"Cakes"}
+              rating={5}
+              destination={"cakes"}
+
             />
             <ItemCard
               img={"/images/item-3.png"}
-              title={"Just Sushi"}
+              title={"Pastries"}
               rating={5}
+              destination={"pastries"}
+
             />
           </div>
         </div>

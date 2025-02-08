@@ -1,6 +1,6 @@
 import React from "react";
 import "./pastries.css";
-
+import { useEffect } from "react";
 // import Tab from "../../components/tabs/Tab";
 import Tab from "../../components/tabs/Tab.jsx";
 import { tabs } from "../../data/specialities.jsx";
@@ -12,6 +12,10 @@ import ProductTab from "../../data/TabData.jsx";
 
 
 const Pastries = () => {
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   const handleTabChange = (index) => {
     // console.log(`Active Tab Index: ${index}`);
   };
