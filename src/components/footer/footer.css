@@ -85,3 +85,10 @@
 .footer-contact p{
 margin: 0 !important;
 }
+
+.lebon-footer a:hover{
+  color: #f3d382 !important;
+  text-decoration:  underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+}

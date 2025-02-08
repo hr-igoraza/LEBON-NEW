@@ -12,7 +12,7 @@ const Footer = () => {
         id="footer"
       >
         <h2 className="footer-title  f-2">
-          We ready to have you <br />
+        We're ready to serve you  <br />
           the best dining experiences
         </h2>
         <div className="row w-100 mt-lg-5 mt-2">
@@ -31,7 +31,7 @@ const Footer = () => {
               <a
                 data-mdb-ripple-init
                 class="btn btn-link btn-floating  text-body m-1"
-                href="#!"
+                href="https://www.facebook.com/p/Lebon-Cakes-Delicacies-100064955673544/"
                 role="button"
                 data-mdb-ripple-color="dark"
               >
@@ -41,7 +41,7 @@ const Footer = () => {
               <a
                 data-mdb-ripple-init
                 class="btn btn-link btn-floating  text-body m-1"
-                href="#!"
+                href="#"
                 role="button"
                 data-mdb-ripple-color="dark"
               >
@@ -51,7 +51,7 @@ const Footer = () => {
               <a
                 data-mdb-ripple-init
                 class="btn btn-link btn-floating  text-body m-1"
-                href="#!"
+                href="https://www.instagram.com/leboncakes/"
                 role="button"
                 data-mdb-ripple-color="dark"
               >
