@@ -3,8 +3,21 @@ import "./footer.css";
 import Button from "../buttons/Button";
 import DeliveryAvailableBtn from "../DeliveryButton/DeliveryAvailableBtn";
 import ChatWithUs from "../ChatWithUs/ChatWithUs";
+import { NavLink, useNavigate } from "react-router";
 
 const Footer = () => {
+
+  const navigate = useNavigate();
+
+  const handleAboutClick = () => {
+    navigate("/");
+    setTimeout(() => {
+      const aboutSection = document.querySelector("#aboutUs");
+      if (aboutSection) {
+        aboutSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 150);
+  };
   return (
     <>
       <section
@@ -66,19 +79,19 @@ const Footer = () => {
 
             <ul className="list-unstyled mb-0">
               <li>
-                <a className="text-body" href="#!">
+                <a className="text-body " onClick={handleAboutClick}>
                   About Lebon
                 </a>
               </li>
               <li>
-                <a className="text-body" href="#!">
+                <NavLink className="text-body" to={"/menu"}>
                   Menu
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a className="text-body" href="#!">
+                <NavLink className="text-body" to={"/gallery"}>
                   Gallery
-                </a>
+                </NavLink>
               </li>
               <li></li>
             </ul>

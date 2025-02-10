@@ -1,5 +1,6 @@
 body {
   background: #1e1e1e !important;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -46,9 +47,8 @@ body {
   font-weight: 300 !important;
 }
 
-.fw-500{
+.fw-500 {
   font-weight: 300 !important;
-
 }
 
 .fw-700 {
@@ -67,11 +67,9 @@ body {
   font-family: "DM Sans", serif;
 }
 
-.cinzel{
+.cinzel {
   font-family: "Cinzel", serif;
-  
 }
-
 
 ::-webkit-scrollbar {
   width: 10px;
