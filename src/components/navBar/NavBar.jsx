@@ -3,7 +3,6 @@ import { NavLink, useNavigate, Link } from "react-router";
 import Button from "../buttons/Button";
 import "./navbar.css";
 import DeliveryAvailableBtn from "../DeliveryButton/DeliveryAvailableBtn";
-// import DropDown from "../FWNavBar";
 
 const NavBar = () => {
   const navigate = useNavigate();
@@ -44,7 +43,6 @@ const NavBar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            {/* <span className="navbar-toggler-icon"></span> */}
             <img
               className="navbar-toggler-icon"
               src="/images/menu.png"
@@ -85,9 +83,6 @@ const NavBar = () => {
                 </NavLink>
               </li>
 
-              {/* <DropDown /> */}
-
-              {/* ============ */}
 
               <li className="nav-item">
                 <NavLink className="nav-link" to="/pastries">

@@ -243,12 +243,6 @@ const Home = () => {
             </div>
           </div>
           <div className="col-lg-6 col-12 my-4 my-lg-0">
-            {/* <iframe
-              width="100%"
-              height={"500px"}
-              src="https://www.youtube.com/embed/tgbNymZ7vqY"
-              frameborder="0"
-            ></iframe> */}
 
             <iframe
               // width="560"

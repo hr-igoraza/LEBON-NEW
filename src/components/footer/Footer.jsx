@@ -154,7 +154,7 @@ const Footer = () => {
         <ChatWithUs />
         <hr />
         <div className="text-white f-6 text-align-left w-100">
-          © Copyright &amp; All Rights Reserved 2024 - IGORAZA PRIVATE LIMITED.
+          © Copyright &amp; All Rights Reserved 2024 - <a className="f-6" href="https://www.igoraza.com/">IGORAZA PRIVATE LIMITED</a>. 
         </div>
       </section>
     </>
