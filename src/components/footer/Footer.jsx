@@ -51,7 +51,7 @@ const Footer = () => {
                 <i class="fab fa-facebook-f"></i>
               </a>
 
-              <a
+              {/* <a
                 data-mdb-ripple-init
                 class="btn btn-link btn-floating  text-body m-1"
                 href="#"
@@ -59,7 +59,7 @@ const Footer = () => {
                 data-mdb-ripple-color="dark"
               >
                 <i class="fab fa-twitter"></i>
-              </a>
+              </a> */}
 
               <a
                 data-mdb-ripple-init
@@ -102,7 +102,7 @@ const Footer = () => {
 
             <ul className="list-unstyled mb-0">
               <li>
-                <p className="text-body">email@gmail.com</p>
+                <p className="text-body">leboncakesctla@gmail.com</p>
               </li>
               <li>
                 <p className="text-body"> +918593880999</p>
