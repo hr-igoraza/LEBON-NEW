@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ProductTab from "../../data/TabData.jsx";
 import GalleryComponent from "../../components/GalleryComponent/GalleryComponent.jsx";
 import Footer from "../../components/footer/Footer.jsx";
+import VideoModal from "../../components/videoComponent/video.jsx";
 
 const Home = () => {
   const handleTabChange = (index) => {
@@ -163,7 +164,8 @@ const Home = () => {
             <p className="overline f-5 ls-2 ">About Us</p>
             <h2 className="title f-2">Our Story</h2>
             <p className="bottomline">
-            Crafting a fine dining experience with <br/>exceptional flavors and hospitality.
+              Crafting a fine dining experience with <br />
+              exceptional flavors and hospitality.
             </p>
           </div>
           <div className="row mt-lg-5">
@@ -243,18 +245,11 @@ const Home = () => {
             </div>
           </div>
           <div className="col-lg-6 col-12 my-4 my-lg-0">
-
-            <iframe
-              // width="560"
-              // height="400"
-              src="https://www.youtube.com/embed/L8S89BCjQvo?si=1hiCQXYpk4UqHxb5"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+<VideoModal />
+        
           </div>
+
+          
         </div>
       </section>
 
