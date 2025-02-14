@@ -3,25 +3,21 @@ import "./gallery.css";
 import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import Button from "../../components/buttons/Button";
-import API from "../../utils/api"; 
+import API from "../../utils/api";
 import GalleryComponent from "../../components/GalleryComponent/GalleryComponent";
+import VideoGalleryModal from "../../components/videoComponent/video";
 
 const Gallery = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-  
   return (
     <>
       <NavBar />
 
-
-
-
       <section className="container my-500px mt-5 p-3 p-lg-5">
-
-        <GalleryComponent/>
+        <GalleryComponent />
         {/* <div className="section-heading mb-lg-4 mt-5">
           <h2 className="title f-2">Gallery</h2>
         </div>
@@ -64,43 +60,28 @@ const Gallery = () => {
           </div>
         )} */}
 
-        <div className="row mt-lg-5">
-          <div className="col-12 col-lg-6">
+        <div className="row mt-lg-5 mb-3 mb-lg-5  youtube-vdo align-items-center">
+          <div className="col-12 col-lg-6 ">
             <div className="text-white bottomline our-story-text">
-              <div className="p-2 p-md-5 mt-2 mt-md-0">
+              <div className="">
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer feugiat urna id leo euismod rhoncus. Aliquam erat
-                  volutpat. Nulla id aliquam neque, at dignissim quam. Praesent
-                  et lacus accumsan, consequat nisl a, mattis sapien.
+                  Welcome to our cake gallery! At LEBONCAKES, we take pride in
+                  crafting visually stunning and irresistibly delicious cakes
+                  for every occasion. Whether you're celebrating a birthday,
+                  wedding, or simply indulging in a sweet treat, our cakes are
+                  designed to leave a lasting impression.
                 </p>
                 <p>
-                  Nam sodales ullamcorper aliquet. Phasellus ut pretium libero,
-                  vitae imperdiet purus. Sed sed tincidunt velit. Aliquam vitae
-                  ipsum molestie, vehicula nisi quis, finibus leo.
+                  Browse through our face book page Lebon cakes and delicacies
+                  and insta pages @Leboncakes to see the varieties....Call or
+                  whatsapp anytime at <strong>8593880999</strong> or{" "}
+                  <strong>8593882999</strong> for your orders...
                 </p>
-
-                {/* <Button
-                  className={"button txt-yellow"}
-                  divClass={"bt-container mt-5"}
-                  stroke={"#f5be32"}
-                >
-                  Learn More
-                </Button> */}
               </div>
             </div>
           </div>
-          <div className="col-lg-6 col-12">
-            <iframe
-              width="560"
-              height="400"
-              src="https://www.youtube.com/embed/L8S89BCjQvo?si=1hiCQXYpk4UqHxb5"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
+          <div className="col-lg-6 col-12 my-4 my-lg-0">
+            <VideoGalleryModal />
           </div>
         </div>
       </section>
