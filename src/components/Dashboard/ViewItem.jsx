@@ -417,7 +417,7 @@ const ViewItem = ({ setActiveTab }) => {
                           multiple
                           onChange={handleImageUpload}
                         />
-                        <div className="mt-3">
+                        <div className="mt-3 d-flex gap-3">
                           {currentItem.images.map((image, index) => (
                             <div key={index} className="image-preview">
                               <img
@@ -430,13 +430,13 @@ const ViewItem = ({ setActiveTab }) => {
                                   marginRight: "8px",
                                 }}
                               />
-                              <button
+                              {/* <button
                                 type="button"
                                 className="btn btn-danger btn-sm"
                                 onClick={() => handleImageRemove(image)}
                               >
                                 Remove
-                              </button>
+                              </button> */}
                             </div>
                           ))}
                         </div>
