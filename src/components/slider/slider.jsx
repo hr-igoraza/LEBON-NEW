@@ -57,7 +57,7 @@ const ProductZoom = ({ images = [] }) => {
             {mainImage && (
               <img
                 ref={imageRef}
-                className="img-fluid w-100"
+                className="img-fluid w-100 object-fit-cover"
                 src={mainImage}
                 alt="Product"
                 onMouseMove={handleMouseMove}
