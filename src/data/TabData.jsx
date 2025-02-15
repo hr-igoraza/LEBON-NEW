@@ -25,7 +25,7 @@ const setCachedData = (key, data) => {
 
 const ProductTab = memo(({ category }) => {
   const [page, setPage] = useState(1); // State for pagination
-  const limit = 250; 
+  const limit = 500; 
   // Number of products per page
 
   const {
