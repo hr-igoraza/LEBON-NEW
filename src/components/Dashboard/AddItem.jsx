@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import API from "../../utils/api";
+import "./viewItem.css";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -18,6 +19,7 @@ const AddProduct = () => {
   const [categories, setCategories] = useState([]);
   const [subCategories, setSubCategories] = useState([]);
   const [filteredSubCategories, setFilteredSubCategories] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     fetchCategories();
@@ -34,7 +36,7 @@ const AddProduct = () => {
         setMessageType("");
       }, 3000);
 
-      return () => clearTimeout(timer); 
+      return () => clearTimeout(timer);
     }
   }, [message]);
 
@@ -42,7 +44,7 @@ const AddProduct = () => {
     if (category) {
       fetchSubCategories();
     } else {
-      setSubCategories([]); 
+      setSubCategories([]);
     }
   }, [category]);
 
@@ -79,14 +81,12 @@ const AddProduct = () => {
     }
   };
 
-  
   const handleCategoryChange = (e) => {
     const selectedCategory = e.target.value;
     setCategory(selectedCategory);
-    setSubCategory(""); 
+    setSubCategory("");
   };
 
- 
   const handleImageChange = (e) => {
     const files = e.target.files;
     if (files.length > 0) {
@@ -115,7 +115,6 @@ const AddProduct = () => {
     }
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -124,7 +123,6 @@ const AddProduct = () => {
     setImagePreviews([]);
     setImages(" ");
 
-    // Form validation
     if (
       !name ||
       !description ||
@@ -146,7 +144,6 @@ const AddProduct = () => {
       return;
     }
 
-    // Prepare form data
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
@@ -156,13 +153,11 @@ const AddProduct = () => {
     formData.append("isVeg", isVeg);
     formData.append("isDeliverable", isDeliverable);
 
-    
     Array.from(images).forEach((image) => {
       formData.append("images", image);
     });
 
     try {
-      
       const response = await API.post("api/products", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -170,12 +165,10 @@ const AddProduct = () => {
         },
       });
 
-      
       setMessage("Product added successfully!");
       setMessageType("success");
       setLoading(false);
 
-      // Reset form fields
       setName("");
       setDescription("");
       setPrice("");
@@ -186,19 +179,16 @@ const AddProduct = () => {
       setImages([]);
       setImagePreviews([]);
     } catch (error) {
-      // Handle error
       setMessage(
         typeof error.response?.data?.message === "string"
           ? error.response.data.message
           : JSON.stringify(error.response?.data || "Error adding product.")
       );
-      
       setMessageType("error");
       setLoading(false);
     }
   };
 
-  // Handle adding a new category
   const handleAddCategory = async () => {
     const categoryName = prompt("Enter the name of the new category:");
     if (!categoryName) {
@@ -217,14 +207,12 @@ const AddProduct = () => {
         }
       );
 
-      // Update the categories list
       setCategories([...categories, response.data]);
     } catch (error) {
       console.error("Error adding category:", error);
     }
   };
 
-  // Handle adding a new subcategory
   const handleAddSubCategory = async () => {
     if (!category) {
       alert("Please select a category first.");
@@ -252,231 +240,364 @@ const AddProduct = () => {
       setSubCategories([...subCategories, response.data]);
       setSubCategory(response.data._id);
 
-      // Immediately filter the subcategories to include the new one
       filterSubCategories();
     } catch (error) {
       console.error("Error adding subcategory:", error);
     }
   };
 
+//   edit a subcategory
+  const handleEditSubCategory = async (subCategoryId) => {
+    const subCategoryToEdit = filteredSubCategories.find(
+      (subCat) => subCat._id === subCategoryId
+    );
+    if (!subCategoryToEdit) {
+      alert("Subcategory not found.");
+      return;
+    }
+
+    const newName = prompt(
+      "Enter the new name for the subcategory:",
+      subCategoryToEdit.name
+    );
+    if (!newName) {
+      alert("Subcategory name cannot be empty.");
+      return;
+    }
+
+    try {
+      const response = await API.put(
+        `/api/subcategories/${subCategoryId}`,
+        { name: newName },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+
+      // update subcategories list
+      const updatedSubCategories = subCategories.map((subCat) =>
+        subCat._id === subCategoryId ? { ...subCat, name: newName } : subCat
+      );
+      setSubCategories(updatedSubCategories);
+      filterSubCategories();
+    } catch (error) {
+      console.error("Error editing subcategory:", error);
+    }
+  };
+
+  // to delete a subcategory
+  const handleDeleteSubCategory = async (subCategoryId) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this subcategory?"
+    );
+    if (!confirmDelete) return;
+
+    try {
+      await API.delete(`/api/subcategories/${subCategoryId}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+   
+      const updatedSubCategories = subCategories.filter(
+        (subCat) => subCat._id !== subCategoryId
+      );
+      setSubCategories(updatedSubCategories);
+      filterSubCategories();
+    } catch (error) {
+      console.error("Error deleting subcategory:", error);
+    }
+  };
+
   return (
     <>
-    <div className="container">
-      <div className="text-white">
-        <h2>Add Product</h2>
-        <p>Here you can add a new product to the inventory.</p>
+      <div className="container">
+        <div className="text-white">
+          <h2>Add Product</h2>
+          <p>Here you can add a new product to the inventory.</p>
 
-        {/* Display message */}
-        {message && (
-          <div
-            className={`alert ${
-              messageType === "success" ? "alert-success" : "alert-danger"
-            }`}
-            role="alert"
-          >
-            {message}
-          </div>
-        )}
+          {message && (
+            <div
+              className={`alert ${
+                messageType === "success" ? "alert-success" : "alert-danger"
+              }`}
+              role="alert"
+            >
+              {message}
+            </div>
+          )}
 
-        {/* Form */}
-        <form onSubmit={handleSubmit}>
-          {/* Product Name */}
-          <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Product Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="form-control bg-dark text-white"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              disabled={loading}
-            />
-          </div>
-
-          {/* Description */}
-          <div className="mb-3">
-            <label htmlFor="description" className="form-label">
-              Description
-            </label>
-            <textarea
-              id="description"
-              className="form-control bg-dark text-white"
-              rows="4"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-              disabled={loading}
-            />
-          </div>
-
-          {/* Price */}
-          <div className="mb-3">
-            <label htmlFor="price" className="form-label">
-              Price
-            </label>
-            <input
-              type="number"
-              id="price"
-              className="form-control bg-dark text-white"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-              disabled={loading}
-              min="0"
-            />
-          </div>
-
-          {/* Category Dropdown */}
-          <div className="mb-3">
-            <label htmlFor="category" className="form-label">
-              Category
-            </label>
-            <div className="d-flex">
-              <select
-                id="category"
-                className="form-control bg-dark text-white me-2"
-                value={category}
-                onChange={handleCategoryChange}
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label">
+                Product Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                className="form-control bg-dark text-white"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
                 disabled={loading}
-              >
-                <option value="">Select Category</option>
-                {categories.map((cat) => (
-                  <option key={cat._id} value={cat._id}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-              {/* <button
-                type="button"
-                className="btn btn-outline-light"
-                onClick={handleAddCategory}
-                disabled={loading}
-              >
-                + Add
-              </button> */}
+              />
             </div>
-          </div>
 
-          {/* Subcategory Dropdown */}
-          <div className="mb-3">
-            <label htmlFor="subCategory" className="form-label">
-              Subcategory
-            </label>
-            <div className="d-flex">
-              <select
-                id="subCategory"
-                className="form-control bg-dark text-white me-2"
-                value={subCategory}
-                onChange={(e) => setSubCategory(e.target.value)}
+            <div className="mb-3">
+              <label htmlFor="description" className="form-label">
+                Description
+              </label>
+              <textarea
+                id="description"
+                className="form-control bg-dark text-white"
+                rows="4"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
                 required
-                disabled={!category || loading}
-              >
-                <option value="">Select Subcategory</option>
-                {filteredSubCategories.map((subCat) => (
-                  <option key={subCat._id} value={subCat._id}>
-                    {subCat.name}
-                  </option>
-                ))}
-              </select>
-              <button
-                type="button"
-                className="btn btn-outline-light"
-                onClick={handleAddSubCategory}
-                disabled={!category || loading}
-              >
-                + Add
-              </button>
+                disabled={loading}
+              />
             </div>
-          </div>
 
-          {/* Veg/Non-Veg */}
-          <div className="mb-3">
-            <label htmlFor="isVeg" className="form-label">
-              Veg/Non-Veg
-            </label>
-            <select
-              id="isVeg"
-              className="form-control bg-dark text-white"
-              value={isVeg}
-              onChange={(e) => setIsVeg(e.target.value === "true")}
-              required
-              disabled={loading}
-            >
-              <option value={true}>Veg</option>
-              <option value={false}>Non-Veg</option>
-            </select>
-          </div>
+            <div className="mb-3">
+              <label htmlFor="price" className="form-label">
+                Price
+              </label>
+              <input
+                type="number"
+                id="price"
+                className="form-control bg-dark text-white"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                required
+                disabled={loading}
+                min="0"
+              />
+            </div>
 
-          {/* Is Deliverable */}
-          <div className="mb-3">
-            <label htmlFor="isDeliverable" className="form-label">
-              Is Delivery Available?
-            </label>
-            <select
-              id="isDeliverable"
-              className="form-control bg-dark text-white"
-              value={isDeliverable}
-              onChange={(e) => setIsDeliverable(e.target.value === "true")}
-              required
-              disabled={loading}
-            >
-              <option value={true}>Yes</option>
-              <option value={false}>No</option>
-            </select>
-          </div>
-
-          {/* Images */}
-          <div className="mb-3">
-            <label htmlFor="images" className="form-label">
-              Product Images
-            </label>
-            <input
-              type="file"
-              id="images"
-              className="form-control bg-dark text-white"
-              multiple
-              onChange={handleImageChange}
-              required
-              disabled={loading}
-            />
-            {/* Image Previews */}
-            {imagePreviews.length > 0 && (
-              <div className="mt-2 d-flex flex-wrap gap-2">
-                {imagePreviews.map((preview, index) => (
-                  <img
-                    key={index}
-                    src={preview}
-                    alt={`Preview ${index + 1}`}
-                    className="img-thumbnail"
-                    style={{ width: "100px", height: "100px" }}
-                  />
-                ))}
+            <div className="mb-3">
+              <label htmlFor="category" className="form-label">
+                Category
+              </label>
+              <div className="d-flex">
+                <select
+                  id="category"
+                  className="form-control bg-dark text-white me-2"
+                  value={category}
+                  onChange={handleCategoryChange}
+                  required
+                  disabled={loading}
+                >
+                  <option value="">Select Category</option>
+                  {categories.map((cat) => (
+                    <option key={cat._id} value={cat._id}>
+                      {cat.name}
+                    </option>
+                  ))}
+                </select>
               </div>
-            )}
-          </div>
+            </div>
 
-          {/* Submit Button */}
-          <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? (
-              <>
-                <span
-                  className="spinner-border spinner-border-sm me-2"
-                  role="status"
-                  aria-hidden="true"
-                ></span>
-                Adding Product...
-              </>
-            ) : (
-              "Add Product"
-            )}
-          </button>
-        </form>
+            {/* ==================== */}
+
+            <div className="mb-3">
+              <label htmlFor="subCategory" className="form-label">
+                Subcategory
+              </label>
+              <div className="d-flex">
+                {/* Subcategory Dropdown */}
+                <select
+                  id="subCategory"
+                  className="form-control bg-dark text-white me-2"
+                  value={subCategory}
+                  onChange={(e) => setSubCategory(e.target.value)}
+                  required
+                  disabled={!category || loading}
+                >
+                  <option value="">Select Subcategory</option>
+                  {filteredSubCategories.map((subCat) => (
+                    <option key={subCat._id} value={subCat._id}>
+                      {subCat.name}
+                    </option>
+                  ))}
+                </select>
+
+                {/* Add Subcategory Button */}
+                <button
+                  type="button"
+                  className="btn btn-outline-light me-2"
+                  onClick={handleAddSubCategory}
+                  disabled={!category || loading}
+                >
+                  + Add
+                </button>
+
+                {/* Manage Subcategories Button */}
+                <button
+                  type="button"
+                  className="btn btn-outline-info"
+                  onClick={() => setIsModalOpen(true)}
+                  disabled={!category || loading}
+                >
+                  Manage Subcategories
+                </button>
+              </div>
+
+              {/* Modal for Subcategory Management */}
+              {isModalOpen && (
+                <div
+                  className="modal"
+                  style={{
+                    display: "block",
+                    backgroundColor: "rgba(0,0,0,0.5)",
+                  }}
+                >
+                  <div className="modal-dialog">
+                    <div className="modal-content">
+                      <div className="modal-header gap-3">
+                        <h5 className="modal-title">Manage Subcategories</h5>
+                        <button
+                          type="button"
+                          className="btn-close"
+                          onClick={() => setIsModalOpen(false)}
+                        ></button>
+                      </div>
+                      <div className="modal-body ">
+                        {filteredSubCategories.map((subCat) => (
+                          <div
+                            key={subCat._id}
+                            className="d-flex align-items-center mb-2 "
+                          >
+                            <div className="w-300px     ">
+                              <span>{subCat.name}</span>
+                            </div>
+                            <div className="d-flex">
+                              <button
+                                type="button"
+                                className="btn btn-sm btn-outline-warning ms-2"
+                                onClick={() =>
+                                  handleEditSubCategory(subCat._id)
+                                }
+                                disabled={loading}
+                              >
+                                Edit
+                              </button>
+                              <button
+                                type="button"
+                                className="btn btn-sm btn-outline-danger ms-2"
+                                onClick={() =>
+                                  handleDeleteSubCategory(subCat._id)
+                                }
+                                disabled={loading}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="modal-footer">
+                        <button
+                          type="button"
+                          className="btn btn-secondary"
+                          onClick={() => setIsModalOpen(false)}
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* ================= */}
+
+            <div className="mb-3">
+              <label htmlFor="isVeg" className="form-label">
+                Veg/Non-Veg
+              </label>
+              <select
+                id="isVeg"
+                className="form-control bg-dark text-white"
+                value={isVeg}
+                onChange={(e) => setIsVeg(e.target.value === "true")}
+                required
+                disabled={loading}
+              >
+                <option value={true}>Veg</option>
+                <option value={false}>Non-Veg</option>
+              </select>
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="isDeliverable" className="form-label">
+                Is Delivery Available?
+              </label>
+              <select
+                id="isDeliverable"
+                className="form-control bg-dark text-white"
+                value={isDeliverable}
+                onChange={(e) => setIsDeliverable(e.target.value === "true")}
+                required
+                disabled={loading}
+              >
+                <option value={true}>Yes</option>
+                <option value={false}>No</option>
+              </select>
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="images" className="form-label">
+                Product Images
+              </label>
+              <input
+                type="file"
+                id="images"
+                className="form-control bg-dark text-white"
+                multiple
+                onChange={handleImageChange}
+                required
+                disabled={loading}
+              />
+              {imagePreviews.length > 0 && (
+                <div className="mt-2 d-flex flex-wrap gap-2">
+                  {imagePreviews.map((preview, index) => (
+                    <img
+                      key={index}
+                      src={preview}
+                      alt={`Preview ${index + 1}`}
+                      className="img-thumbnail"
+                      style={{ width: "100px", height: "100px" }}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="btn btn-primary"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span
+                    className="spinner-border spinner-border-sm me-2"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Adding Product...
+                </>
+              ) : (
+                "Add Product"
+              )}
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
     </>
   );
 };

@@ -2,10 +2,26 @@
   max-width: 800px; 
 }
 
+
+.pagination{
+  user-select: none;
+}
+
+.pagination .active .page-link {
+  background-color: #f5be32 !important;
+  border-color: #f5be32 !important;
+}
+
+.pagination .page-link:hover {
+  border-color: #f5be32 !important;
+}
+
+
+
 #editItemModal {
   max-width: 800px; 
   position: fixed;
-  top: 55%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: transparent !important;
@@ -24,7 +40,7 @@
   font-weight: bold;
 }
 
-.form-control {
+.form-control, .form-select {
   background-color: #333;
   color: #f5f5f5;
   border: 1px solid #444;
@@ -51,3 +67,5 @@
 .img-thumbnail {
   border: 1px solid #444;
 }
+
+

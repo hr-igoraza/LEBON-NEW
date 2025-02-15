@@ -101,7 +101,7 @@ const NavBar = () => {
                 <div className="dropdown-menu" aria-labelledby="aboutDropdown">
                   <p
                     className="dropdown-item text-dark"
-                    to="#"
+                    to="!"
                     onClick={handleAboutClick}
                   >
                     About Us

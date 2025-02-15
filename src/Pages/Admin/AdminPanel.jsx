@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./adminPanel.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import ViewItem from "../../components/Dashboard/ViewItem"; //import
+import ViewItem from "../../components/Dashboard/ViewItem";
 import AddItem from "../../components/Dashboard/AddItem";
 import EditItem from "../../components/Dashboard/EditItem";
 import GalleryView from "../../components/gallery/GalleryView";
@@ -42,43 +42,6 @@ const AdminPanel = () => {
           return <GalleryView />;
       }
     }
-    //  else if (activeSection === "cakes") {
-    //   switch (activeTab) {
-    //     case "view":
-    //       return <Cakes setActiveTab={setActiveTab} />;
-    //     case "add":
-    //       return <AddCakeItem />;
-    //     default:
-    //       return <ViewItem setActiveTab={setActiveTab} />;
-    //   }
-    // } else if (activeSection === "newArrivals") {
-    //   switch (activeTab) {
-    //     case "view":
-    //       return <NewArrivals setActiveTab={setActiveTab} />;
-    //     case "add":
-    //       return <AddNewArrivalItem />;
-    //     default:
-    //       return <ViewItem setActiveTab={setActiveTab} />;
-    //   }
-    // } else if (activeSection === "pastries") {
-    //   switch (activeTab) {
-    //     case "view":
-    //       return <Pastries setActiveTab={setActiveTab} />;
-    //     case "add":
-    //       return <AddPastryItem />;
-    //     default:
-    //       return <ViewItem setActiveTab={setActiveTab} />;
-    //   }
-    // } else if (activeSection === "todaysSpecial") {
-    //   switch (activeTab) {
-    //     case "view":
-    //       return <TodaysSpecial setActiveTab={setActiveTab} />;
-    //     case "add":
-    //       return <AddSpecialItem />;
-    //     default:
-    //       return <ViewItem setActiveTab={setActiveTab} />;
-    //   }
-    // }
   };
 
   return (

@@ -52,15 +52,6 @@ const Menu = () => {
             <ProductTab category="Menu" />
           </div>
         </div>
-        {/* <div className="load-more">
-      <Button
-          className={"button fw-300"}
-          divClass={`bt-container txt-black bt-ct-yellow px-4`}
-          onClick={navigatetoGallery}
-        >
-          Load More
-        </Button>
-        </div> */}
       </section>
 
       <Footer />
