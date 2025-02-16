@@ -3,9 +3,7 @@ body {
   scroll-behavior: smooth;
 }
 
-#root {
-  overflow: hidden;
-}
+
 
 .f-1 {
   font-size: 60px !important;
