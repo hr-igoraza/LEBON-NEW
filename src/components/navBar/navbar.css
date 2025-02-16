@@ -6,11 +6,12 @@
 }
 
 .navbar-brand {
-  width: 120px;
+  width: 100px;
   box-shadow: none !important;
 }
 
 .navbar-brand img {
+  width: 100%;
   box-shadow: none;
 }
 
@@ -45,6 +46,8 @@
 .navbar-nav p:focus {
   color: #f5be32 !important;
 }
+
+
 
 .ib {
   display: inline-block !important;
@@ -93,3 +96,8 @@
   background-color: #f5be32 !important;
 }
   
+
+@media screen and (max-width: 768px) {
+  .navbar-brand img {
+  width: 70px !important;
+}}

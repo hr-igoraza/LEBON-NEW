@@ -31,8 +31,8 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-lg px-lg-4 px-2 ">
         <div className="container-fluid p-2 px-lg-5">
-          <a className="navbar-brand" href="#" onClick={handleLogoClick}>
-            <img width={100} src="/images/lebonLogo.png" alt="" />
+          <a className="navbar-brand " href="#" onClick={handleLogoClick}>
+            <img  src="/images/lebonLogo.png" alt="Lebon Logo" />
           </a>
           <button
             className="navbar-toggler"
