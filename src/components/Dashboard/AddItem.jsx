@@ -514,23 +514,27 @@ const AddProduct = () => {
             </div>
 
             {/* ================= */}
-
             <div className="mb-3">
-              <label htmlFor="isVeg" className="form-label">
-                Veg/Non-Veg
-              </label>
-              <select
-                id="isVeg"
-                className="form-control bg-dark text-white"
-                value={isVeg}
-                onChange={(e) => setIsVeg(e.target.value === "true")}
-                required
-                disabled={loading}
-              >
-                <option value={true}>Veg</option>
-                <option value={false}>Non-Veg</option>
-              </select>
-            </div>
+  <label htmlFor="isVeg" className="form-label">
+    Veg/Non-Veg
+  </label>
+  <select
+    id="isVeg"
+    className="form-control bg-dark text-white"
+    value={isVeg === null ? "null" : isVeg.toString()} // Convert boolean to string for comparison
+    onChange={(e) => {
+      const value = e.target.value;
+      setIsVeg(value === "null" ? null : value === "true"); // Convert string back to boolean or null
+    }}
+    required
+    disabled={loading}
+  >
+    <option value="true">Veg</option>
+    <option value="false">Non-Veg</option>
+    <option value="null">Both are Available</option>
+  </select>
+</div>
+            {/* ============= */}
 
             <div className="mb-3">
               <label htmlFor="isDeliverable" className="form-label">

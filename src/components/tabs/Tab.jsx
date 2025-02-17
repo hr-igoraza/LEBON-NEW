@@ -11,13 +11,17 @@ const Tab = ({ tabs = [], onTabChange }) => {
     queryKey: activeTabConfig?.queryKey,
     queryFn: activeTabConfig?.queryFn,
     enabled: !!activeTabConfig?.queryKey && !!activeTabConfig?.queryFn,
-    staleTime: 60_000, // Cache data for 1 minute
+    staleTime: 350_000, // Cache data for 1 minute
   });
+
+
 
   const handleTabClick = (index) => {
     setActiveTab(index);
-    onTabChange?.(index);
+    onTabChange?.(index); 
   };
+
+ 
 
   // Memoize the content rendering logic
   const content = useMemo(() => {

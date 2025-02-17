@@ -66,7 +66,10 @@ const EditItemModal = ({
                 className="form-control"
                 value={currentItem.description || ""}
                 onChange={(e) =>
-                  setCurrentItem({ ...currentItem, description: e.target.value })
+                  setCurrentItem({
+                    ...currentItem,
+                    description: e.target.value,
+                  })
                 }
               />
             </div>
@@ -111,7 +114,10 @@ const EditItemModal = ({
                 className="form-select bg-dark text-white "
                 value={currentItem.subCategory || ""}
                 onChange={(e) =>
-                  setCurrentItem({ ...currentItem, subCategory: e.target.value })
+                  setCurrentItem({
+                    ...currentItem,
+                    subCategory: e.target.value,
+                  })
                 }
                 disabled={!currentItem.category}
               >
@@ -125,7 +131,7 @@ const EditItemModal = ({
             </div>
 
             {/* Veg Checkbox */}
-            <div className="form-check mb-3">
+            {/* <div className="form-check mb-3">
               <input
                 type="checkbox"
                 className="form-check-input"
@@ -135,6 +141,30 @@ const EditItemModal = ({
                 }
               />
               <label className="form-check-label">Vegetarian</label>
+            </div> */}
+
+            <div className="mb-3">
+              <label htmlFor="isVeg" className="form-label">
+                Veg/Non-Veg
+              </label>
+              <select
+                id="isVeg"
+                className="form-control bg-dark text-white"
+                value={currentItem.isVeg}
+                onChange={(e) => {
+                  const value =
+                    e.target.value === "null"
+                      ? null
+                      : e.target.value === "true";
+                  setCurrentItem({ ...currentItem, isVeg: value });
+                }}
+                required
+                // disabled={loading}
+              >
+                <option value="true">Veg</option>
+                <option value="false">Non-Veg</option>
+                <option value="null">Both are Available</option>
+              </select>
             </div>
 
             {/* Deliverable Checkbox */}

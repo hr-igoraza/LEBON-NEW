@@ -14,7 +14,7 @@ import LoginPage from "./Pages/Admin/login";
 import AdminPanel from "./Pages/Admin/AdminPanel";
 import ProtectedRoute from "./utils/PrivateAuth";
 import { AuthProvider } from "./context/authContext";
-import EditItem from "./components/Dashboard/EditItem";
+// import EditItem from "./components/Dashboard/EditItem";
 
 function App() {
   // window.scrollTo(0, 0);  
@@ -35,7 +35,7 @@ function App() {
           }
         />
 
-        <Route
+        {/* <Route
           path="/edit/:id"
           element={
             <AuthProvider>
@@ -44,7 +44,7 @@ function App() {
               </ProtectedRoute>
             </AuthProvider>
           }
-        />
+        /> */}
 
         <Route path="/" element={<Home />} />
         <Route path="/newarrivals" element={<NewArrivals />} />

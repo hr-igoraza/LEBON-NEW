@@ -4,7 +4,7 @@ import NavBar from "../../components/navBar/NavBar";
 import Footer from "../../components/footer/Footer";
 import ImageSlider from "../../components/slider/slider";
 import { CartContext } from "../../context/cartContext";
-import API ,{adminPhoneNumber} from "../../utils/api";
+import API, { adminPhoneNumber } from "../../utils/api";
 
 const CheckOut = () => {
   const { cart } = useContext(CartContext);
@@ -154,7 +154,7 @@ const CheckOut = () => {
 
                     <p className="f-4 f-col-w mt-4">{item.description}</p>
 
-                    {item.isVeg !== undefined && (
+                    {/* {item.isVeg !== undefined && (
                       <div className="veg-nonveg-icon mt-4 d-flex gap-2 align-items-center">
                         <img
                           width={30}
@@ -169,6 +169,48 @@ const CheckOut = () => {
                         <p className="f-5 f-col-w m-0">
                           {item.isVeg ? "Veg" : "Non-Veg"}
                         </p>
+                      </div>
+                    )} */}
+
+                    {item.isVeg !== undefined && (
+                      <div className="veg-nonveg-icon mt-4 d-flex gap-2 align-items-center">
+                        {item.isVeg !== "null" ? (
+                          <>
+                            <img
+                              width={30}
+                              height={30}
+                              src={
+                                item.isVeg
+                                  ? "/images/checkout/veg.png"
+                                  : "/images/checkout/non-veg.png"
+                              }
+                              alt={item.isVeg ? "veg" : "non-veg"}
+                            />
+                            <p className="f-5 f-col-w m-0">
+                              {item.isVeg ? "Veg" : "Non-Veg"}
+                            </p>
+                          </>
+                        ) : (
+                          <>
+                            <img
+                              width={30}
+                              height={30}
+                              src="/images/checkout/veg.png"
+                              alt="veg"
+                            />
+
+                            <img
+                              width={30}
+                              height={30}
+                              src="/images/checkout/non-veg.png"
+                              alt="veg"
+                            />
+
+                            <p className="f-5 f-col-w m-0">
+                              Veg & Non-Veg varients Available
+                            </p>
+                          </>
+                        )}
                       </div>
                     )}
 

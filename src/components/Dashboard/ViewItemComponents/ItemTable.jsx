@@ -39,7 +39,15 @@ const ItemTable = ({ items, handleEdit, handleDelete }) => {
               <td>₹{item.price}</td>
               <td>{item.category?.name}</td>
               <td>{item.isDeliverable ? "Yes" : "No"}</td>
-              <td>{item.isVeg ? "Veg" : "Non-Veg"}</td>
+              <td>
+              
+                {item.isVeg == "null"
+                  ? "Both Are Available"
+                  : (item.isVeg
+                  ? "Veg"
+                  : "Non-Veg")}
+              </td>
+
               <td>
                 <button
                   className="btn btn-primary btn-sm ms-2 mt-2 text-dark"
