@@ -36,7 +36,7 @@ const NewArrivals = () => {
         />
       </section>
 
-      {/* ======= Our Specialities ======== */}
+      {/* ======= Our Specialities ======= */}
 
       <section className="container p-3 p-lg-5">
         <div className="our-specialities mb-lg-4">
