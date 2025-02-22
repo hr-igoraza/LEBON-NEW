@@ -70,7 +70,7 @@ const Home = () => {
           </div>
           <div className="special-items row ">
             <ItemCard
-              img={"/images/item-1.png"}
+              img={"/images/cards/newArrivals-1.jpg"}
               title={"New Arrivals"}
               description={
                 "Discover our latest creations! From seasonal specials to innovative twists on classics, there's always something new to excite your taste buds."
@@ -79,7 +79,7 @@ const Home = () => {
               destination={"newarrivals"}
             />
             <ItemCard
-              img={"/images/item-2.png"}
+              img={"/images/cards/cakes-2.jpg"}
               title={"Cakes"}
               rating={5}
               description={
@@ -88,7 +88,7 @@ const Home = () => {
               destination={"cakes"}
             />
             <ItemCard
-              img={"/images/item-3.png"}
+              img={"/images/cards/pastries-3.jpg"}
               title={"Pastries"}
               rating={5}
               description={

@@ -31,7 +31,7 @@ const NewArrivals = () => {
       <section className="dividerImage">
         <img
           className="w-100"
-          src="/images/imgDivider-1.png"
+          src="/images/newArrivals/newArrivals.png"
           alt="imgDivider-1"
         />
       </section>
