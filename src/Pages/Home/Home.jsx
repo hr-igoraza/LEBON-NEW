@@ -220,7 +220,7 @@ const Home = () => {
             <div className="text-white bottomline our-story-text">
               <div className="">
                 <p>
-                  Welcome to our cake gallery! At LEBONCAKES, we take pride in
+                  Welcome to our cake gallery! At LEBON CAKES, we take pride in
                   crafting visually stunning and irresistibly delicious cakes
                   for every occasion. Whether you're celebrating a birthday,
                   wedding, or simply indulging in a sweet treat, our cakes are

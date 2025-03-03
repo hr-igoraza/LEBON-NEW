@@ -6,7 +6,6 @@ import ChatWithUs from "../ChatWithUs/ChatWithUs";
 import { NavLink, useNavigate } from "react-router";
 
 const Footer = () => {
-
   const navigate = useNavigate();
 
   const handleAboutClick = () => {
@@ -25,17 +24,20 @@ const Footer = () => {
         id="footer"
       >
         <h2 className="footer-title  f-2">
-        We're ready to serve you  <br />
+          We're ready to serve you <br />
           the best dining experiences
         </h2>
         <div className="row w-100 mt-lg-5 mt-2">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0 px-lg-2">
-            <h5 className="text-uppercase f-col-w ">LeBon</h5>
+            <h5 className="font-lebon   f-col-w  ">Le Bon</h5>
 
             <ul className="list-unstyled mb-0 ">
               <li>
                 <p className="text-body ">
-                LeBon, established in July 2019, is a one-stop destination for a wide variety of cravings. With multiple locations, it's the perfect spot to enjoy a diverse and delicious menu.
+                  <span className="font-lebon">LeBon</span>, established in July
+                  2019, is a one-stop destination for a wide variety of
+                  cravings. With multiple locations, it's the perfect spot to
+                  enjoy a diverse and delicious menu.
                 </p>
               </li>
             </ul>
@@ -73,14 +75,13 @@ const Footer = () => {
             </section>
           </div>
 
-
           <div className="col-lg-2 col-md-6 mb-4 mb-md-0 px-lg-2">
             <h5 className="text-uppercase f-col-w">Quick Links</h5>
 
             <ul className="list-unstyled mb-0">
               <li>
                 <a className="text-body " onClick={handleAboutClick}>
-                  About Lebon
+                  About <span className="font-lebon">Le Bon</span>
                 </a>
               </li>
               <li>
@@ -119,16 +120,14 @@ const Footer = () => {
             </ul>
           </div>
 
-
           <div className="col-lg-4 col-md-6 mb-4 mb-md-0 outlets px-lg-2">
             <h5 className="text-uppercase f-col-w"> Outlets</h5>
 
             <ul className="list-unstyled mb-0">
               <li>
                 <p className="text-body">
-                   Lebon Cakes and Delicacies,
-                   North gate of Karthyayini
-                   Devi temple, Cherthala,
+                  Lebon Cakes and Delicacies, North gate of Karthyayini Devi
+                  temple, Cherthala,
                   <a href="tel:+918593880999"> +918593880999</a>
                 </p>
               </li>
@@ -140,9 +139,7 @@ const Footer = () => {
               </li>
               <li>
                 <p className="text-body">
-                  Opposite to Joy Alukkas
-                   Near Iron Bridge
-                   Alappuzha,
+                  Opposite to Joy Alukkas Near Iron Bridge Alappuzha,
                   <a href="tel:+918593883999"> +918593883999</a>
                 </p>
               </li>
@@ -155,8 +152,6 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
-         
         </div>
         {/* <DeliveryAvailableBtn/> */}
         {/* <div className="footer-bottom my-4">
@@ -167,7 +162,11 @@ const Footer = () => {
         <ChatWithUs />
         <hr />
         <div className="text-white f-6 text-align-left w-100">
-          © Copyright &amp; All Rights Reserved 2024 - <a className="f-6" href="https://www.igoraza.com/">IGORAZA PRIVATE LIMITED</a>. 
+          © Copyright &amp; All Rights Reserved 2024 -{" "}
+          <a className="f-6" href="https://www.igoraza.com/">
+            IGORAZA PRIVATE LIMITED
+          </a>
+          .
         </div>
       </section>
     </>
