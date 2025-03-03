@@ -220,17 +220,20 @@ const Home = () => {
             <div className="text-white bottomline our-story-text">
               <div className="">
                 <p>
-                  Welcome to our cake gallery! At LEBON CAKES, we take pride in
-                  crafting visually stunning and irresistibly delicious cakes
-                  for every occasion. Whether you're celebrating a birthday,
-                  wedding, or simply indulging in a sweet treat, our cakes are
-                  designed to leave a lasting impression.
+                  Welcome to our cake gallery! At{" "}
+                  <span className="font-lebon">Le Bon Cakes</span>, we take
+                  pride in crafting visually stunning and irresistibly delicious
+                  cakes for every occasion. Whether you're celebrating a
+                  birthday, wedding, or simply indulging in a sweet treat, our
+                  cakes are designed to leave a lasting impression.
                 </p>
                 <p>
-                  Browse through our face book page Lebon cakes and delicacies
-                  and insta pages @Leboncakes to see the varieties....Call or
-                  whatsapp anytime at <strong>8593880999</strong> or{" "}
-                  <strong>8593882999</strong> for your orders...
+                  Browse through our face book page{" "}
+                  <span className="font-lebon">Le Bon Cakes</span> and
+                  delicacies and insta pages @Leboncakes to see the
+                  varieties....Call or whatsapp anytime at{" "}
+                  <strong>8593880999</strong> or <strong>8593882999</strong> for
+                  your orders...
                 </p>
 
                 <Button
@@ -245,11 +248,8 @@ const Home = () => {
             </div>
           </div>
           <div className="col-lg-6 col-12 my-4 my-lg-0">
-<VideoModal />
-        
+            <VideoModal />
           </div>
-
-          
         </div>
       </section>
 
