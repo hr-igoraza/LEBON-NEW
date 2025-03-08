@@ -126,7 +126,7 @@ const Footer = () => {
             <ul className="list-unstyled mb-0">
               <li>
                 <p className="text-body">
-                  Lebon Cakes and Delicacies, North gate of Karthyayini Devi
+                <span className="font-lebon">"Le Bon"</span>Cakes and Delicacies, North gate of Karthyayini Devi
                   temple, Cherthala,
                   <a href="tel:+918593880999"> +918593880999</a>
                 </p>
