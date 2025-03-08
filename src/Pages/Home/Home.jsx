@@ -180,7 +180,7 @@ const Home = () => {
               <div className="text-white bottomline our-story-text">
                 <div className="p-2 p-md-5 mt-md-5">
                   <p>
-                    Founded in July 2019, LEBONCAKES has grown to become one of
+                    Founded in July 2019, <span className="font-lebon">"Le Bon"</span> Cakes has grown to become one of
                     the most loved confectioneries in Alappuzha. We are
                     passionate about crafting high-quality cakes with rich
                     flavors and premium ingredients, making every bite a
@@ -190,7 +190,7 @@ const Home = () => {
                     We offer fast home delivery, ensuring that every cake order
                     reaches you within 1 hour in and around Kochi, Alappuzha,
                     and Kottayam. Whether it's a last-minute celebration or a
-                    sweet craving, LEBONCAKES is here to deliver happiness—fresh
+                    sweet craving,  <span className="font-lebon">"Le Bon"</span> Cakes is here to deliver happiness—fresh
                     and on time!
                   </p>
 
@@ -220,18 +220,18 @@ const Home = () => {
             <div className="text-white bottomline our-story-text">
               <div className="">
                 <p>
-                  Welcome to our cake gallery! At{" "}
-                  <span className="font-lebon">Le Bon Cakes</span>, we take
+                  Welcome to our cake gallery! At 
+                  <span className="font-lebon">"Le Bon"</span> Cakes, we take
                   pride in crafting visually stunning and irresistibly delicious
                   cakes for every occasion. Whether you're celebrating a
                   birthday, wedding, or simply indulging in a sweet treat, our
                   cakes are designed to leave a lasting impression.
                 </p>
                 <p>
-                  Browse through our face book page{" "}
-                  <span className="font-lebon">Le Bon Cakes</span> and
+                  Browse through our face book page 
+                  <span className="font-lebon">"Le Bon"</span> Cakes and
                   delicacies and insta pages @Leboncakes to see the
-                  varieties....Call or whatsapp anytime at{" "}
+                  varieties....Call or whatsapp anytime at
                   <strong>8593880999</strong> or <strong>8593882999</strong> for
                   your orders...
                 </p>

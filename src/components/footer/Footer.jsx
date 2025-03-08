@@ -29,12 +29,12 @@ const Footer = () => {
         </h2>
         <div className="row w-100 mt-lg-5 mt-2">
           <div className="col-lg-3 col-md-6 mb-4 mb-md-0 px-lg-2">
-            <h5 className="font-lebon   f-col-w  ">Le Bon</h5>
+            <h5 className="font-lebon   f-col-w  ">"Le Bon"</h5>
 
             <ul className="list-unstyled mb-0 ">
               <li>
                 <p className="text-body ">
-                  <span className="font-lebon">LeBon</span>, established in July
+                  <span className="font-lebon">"Le Bon"</span>, established in July
                   2019, is a one-stop destination for a wide variety of
                   cravings. With multiple locations, it's the perfect spot to
                   enjoy a diverse and delicious menu.
@@ -42,35 +42,35 @@ const Footer = () => {
               </li>
             </ul>
 
-            <section class="">
+            <section className="">
               <a
                 data-mdb-ripple-init
-                class="btn btn-link btn-floating  text-body m-1"
+                className="btn btn-link btn-floating  text-body m-1"
                 href="https://www.facebook.com/p/Lebon-Cakes-Delicacies-100064955673544/"
                 role="button"
                 data-mdb-ripple-color="dark"
               >
-                <i class="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook-f"></i>
               </a>
 
               {/* <a
                 data-mdb-ripple-init
-                class="btn btn-link btn-floating  text-body m-1"
+                className="btn btn-link btn-floating  text-body m-1"
                 href="#"
                 role="button"
                 data-mdb-ripple-color="dark"
               >
-                <i class="fab fa-twitter"></i>
+                <i className="fab fa-twitter"></i>
               </a> */}
 
               <a
                 data-mdb-ripple-init
-                class="btn btn-link btn-floating  text-body m-1"
+                className="btn btn-link btn-floating  text-body m-1"
                 href="https://www.instagram.com/leboncakes/"
                 role="button"
                 data-mdb-ripple-color="dark"
               >
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
               </a>
             </section>
           </div>
@@ -81,7 +81,7 @@ const Footer = () => {
             <ul className="list-unstyled mb-0">
               <li>
                 <a className="text-body " onClick={handleAboutClick}>
-                  About <span className="font-lebon">Le Bon</span>
+                  About <span className="font-lebon">"Le Bon"</span>
                 </a>
               </li>
               <li>
